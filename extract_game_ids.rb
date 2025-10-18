@@ -5,7 +5,8 @@ FEED_URL = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&vi
 
 def fetch_schedule
   raw = URI.open(FEED_URL).read
-  json_text = raw.strip.sub(/^/, '[').sub(/$/, ']')
+  # Strip the JSONP wrapper: angular.callbacks._0(...)
+  json_text = raw.sub(/^angular\.callbacks\._0/, '').sub(/;$/, '')
   JSON.parse(json_text)
 end
 
