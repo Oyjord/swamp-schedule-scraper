@@ -6,17 +6,19 @@ FEED_URL = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&vi
 def fetch_schedule
   raw = URI.open(FEED_URL).read.strip
 
-  # Debug: show first 100 chars
   puts "🔍 Raw feed starts with: #{raw[0..100]}"
 
-  # Strip JSONP wrapper: angular.callbacks._0([...])
-  if raw.start_with?('angular.callbacks._0([')
-    json_text = raw.sub(/^angular\.callbacks\._0/, '').sub(/\s*$/, '')
-  else
-    raise "❌ Unexpected feed format. First 100 chars:\n#{raw[0..100]}"
+  # Step 1: Strip JSONP wrapper
+  if raw.start_with?('angular.callbacks._0(')
+    raw = raw.sub(/^angular\.callbacks\._0/, '').sub(/\s*$/, '')
   end
 
-  JSON.parse(json_text)
+  # Step 2: Strip extra parentheses wrapper: ([ ... ])
+  if raw.start_with?('([') && raw.end_with?('])')
+    raw = raw[1..-2]
+  end
+
+  JSON.parse(raw)
 end
 
 def extract_swamp_games(rows)
