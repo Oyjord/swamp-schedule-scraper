@@ -24,12 +24,12 @@
     "location": "Away",
     "status": "Final",
     "home_score": 0,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "J. Lopina (D. Cesana, N. Zabaneh)"
     ],
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24312&lang_id=1"
   },
