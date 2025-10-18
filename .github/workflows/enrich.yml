@@ -24,11 +24,11 @@ jobs:
 
       - name: Upload debug HTML
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: debug-html
           path: /tmp/debug_*.html
-
+          
       - name: Commit and push
         run: |
           git config user.name "SwampBot"
