@@ -13,20 +13,22 @@ def parse_game_sheet(game_id)
   home_goals, away_goals = [], []
 
   rows.each do |row|
-    cells = row.css('td').map(&:text).map(&:strip)
-    next unless cells.size >= 5
-    team_img = row.css('td')[1].at_css('img')
-    team = team_img ? team_img['alt'] : nil
-    scorer = cells[3].split('(').first.strip
-    assists = cells[4].strip
-    entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
+  tds = row.css('td')
+  next unless tds.size >= 5
 
-    if team == "GVL"
-      home_goals << entry
-    else
-      away_goals << entry
-    end
+  team_img = tds[1].at_css('img')
+  team = team_img ? team_img['alt'] : nil
+
+  scorer = tds[3].text.split('(').first.strip
+  assists = tds[4].text.strip
+  entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
+
+  if team == "GVL"
+    home_goals << entry
+  elsif team # only push if team is recognized
+    away_goals << entry
   end
+end
 
   {
     game_id: game_id.to_i,
