@@ -15,7 +15,8 @@ def parse_game_sheet(game_id)
   rows.each do |row|
     cells = row.css('td').map(&:text).map(&:strip)
     next unless cells.size >= 5
-    team = cells[1]
+    team_img = row.css('td')[1].at_css('img')
+    team = team_img ? team_img['alt'] : nil
     scorer = cells[3].split('(').first.strip
     assists = cells[4].strip
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
