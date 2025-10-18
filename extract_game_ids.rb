@@ -6,11 +6,14 @@ FEED_URL = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&vi
 def fetch_schedule
   raw = URI.open(FEED_URL).read.strip
 
-  # Strip outer wrapper: ([ ... ])
-  if raw.start_with?('([') && raw.end_with?('])')
-    json_text = raw[1..-2]  # Remove the first '(' and last ')'
+  # Debug: dump first 100 chars to help diagnose format
+  puts "🔍 Raw feed starts with: #{raw[0..100]}"
+
+  # Strip JSONP wrapper: angular.callbacks._0([...])
+  if raw.start_with?('angular.callbacks._0([') && raw.end_with?('])')
+    json_text = raw.sub(/^angular\.callbacks\._0/, '').sub(/\s*$/, '')
   else
-    raise "Unexpected feed format: #{raw[0..40]}..."
+    raise "❌ Unexpected feed format. First 100 chars:\n#{raw[0..100]}"
   end
 
   JSON.parse(json_text)
