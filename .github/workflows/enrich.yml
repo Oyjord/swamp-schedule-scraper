@@ -2,6 +2,8 @@ name: Enrich Swamp Schedule
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'  # ⏰ Runs every 30 minutes
 
 jobs:
   enrich:
