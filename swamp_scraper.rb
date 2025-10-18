@@ -61,7 +61,8 @@ def save_schedule(games)
 end
 
 existing = load_existing
-existing_by_id = existing.index_by { |g| g["game_id"] }
+existing_by_id = {}
+existing.each { |g| existing_by_id[g["game_id"]] = g }
 
 schedule = fetch_schedule
 swamp_games = schedule.select do |g|
