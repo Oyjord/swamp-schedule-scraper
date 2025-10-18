@@ -2,7 +2,7 @@ name: Update Swamp Schedule
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
-      - name: Run scraper
-        run: bundle exec ruby swamp_scraper.rb
+      - name: Run enrichment
+        run: bundle exec ruby enrich_all.rb
 
       - name: Commit and push
         run: |
