@@ -6,12 +6,8 @@ FEED_URL = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&vi
 def fetch_schedule
   raw = URI.open(FEED_URL).read.strip
 
-  # Remove outer parentheses: ([ ... ])
-  if raw.start_with?('([') && raw.end_with?('])')
-    json_text = raw[1..-2]  # Strip the outer ( and )
-  else
-    raise "Unexpected feed format"
-  end
+  # Remove outer wrapper: angular.callbacks._0([...])
+  json_text = raw.sub(/^angular\.callbacks\._0/, '').sub(/;$/, '')
 
   JSON.parse(json_text)
 end
