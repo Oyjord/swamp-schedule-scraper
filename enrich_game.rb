@@ -9,9 +9,10 @@ def parse_game_sheet(game_id)
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
 
-  rows = doc.xpath("//table[.//tr[1]/td[contains(., 'Goals') and contains(., 'Assists')]]//tr[position() > 1]")
-debug = ENV["DEBUG"] == "true"
-puts "🧪 Found #{rows.size} scoring rows" if debug
+  rows = doc.css('table').find do |table|
+  header = table.at_css('tr')
+  header && header.text.include?('Goals') && header.text.include?('Assists')
+end&.css('tr')&.drop(1) || []
 
 if rows.empty?
   File.write("/tmp/debug_#{game_id}.html", html)
