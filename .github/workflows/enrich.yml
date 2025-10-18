@@ -1,25 +1,12 @@
+name: Enrich Swamp Schedule
+
 on:
   workflow_dispatch:
-    inputs:
-      mode:
-        description: "Run mode"
-        required: true
-        default: "full"
-        type: choice
-        options:
-          - full
-          - enrich_only
 
 jobs:
-  update:
+  enrich:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mode == 'full' }}
-    steps:
-      # your full pipeline here
 
-  enrich_only:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mode == 'enrich_only' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
