@@ -9,13 +9,13 @@ def parse_game_sheet(game_id)
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
 
-  rows = doc.xpath("//table[.//text()[contains(., 'Scoring Summary')]]//tr")
+  rows = doc.xpath("//table[.//tr[1]/td[contains(., 'Goals') and contains(., 'Assists')]]//tr[position() > 1]")
 debug = ENV["DEBUG"] == "true"
 puts "🧪 Found #{rows.size} scoring rows" if debug
 
 if rows.empty?
   File.write("/tmp/debug_#{game_id}.html", html)
-  puts "⚠️ No scoring rows found — dumped HTML to debug_#{game_id}.html" if debug
+  puts "⚠️ No scoring rows found — dumped HTML to /tmp/debug_#{game_id}.html" if debug
 end
 
   home_goals, away_goals = [], []
