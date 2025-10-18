@@ -6,6 +6,7 @@ FEED_URL = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&vi
 def fetch_schedule
   raw = URI.open(FEED_URL).read.strip
 
+  # Debug: show first 100 chars of raw feed
   puts "🔍 Raw feed starts with: #{raw[0..100]}"
 
   # Step 1: Strip JSONP wrapper
@@ -23,18 +24,23 @@ end
 
 def extract_swamp_games(rows)
   rows.select do |row|
-    row["homeTeamName"] == "Greenville Swamp Rabbits" || row["visitingTeamName"] == "Greenville Swamp Rabbits"
+    r = row["row"]
+    r["home_team_city"] == "Greenville" || r["visiting_team_city"] == "Greenville"
   end.map do |game|
+    r = game["row"]
+    p = game["prop"]
     {
-      game_id: game["gameId"].to_i,
-      date: game["date"],
-      opponent: game["homeTeamName"] == "Greenville Swamp Rabbits" ? game["visitingTeamName"] : game["homeTeamName"],
-      location: game["homeTeamName"] == "Greenville Swamp Rabbits" ? "Home" : "Away"
+      game_id: p["game_center"]["gameLink"].to_i,
+      date: r["date"],
+      opponent: r["home_team_city"] == "Greenville" ? r["visiting_team_city"] : r["home_team_city"],
+      location: r["home_team_city"] == "Greenville" ? "Home" : "Away"
     }
   end
 end
 
 data = fetch_schedule
-swamp_games = extract_swamp_games(data["rows"])
+rows = data[0]["sections"][0]["data"]
+swamp_games = extract_swamp_games(rows)
+
 File.write("swamp_game_ids.json", JSON.pretty_generate(swamp_games))
 puts "✅ Extracted #{swamp_games.size} Swamp Rabbits games to swamp_game_ids.json"
