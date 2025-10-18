@@ -23,9 +23,11 @@ def parse_game_sheet(game_id)
   assists = tds[4].text.strip
   entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
+  puts "→ team: #{team}, scorer: #{scorer}, assists: #{assists}"
+
   if team == "GVL"
     home_goals << entry
-  elsif team # only push if team is recognized
+  elsif team
     away_goals << entry
   end
 end
