@@ -4,9 +4,15 @@ require 'json'
 FEED_URL = "https://lscluster.hockeytech.com/feed/index.php?feed=statviewfeed&view=schedule&team=-1&season=73&month=-1&location=homeaway&key=2c2b89ea7345cae8&client_code=echl&site_id=0&league_id=1&conference_id=-1&division_id=-1&lang=en&callback=angular.callbacks._0"
 
 def fetch_schedule
-  raw = URI.open(FEED_URL).read
-  # Strip the JSONP wrapper: angular.callbacks._0(...)
-  json_text = raw.sub(/^angular\.callbacks\._0/, '').sub(/;$/, '')
+  raw = URI.open(FEED_URL).read.strip
+
+  # Remove the outer parentheses: ([ ... ])
+  if raw.start_with?('([') && raw.end_with?('])')
+    json_text = raw[1..-2]  # Strip the outer ( and )
+  else
+    raise "Unexpected feed format"
+  end
+
   JSON.parse(json_text)
 end
 
