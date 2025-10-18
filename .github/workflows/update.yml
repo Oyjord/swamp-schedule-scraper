@@ -1,0 +1,32 @@
+name: Update Swamp Schedule
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Run scraper
+        run: bundle exec ruby swamp_scraper.rb
+
+      - name: Commit and push
+        run: |
+          git config user.name "SwampBot"
+          git config user.email "swampbot@example.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Update swamp schedule"
+          git push
