@@ -14,7 +14,7 @@ debug = ENV["DEBUG"] == "true"
 puts "🧪 Found #{rows.size} scoring rows" if debug
 
 if rows.empty?
-  File.write("debug_#{game_id}.html", html)
+  File.write("/tmp/debug_#{game_id}.html", html)
   puts "⚠️ No scoring rows found — dumped HTML to debug_#{game_id}.html" if debug
 end
 
