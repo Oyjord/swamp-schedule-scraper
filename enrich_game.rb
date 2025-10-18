@@ -9,7 +9,8 @@ def parse_game_sheet(game_id)
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
 
-  rows = doc.css('table').select { |t| t.text.include?("Scoring Summary") }.flat_map { |t| t.css('tr') }
+  rows = doc.xpath("//table[.//text()[contains(., 'Scoring Summary')]]//tr")
+puts "🧪 Found #{rows.size} scoring rows"
   home_goals, away_goals = [], []
 
   rows.each do |row|
@@ -23,7 +24,7 @@ def parse_game_sheet(game_id)
   assists = tds[4].text.strip
   entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-  puts "→ team: #{team}, scorer: #{scorer}, assists: #{assists}"
+  puts "→ team: #{team.inspect}, scorer: #{scorer.inspect}, assists: #{assists.inspect}, entry: #{entry.inspect}"
 
   if team == "GVL"
     home_goals << entry
