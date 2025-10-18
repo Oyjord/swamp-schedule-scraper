@@ -1,0 +1,44 @@
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        required: true
+        default: "full"
+        type: choice
+        options:
+          - full
+          - enrich_only
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.mode == 'full' }}
+    steps:
+      # your full pipeline here
+
+  enrich_only:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.mode == 'enrich_only' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Enrich all games
+        run: bundle exec ruby enrich_all.rb
+
+      - name: Commit and push
+        run: |
+          git config user.name "SwampBot"
+          git config user.email "swampbot@example.com"
+          git add swamp_schedule.json
+          git diff --cached --quiet || git commit -m "Enrich swamp schedule"
+          git push
