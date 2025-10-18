@@ -2,12 +2,13 @@ name: Update Swamp Schedule
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */6 * * *"  # Every 6 hours
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -20,7 +21,10 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
-      - name: Run enrichment
+      - name: Extract game IDs
+        run: bundle exec ruby extract_game_ids.rb
+
+      - name: Enrich all games
         run: bundle exec ruby enrich_all.rb
 
       - name: Commit and push
