@@ -175,7 +175,7 @@ status =
     "Final"
   elsif length_raw == "" && is_past && has_scores
     "Final"
-  elsif length_raw == "" || length_raw.nil?
+  elsif length_raw == "" && (!is_past || greenville_minutes_played < 55 || !has_scores)
     "Live"
   elsif has_status || (greenville_minutes_played > 0 && greenville_minutes_played < 55)
     "Live"
