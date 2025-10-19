@@ -38,23 +38,23 @@ def parse_game_sheet(game_id, game = nil)
   away_score = away_cells.last.to_i
   home_score = home_cells.last.to_i
 
-  # ---------- GOAL SUMMARY table (dynamic detection) ----------
+  # derive the exact abbreviations/labels used for goal attribution
+  away_label = away_team.gsub(/\s+/, '').upcase
+  home_label = home_team.gsub(/\s+/, '').upcase
+
+  # ---------- GOAL SUMMARY table ----------
   goal_table = doc.css('table').find do |t|
     header = t.at_css('tr')
     header && header.text.match?(/Goal|Scorer/i)
   end
 
-  home_goals = []
-  away_goals = []
+  home_goals, away_goals = [], []
 
   if goal_table
-    header_cells = goal_table.css('tr').first.css('td,th').map { |td| td.text.strip }
-    idx_team   = header_cells.index { |h| h.match?(/Team/i) } || 3
-    idx_goal   = header_cells.index { |h| h.match?(/Goal|Scorer/i) } || 5
-    idx_assist = header_cells.index { |h| h.match?(/Assist/i) } || 6
-
-    short_away = away_team.gsub(/[^A-Za-z]/, '').upcase[0,3]
-    short_home = home_team.gsub(/[^A-Za-z]/, '').upcase[0,3]
+    headers = goal_table.css('tr').first.css('td,th').map { |td| td.text.strip }
+    idx_team   = headers.index { |h| h.match?(/Team/i) } || 3
+    idx_goal   = headers.index { |h| h.match?(/Goal|Scorer/i) } || 5
+    idx_assist = headers.index { |h| h.match?(/Assist/i) } || 6
 
     goal_table.css('tr')[1..]&.each do |row|
       tds = row.css('td')
@@ -65,14 +65,15 @@ def parse_game_sheet(game_id, game = nil)
       assists   = tds[idx_assist]&.text&.strip
       next if scorer.nil? || scorer.empty?
 
-      entry = assists.nil? || assists.empty? ? "#{scorer}" : "#{scorer} (#{assists})"
+      entry = assists.nil? || assists.empty? ? scorer : "#{scorer} (#{assists})"
 
-      if team_code.start_with?(short_away) || away_team.upcase.include?(team_code)
+      # Determine if the code belongs to home or away team
+      if team_code && away_label.include?(team_code)
         away_goals << entry
-      elsif team_code.start_with?(short_home) || home_team.upcase.include?(team_code)
+      elsif team_code && home_label.include?(team_code)
         home_goals << entry
       else
-        # fallback: assign to whichever side has fewer goals so far
+        # fallback heuristic: assign to team with fewer goals
         if away_goals.size <= home_goals.size
           away_goals << entry
         else
@@ -82,22 +83,20 @@ def parse_game_sheet(game_id, game = nil)
     end
   end
 
-  # ---------- META: Game Start / End / Length ----------
+  # ---------- META info ----------
   meta_table = doc.css('table').find { |t| t.text.match?(/Game Start|Game End|Game Length/i) }
   meta = {}
   if meta_table
     meta_table.css('tr').each do |r|
       tds = r.css('td').map { |td| td.text.gsub("\u00A0", ' ').strip }
       next unless tds.size >= 2
-      label = tds[0].gsub(':', '').strip
-      value = tds[1].strip
-      meta[label] = value
+      meta[tds[0].gsub(':', '').strip] = tds[1].strip
     end
   end
 
-  game_start_raw = meta['Game Start'] || nil
-  game_end_raw   = meta['Game End']   || nil
-  game_length_raw = meta['Game Length'] || nil
+  game_start_raw = meta['Game Start']
+  game_end_raw   = meta['Game End']
+  game_length_raw = meta['Game Length']
 
   # ---------- determine scheduled start ----------
   scheduled_start = nil
@@ -123,7 +122,7 @@ def parse_game_sheet(game_id, game = nil)
     scheduled_date = nil
   end
 
-  # ---------- determine status ----------
+  # ---------- status ----------
   has_final_indicator =
     (game_length_raw && game_length_raw.match?(/\d+:\d+/)) ||
     (game_end_raw && !game_end_raw.empty?) ||
@@ -151,24 +150,23 @@ def parse_game_sheet(game_id, game = nil)
       has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
     end
 
-  # ---------- Detect OT / SO (only relevant for Final) ----------
-  normalize = ->(val) { val.to_s.gsub(/\u00A0/, '').strip }
-  ot_val_away = away_cells.length > 4 ? normalize.call(away_cells[4]) : nil
-  ot_val_home = home_cells.length > 4 ? normalize.call(home_cells[4]) : nil
-  so_val_away = away_cells.length > 5 ? normalize.call(away_cells[5]) : nil
-  so_val_home = home_cells.length > 5 ? normalize.call(home_cells[5]) : nil
+  # ---------- Detect OT / SO ----------
+  normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
+  ot_away = normalize.call(away_cells[4]) rescue ""
+  ot_home = normalize.call(home_cells[4]) rescue ""
+  so_away = normalize.call(away_cells[5]) rescue ""
+  so_home = normalize.call(home_cells[5]) rescue ""
 
-  so_goals = (so_val_away.to_i + so_val_home.to_i)
-  ot_has_real_value =
-    ((ot_val_away =~ /\d+/) && ot_val_away.to_i > 0) ||
-    ((ot_val_home =~ /\d+/) && ot_val_home.to_i > 0)
+  ot_blank = [ot_away, ot_home].all? { |v| v.empty? || v == "0" }
+  so_blank = [so_away, so_home].all? { |v| v.empty? || v == "0" }
+
   overtime_type = nil
   if status == "Final"
-    overtime_type = "SO" if so_goals > 0
-    overtime_type = "OT" if overtime_type.nil? && ot_has_real_value
+    overtime_type = "SO" unless so_blank
+    overtime_type = "OT" if overtime_type.nil? && !ot_blank
   end
 
-  # ---------- Build result (only for Final) ----------
+  # ---------- Build result ----------
   result = nil
   if status == "Final"
     greenville_is_home = home_team =~ /Greenville/i
@@ -187,7 +185,6 @@ def parse_game_sheet(game_id, game = nil)
     result = "#{prefix} #{[greenville_score, opponent_score].max}-#{[greenville_score, opponent_score].min}"
   end
 
-  # ---------- Final JSON ----------
   {
     "game_id" => game_id.to_i,
     "status" => status,
@@ -206,7 +203,7 @@ rescue => e
   nil
 end
 
-# ---------- CLI entry ----------
+# ---------- CLI ----------
 if ARGV.empty?
   warn "Usage: ruby enrich_game.rb <game_id>"
   exit 1
