@@ -1,4 +1,5 @@
 require 'json'
+require 'open3'
 
 game_ids = JSON.parse(File.read("swamp_game_ids.json"))
 existing = File.exist?("swamp_schedule.json") ? JSON.parse(File.read("swamp_schedule.json")) : []
@@ -9,14 +10,21 @@ game_ids.each do |game|
   game_id = game["game_id"]
   puts "🔍 Enriching game #{game_id}..."
 
-  enriched = `ruby enrich_game.rb #{game_id} #{game["location"]} "#{game["opponent"]}"`
-  next if enriched.strip.empty?
+  cmd = "ruby enrich_game.rb #{game_id} #{game["location"]} \"#{game["opponent"]}\""
+  stdout, stderr, status = Open3.capture3(cmd)
+
+  if !status.success? || stdout.strip.empty?
+    puts "⚠️ Script failed or returned no output for game #{game_id}"
+    puts "stderr:\n#{stderr}" unless stderr.strip.empty?
+    next
+  end
 
   begin
-    data = JSON.parse(enriched)
+    data = JSON.parse(stdout)
   rescue JSON::ParserError => e
     puts "⚠️ Failed to parse game #{game_id}: #{e}"
-    puts "Raw output:\n#{enriched}"
+    puts "Raw stdout:\n#{stdout}"
+    puts "Raw stderr:\n#{stderr}" unless stderr.strip.empty?
     next
   end
 
@@ -37,4 +45,4 @@ game_ids.each do |game|
 end
 
 File.write("swamp_schedule.json", JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] }))
-puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games"
+puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games at #{Time.now}"
