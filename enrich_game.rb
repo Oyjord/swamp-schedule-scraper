@@ -95,4 +95,7 @@ game_id = ARGV[0]
 location = ARGV[1]
 opponent = ARGV[2]
 parsed = parse_game(game_id, location, opponent)
-puts JSON.pretty_generate(parsed) if parsed
+if parsed
+  puts JSON.pretty_generate(parsed)
+  puts "✅ JSON written for game #{game_id}"
+end
