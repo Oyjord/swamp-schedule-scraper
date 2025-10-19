@@ -4,7 +4,7 @@ require 'json'
 
 GAME_REPORT_BASE = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
 
-def parse_game_sheet(game_id, location, opponent)
+def parse_game_sheet(game_id, _location, _opponent)
   url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
