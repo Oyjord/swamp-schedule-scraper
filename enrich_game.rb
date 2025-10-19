@@ -29,11 +29,18 @@ def parse_game(game_id, _location, _opponent)
     home_score = home_cells[-1].to_i
 
     greenville_is_home = home_team.include?("Greenville")
+
+    puts "📊 SCORING → Away: #{away_team} #{away_score}, Home: #{home_team} #{home_score}"
+    puts "🏠 Greenville is home? #{greenville_is_home}"
+  else
+    puts "⚠️ SCORING table not found or incomplete"
   end
 
   # ✅ GOALS table: parse <tbody> rows only
   goal_table = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }
   goal_rows = goal_table&.css('tbody tr') || []
+
+  puts "🧪 Found #{goal_rows.size} goal rows"
 
   goal_rows.each do |row|
     tds = row.css('td')
@@ -48,6 +55,7 @@ def parse_game(game_id, _location, _opponent)
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
     if greenville_is_home.nil?
+      puts "⚠️ Cannot assign goals — Greenville role unknown"
       next
     end
 
@@ -98,4 +106,6 @@ parsed = parse_game(game_id, location, opponent)
 if parsed
   puts JSON.pretty_generate(parsed)
   puts "✅ JSON written for game #{game_id}"
+else
+  puts "⚠️ No data parsed for game #{game_id}"
 end
