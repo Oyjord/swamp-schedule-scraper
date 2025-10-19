@@ -43,47 +43,54 @@ def parse_game_sheet(game_id, location)
     end
   end
 
-  # ✅ Parse SCORING table for final score and OT/SO
+  # ✅ Compute scores from goals
+  home_score = home_goals.size
+  away_score = away_goals.size
+
+  # ✅ Check SCORING table for SO/OT and final score
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
   scoring_rows = scoring_table&.css('tbody tr') || []
   header_cells = scoring_table&.at_css('thead')&.css('tr')&.first&.css('th')&.map(&:text)&.map(&:strip) || []
 
-  home_score = nil
-  away_score = nil
   overtime_type = nil
+  shootout_winner = nil
 
   if scoring_rows.size >= 2
     away_cells = scoring_rows[0].css('td').map(&:text).map(&:strip)
     home_cells = scoring_rows[1].css('td').map(&:text).map(&:strip)
 
-    away_score = away_cells.last.to_i
-    home_score = home_cells.last.to_i
+    final_away = away_cells.last.to_i
+    final_home = home_cells.last.to_i
 
     if header_cells.include?("SO")
       overtime_type = "SO"
+      shootout_winner =
+        if final_home > final_away
+          "GVL"
+        elsif final_away > final_home
+          "OPP"
+        end
     elsif header_cells.any? { |h| h.start_with?("OT") }
       overtime_type = "OT"
     end
-
-    puts "📊 SCORING → Home: #{home_score}, Away: #{away_score}, OT Type: #{overtime_type}" if debug
   end
 
-  # ✅ Result logic with nil guard
+  # ✅ Result logic based on location and goal counts
+  greenville_score = location == "Home" ? home_score : away_score
+  opponent_score = location == "Home" ? away_score : home_score
+
   result = nil
-  if home_score && away_score
-    greenville_score = location == "Home" ? home_score : away_score
-    opponent_score = location == "Home" ? away_score : home_score
-
+  if greenville_score > opponent_score
+    result = "W"
+  elsif greenville_score < opponent_score
+    result = "L"
+  elsif greenville_score == opponent_score && overtime_type == "SO"
     result =
-      if greenville_score > opponent_score
-        "W"
-      elsif greenville_score < opponent_score
-        "L"
-      else
-        nil
+      if (location == "Home" && shootout_winner == "GVL") || (location == "Away" && shootout_winner == "GVL")
+        "W(SO)"
+      elsif shootout_winner == "OPP"
+        "L(SO)"
       end
-
-    result += "(#{overtime_type})" if result && overtime_type
   end
 
   {
