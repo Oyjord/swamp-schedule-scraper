@@ -10,13 +10,30 @@ def parse_game_sheet(game_id)
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
-  title = doc.at('title')&.text || ""
-  is_greenville_home = title.include?("Greenville") && !title.include?("at")
-  greenville_is_away = title.include?("Greenville at")
+  rows = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }&.css('tr')&.drop(1) || []
+
+  puts "🧪 Found #{rows.size} scoring rows" if debug
+
+  if rows.empty?
+    File.write("/tmp/debug_#{game_id}.html", html)
+    puts "⚠️ No scoring rows found — dumped HTML to /tmp/debug_#{game_id}.html" if debug
+  end
+
+  # 🧠 Determine Greenville's home/away role from first goal row
+  first_team_code = rows.first&.css('td')&.at(3)&.text&.strip
+  greenville_is_away = case first_team_code
+    when "GVL" then false
+    when "UTA", "SAV", "ORL", "ATL", "NOR", "JAX", "SC", "FLA", "IDH", "NFL", "CIN", "TOL", "IND", "KAL", "FW", "WOR", "ADK", "REA", "WHL", "TUL", "KC", "WIC", "RC", "IA", "ALN", "TRO", "WIC", "WHE"
+      true
+    else
+      puts "⚠️ Unknown team code in first goal row: #{first_team_code}" if debug
+      false # default to home
+  end
+
+  puts "🧠 First goal row team code: #{first_team_code}" if debug
+  puts "🏠 Greenville is away? #{greenville_is_away}" if debug
 
   home_goals, away_goals = [], []
-
-  rows = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }&.css('tr')&.drop(1) || []
 
   rows.each do |row|
     tds = row.css('td')
@@ -27,10 +44,24 @@ def parse_game_sheet(game_id)
     assists = tds[6].text.strip
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
+    puts "→ team: #{team}, scorer: #{scorer}, assists: #{assists}, entry: #{entry}" if debug
+
     if team == "GVL"
-      greenville_is_away ? away_goals << entry : home_goals << entry
-    elsif team == "SAV"
-      greenville_is_away ? home_goals << entry : away_goals << entry
+      if greenville_is_away
+        away_goals << entry
+        puts "🏒 Assigned to away_goals" if debug
+      else
+        home_goals << entry
+        puts "🏒 Assigned to home_goals" if debug
+      end
+    else
+      if greenville_is_away
+        home_goals << entry
+        puts "🏒 Assigned to home_goals" if debug
+      else
+        away_goals << entry
+        puts "🏒 Assigned to away_goals" if debug
+      end
     end
   end
 
@@ -39,7 +70,7 @@ def parse_game_sheet(game_id)
   summary_rows = summary_table&.css('tr')&.drop(1) || []
 
   greenville_total = nil
-  savannah_total = nil
+  opponent_total = nil
 
   summary_rows.each do |row|
     cells = row.css('td').map { |td| td.text.strip }
@@ -50,26 +81,26 @@ def parse_game_sheet(game_id)
 
     if team_name.include?("Greenville")
       greenville_total = total
-    elsif team_name.include?("Savannah")
-      savannah_total = total
+    else
+      opponent_total = total
     end
   end
 
   # Fallback if summary table fails
-  greenville_total ||= (greenville_is_away ? away_goals.size : home_goals.size)
-  savannah_total ||= (greenville_is_away ? home_goals.size : away_goals.size)
+  greenville_total ||= greenville_is_away ? away_goals.size : home_goals.size
+  opponent_total  ||= greenville_is_away ? home_goals.size : away_goals.size
 
   # 🧠 Determine result
-  swamp_score = greenville_is_away ? greenville_total : savannah_total
-  opponent_score = greenville_is_away ? savannah_total : greenville_total
+  swamp_score = greenville_is_away ? greenville_total : opponent_total
+  opponent_score = greenville_is_away ? opponent_total : greenville_total
 
   result =
     if swamp_score > opponent_score
-      greenville_is_away ? "W" : "L"
+      "W"
     elsif swamp_score < opponent_score
-      greenville_is_away ? "L" : "W"
+      "L"
     else
-      nil # Should never happen if summary table is correct
+      nil
     end
 
   status = "Final"
@@ -77,8 +108,8 @@ def parse_game_sheet(game_id)
 
   {
     game_id: game_id.to_i,
-    home_score: greenville_is_away ? savannah_total : greenville_total,
-    away_score: greenville_is_away ? greenville_total : savannah_total,
+    home_score: greenville_is_away ? opponent_total : greenville_total,
+    away_score: greenville_is_away ? greenville_total : opponent_total,
     home_goals: greenville_is_away ? home_goals : away_goals,
     away_goals: greenville_is_away ? away_goals : home_goals,
     status: status,
@@ -88,6 +119,12 @@ def parse_game_sheet(game_id)
 rescue => e
   puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
   nil
+end
+
+# ✅ Final execution block
+if ARGV.empty?
+  puts "Usage: ruby enrich_game.rb <game_id>"
+  exit 1
 end
 
 game_id = ARGV[0]
