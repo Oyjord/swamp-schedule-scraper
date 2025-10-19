@@ -1192,7 +1192,7 @@
     "date": "Oct. 17",
     "opponent": "Utah",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
@@ -1212,7 +1212,7 @@
     "date": "Oct. 18",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
     "away_score": 5,
     "home_goals": [
@@ -1236,7 +1236,7 @@
     "date": "Oct. 19",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Live",
+    "status": "Upcoming",
     "home_score": 1,
     "away_score": 4,
     "home_goals": [
