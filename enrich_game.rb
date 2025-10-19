@@ -10,44 +10,61 @@ def parse_game_sheet(game_id)
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
-  rows = doc.css('table').find do |table|
-    header = table.at_css('tr')
-    header && header.text.include?('Goals') && header.text.include?('Assists')
-  end&.css('tr')&.drop(1) || []
-
-  puts "🧪 Found #{rows.size} scoring rows" if debug
-
-  if rows.empty?
-    File.write("/tmp/debug_#{game_id}.html", html)
-    puts "⚠️ No scoring rows found — dumped HTML to /tmp/debug_#{game_id}.html" if debug
-  end
+  title = doc.at('title')&.text || ""
+  is_greenville_home = title.include?("Greenville") && !title.include?("at")
+  greenville_is_away = title.include?("Greenville at")
 
   home_goals, away_goals = [], []
 
+  rows = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }&.css('tr')&.drop(1) || []
+
   rows.each do |row|
-  tds = row.css('td')
-  next unless tds.size >= 7
+    tds = row.css('td')
+    next unless tds.size >= 7
 
-  team = tds[3].text.strip
-  scorer = tds[5].text.split('(').first.strip
-  assists = tds[6].text.strip
-  entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
+    team = tds[3].text.strip
+    scorer = tds[5].text.split('(').first.strip
+    assists = tds[6].text.strip
+    entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-  puts "→ team: #{team.inspect}, scorer: #{scorer.inspect}, assists: #{assists.inspect}, entry: #{entry.inspect}" if debug
-
-  if team == "GVL"
-    home_goals << entry
-  elsif team
-    away_goals << entry
+    if team == "GVL"
+      greenville_is_away ? away_goals << entry : home_goals << entry
+    elsif team == "SAV"
+      greenville_is_away ? home_goals << entry : away_goals << entry
+    end
   end
-end
+
+  # 🧠 Detect shootout result
+  shootout_table = doc.css('table').find { |t| t.text.include?('SHOOTOUT') }
+  shootout_rows = shootout_table&.css('tr')&.select { |tr| tr.text.include?('Yes') } || []
+  greenville_so_goals = shootout_rows.count { |r| r.text.include?('Greenville') && r.text.include?('Yes') }
+  savannah_so_goals = shootout_rows.count { |r| r.text.include?('Savannah') && r.text.include?('Yes') }
+
+  greenville_total = greenville_is_away ? away_goals.size : home_goals.size
+  savannah_total = greenville_is_away ? home_goals.size : away_goals.size
+
+  if greenville_so_goals != savannah_so_goals
+    if greenville_so_goals > savannah_so_goals
+      greenville_total += 1
+      result = greenville_is_away ? "W(SO)" : "L(SO)"
+    else
+      savannah_total += 1
+      result = greenville_is_away ? "L(SO)" : "W(SO)"
+    end
+    status = "Final (SO)"
+  else
+    result = nil
+    status = "Final"
+  end
 
   {
     game_id: game_id.to_i,
-    home_score: home_goals.size,
-    away_score: away_goals.size,
-    home_goals: home_goals,
-    away_goals: away_goals,
+    home_score: greenville_is_away ? savannah_total : greenville_total,
+    away_score: greenville_is_away ? greenville_total : savannah_total,
+    home_goals: greenville_is_away ? home_goals : away_goals,
+    away_goals: greenville_is_away ? away_goals : home_goals,
+    status: status,
+    result: result,
     game_report_url: url
   }
 rescue => e
@@ -55,6 +72,7 @@ rescue => e
   nil
 end
 
+# ✅ Final execution block
 if ARGV.empty?
   puts "Usage: ruby enrich_game.rb <game_id>"
   exit 1
