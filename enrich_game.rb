@@ -20,13 +20,21 @@ def parse_game(game_id, _location, _opponent)
   rows = scoring_table&.css('tr')&.drop(1) || []
 
   if rows.size >= 2
-    away_team = rows[0].css('td')[0].text.strip
-    away_score = rows[0].css('td')[-1].text.strip.to_i
+    away_cells = rows[0].css('td').map(&:text).map(&:strip)
+    home_cells = rows[1].css('td').map(&:text).map(&:strip)
 
-    home_team = rows[1].css('td')[0].text.strip
-    home_score = rows[1].css('td')[-1].text.strip.to_i
+    away_team = away_cells[0]
+    home_team = home_cells[0]
 
-    greenville_is_home = home_team.include?("Greenville")
+    if home_team.include?("Greenville")
+      greenville_is_home = true
+      home_score = home_cells[-1].to_i
+      away_score = away_cells[-1].to_i
+    elsif away_team.include?("Greenville")
+      greenville_is_home = false
+      home_score = home_cells[-1].to_i
+      away_score = away_cells[-1].to_i
+    end
   end
 
   # ✅ GOALS table: parse <tbody> rows only
@@ -44,6 +52,10 @@ def parse_game(game_id, _location, _opponent)
     scorer = scorer_raw.split('(').first.strip
     assists = tds[6].text.strip.gsub(/\u00A0/, '').strip
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
+
+    if greenville_is_home.nil?
+      next
+    end
 
     if team_code == "GVL"
       greenville_is_home ? home_goals << entry : away_goals << entry
