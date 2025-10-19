@@ -171,10 +171,12 @@ is_past   = game_day && game_day < today
 status =
   if html_blank || is_future
     "Upcoming"
-  elsif length_raw == "" || length_raw.nil?
-    "Live"
   elsif has_length || greenville_minutes_played >= 55
     "Final"
+  elsif length_raw == "" && is_past && has_scores
+    "Final"
+  elsif length_raw == "" || length_raw.nil?
+    "Live"
   elsif has_status || (greenville_minutes_played > 0 && greenville_minutes_played < 55)
     "Live"
   elsif has_scores && is_past
