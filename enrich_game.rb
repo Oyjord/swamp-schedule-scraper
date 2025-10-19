@@ -145,22 +145,27 @@ has_length = length_raw&.match?(/\d+:\d+/)
 has_status = status_raw&.match?(/\d/)
 has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
 
+# Detect goalie minutes to infer game progress
+goalie_minutes = [home_score, away_score].max > 0 ? [home_score, away_score].max * 20 : 0
+greenville_goalie_minutes = doc.text.scan(/GREENVILLE GOALIES.*?Min\s+\|\s+(\d+:\d+)/m).flatten.first
+greenville_minutes_played = greenville_goalie_minutes&.split(":")&.map(&:to_i)&.then { |m| m[0] * 60 + m[1] rescue 0 } || 0
+
 today = Date.today
 game_day = Date.new(2025, *game_id_to_date(game_id)) rescue nil
 is_past = game_day && game_day < today
 
 status =
-  if has_length
+  if doc.text.include?("This game is not available.")
+    "Upcoming"
+  elsif has_length || greenville_minutes_played >= 55
     "Final"
-  elsif has_status
+  elsif has_status || (greenville_minutes_played > 0 && greenville_minutes_played < 55)
     "Live"
   elsif has_scores && is_past
     "Final"
   else
     "Upcoming"
   end
-
-
   
   # --- 7️⃣ Final JSON ---
   {
