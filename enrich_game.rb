@@ -68,20 +68,23 @@ def parse_game_sheet(game_id, location)
     puts "📊 SCORING → Home: #{home_score}, Away: #{away_score}, OT Type: #{overtime_type}" if debug
   end
 
-  # ✅ Result logic based on location and final score
-  greenville_score = location == "Home" ? home_score : away_score
-  opponent_score = location == "Home" ? away_score : home_score
+  # ✅ Result logic with nil guard
+  result = nil
+  if home_score && away_score
+    greenville_score = location == "Home" ? home_score : away_score
+    opponent_score = location == "Home" ? away_score : home_score
 
-  result =
-    if greenville_score > opponent_score
-      "W"
-    elsif greenville_score < opponent_score
-      "L"
-    else
-      nil
-    end
+    result =
+      if greenville_score > opponent_score
+        "W"
+      elsif greenville_score < opponent_score
+        "L"
+      else
+        nil
+      end
 
-  result += "(#{overtime_type})" if result && overtime_type
+    result += "(#{overtime_type})" if result && overtime_type
+  end
 
   {
     game_id: game_id.to_i,
