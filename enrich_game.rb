@@ -8,14 +8,10 @@ def parse_game_sheet(game_id)
   url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc  = Nokogiri::HTML(html)
-  debug = ENV["DEBUG"] == "true"
 
-  # --- Extract team totals from the SCORING table ---
+  # Try to find the main scoring table
   scoring_table = doc.css('table').find { |t| t.text.include?("SCORING") }
-  unless scoring_table
-    puts "⚠️ No scoring table found for #{game_id}"
-    return nil
-  end
+  return nil unless scoring_table # silently skip unavailable games
 
   rows = scoring_table.css('tr')[2..3] || []
   greenville_row = rows.find { |r| r.text.include?("Greenville") }
@@ -27,9 +23,7 @@ def parse_game_sheet(game_id)
   away_score = greenville_row&.css('td')&.last&.text&.to_i || 0
   home_score = savannah_row&.css('td')&.last&.text&.to_i || 0
 
-  puts "🏒 Scores — #{away_name}: #{away_score}, #{home_name}: #{home_score}" if debug
-
-  # --- Parse the individual goals ---
+  # Goals parsing
   goal_table = doc.css('table').find do |t|
     header = t.at_css('tr')
     header && header.text.include?('Goals') && header.text.include?('Assists')
@@ -46,19 +40,19 @@ def parse_game_sheet(game_id)
     assists = tds[6].text.strip
     entry   = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-    if team == "GVL" # Greenville
+    if team == "GVL"
       away_goals << entry
-    elsif team == "SAV" # Savannah
+    elsif team == "SAV"
       home_goals << entry
     end
   end
 
-  # --- Detect overtime / shootout ---
+  # Detect overtime / shootout
   overtime_type = nil
   overtime_type = "SO" if doc.text.include?("SHOOTOUT")
   overtime_type ||= "OT" if scoring_table.text.include?("OT1")
 
-  # --- Adjust final score if shootout winner ---
+  # Adjust final score for SO
   if overtime_type == "SO"
     if away_score > home_score
       away_score += 1
@@ -67,7 +61,7 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # --- Determine result string ---
+  # Result string
   if away_score > home_score
     diff_str = "#{away_score}-#{home_score}"
     result = overtime_type ? "W(#{overtime_type}) #{diff_str}" : "W #{diff_str}"
@@ -80,7 +74,6 @@ def parse_game_sheet(game_id)
 
   {
     game_id: game_id.to_i,
-    date: "Oct. 18, 2025",
     home_team: home_name,
     away_team: away_name,
     home_score: home_score,
@@ -93,13 +86,12 @@ def parse_game_sheet(game_id)
     overtime_type: overtime_type
   }
 rescue => e
-  puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
+  warn "⚠️ Failed to parse game sheet for #{game_id}: #{e}"
   nil
 end
 
-# --- CLI entrypoint ---
 if ARGV.empty?
-  puts "Usage: ruby enrich_game.rb <game_id>"
+  warn "Usage: ruby enrich_game.rb <game_id>"
   exit 1
 end
 
