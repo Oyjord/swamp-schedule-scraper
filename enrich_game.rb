@@ -25,7 +25,21 @@ def parse_game_sheet(game_id, game)
 
   # --- 1️⃣ Parse SCORING table ---
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') }
-  raise "No scoring table found for #{game_id}" unless scoring_table
+unless scoring_table
+  return {
+    "game_id" => game_id.to_i,
+    "status" => "Upcoming",
+    "home_team" => game["location"] == "Home" ? "Greenville" : game["opponent"],
+    "away_team" => game["location"] == "Home" ? game["opponent"] : "Greenville",
+    "home_score" => 0,
+    "away_score" => 0,
+    "home_goals" => [],
+    "away_goals" => [],
+    "overtime_type" => nil,
+    "result" => nil,
+    "game_report_url" => url
+  }
+end
 
   rows = scoring_table.css('tr')[2..3]
   raise "Unexpected scoring table structure" unless rows && rows.size == 2
@@ -150,7 +164,7 @@ season_end = Date.new(today.year + (today.month >= 10 ? 1 : 0), 4, 12)
 
 raw_date = game["date"].gsub('.', '') # "Oct. 19" → "Oct 19"
 game_day = Date.strptime(raw_date, "%b %d") rescue nil
-game_day = game_day&.change(year: today.year)
+game_day = Date.new(today.year, game_day.month, game_day.day) rescue nil
 is_future = game_day && game_day > today && game_day <= season_end
 is_past   = game_day && game_day < today
 
