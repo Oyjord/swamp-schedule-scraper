@@ -67,19 +67,23 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # --- 3️⃣ Detect OT / SO properly ---
-  ot_val_away = away_cells[4]&.strip
-  ot_val_home = home_cells[4]&.strip
-  so_val_away = away_cells[5]&.strip
-  so_val_home = home_cells[5]&.strip
+  # --- 3️⃣ Detect OT / SO accurately ---
+  ot_val_away = away_cells[4]&.gsub(/\u00A0/, '').strip
+  ot_val_home = home_cells[4]&.gsub(/\u00A0/, '').strip
+  so_val_away = away_cells[5]&.gsub(/\u00A0/, '').strip
+  so_val_home = home_cells[5]&.gsub(/\u00A0/, '').strip
 
-  ot_goals = (ot_val_away.to_i + ot_val_home.to_i)
   so_goals = (so_val_away.to_i + so_val_home.to_i)
+
+  # Only call OT if either OT cell is *nonempty and nonzero*
+  has_real_ot =
+    !(ot_val_away.nil? || ot_val_away.empty? || ot_val_away == "0") ||
+    !(ot_val_home.nil? || ot_val_home.empty? || ot_val_home == "0")
 
   overtime_type =
     if so_goals > 0
       "SO"
-    elsif ot_goals > 0
+    elsif has_real_ot
       "OT"
     else
       nil
