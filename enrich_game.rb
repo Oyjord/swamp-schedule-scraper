@@ -29,6 +29,8 @@ def parse_game_sheet(game_id, location)
     so1 = row1[so_index].to_i
     so2 = row2[so_index].to_i
 
+    puts "🧪 SCORING table: team1=#{team1}, SO1=#{so1}; team2=#{team2}, SO2=#{so2}"
+
     if team1 == "Greenville" && so1 > 0
       shootout_winner = "GVL"
     elsif team2 == "Greenville" && so2 > 0
