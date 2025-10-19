@@ -1105,16 +1105,16 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
-    "home_score": 0,
+    "home_score": 1,
     "away_score": 0,
     "home_goals": [
-
+      "T. Singleton (R. O'Reilly, H. Schandor)"
     ],
     "away_goals": [
 
     ],
-    "result": "L 0-0",
-    "overtime_type": null,
+    "result": "W(OT) 1-0",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1"
   },
   {
