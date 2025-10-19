@@ -26,50 +26,68 @@ def parse_game_sheet(game_id)
 
   # --- Detect OT / SO ---
   overtime_type = nil
-  overtime_type = "SO" if scoring_table.text.include?("SO")
-  overtime_type = "OT" if scoring_table.text.include?("OT1") && !scoring_table.text.include?("SO")
+  if away_cells[5].to_i > 0 || home_cells[5].to_i > 0
+    overtime_type = "SO"
+  elsif away_cells[4].to_i > 0 || home_cells[4].to_i > 0
+    overtime_type = "OT"
+  end
 
-  # --- 2️⃣ Parse the Goals/Assists table ---
+  # --- 2️⃣ Parse GOAL SUMMARY table dynamically ---
   goal_table = doc.css('table').find do |t|
     header = t.at_css('tr')
-    header && header.text.include?('Goals') && header.text.include?('Assists')
+    header && header.text.match?(/Goal|Scorer/i)
   end
 
   home_goals, away_goals = [], []
-  team_abbrevs = {}
 
   if goal_table
-    # Collect all team abbreviations seen in the goal table
-    team_abbrevs_list = goal_table.css('td:nth-child(4)').map { |td| td.text.strip }.uniq.reject(&:empty?)
-    # We'll use the first seen abbreviation for each team, e.g., "GVL" => Greenville, "UTA" => Utah, etc.
-    team_abbrevs[:away] = team_abbrevs_list.find { |abbr| html.include?("#{away_team}") } || team_abbrevs_list.first
-    team_abbrevs[:home] = team_abbrevs_list.find { |abbr| html.include?("#{home_team}") } || team_abbrevs_list.last
-  end
+    headers = goal_table.css('tr').first.css('td,th').map { |td| td.text.strip }
+    idx_team  = headers.index { |h| h.match?(/Team/i) } || 3
+    idx_goal  = headers.index { |h| h.match?(/Goal|Scorer/i) } || 5
+    idx_assist = headers.index { |h| h.match?(/Assist/i) } || 6
 
-  # If that fails, fall back to known ECHL team abbreviations
-  team_abbrevs[:away] ||= "GVL" if away_team =~ /Greenville/i
-  team_abbrevs[:home] ||= "SAV" if home_team =~ /Savannah/i
-  team_abbrevs[:home] ||= "UTA" if home_team =~ /Utah/i
-  team_abbrevs[:away] ||= "UTA" if away_team =~ /Utah/i
-
-  if goal_table
     goal_table.css('tr')[1..]&.each do |row|
       tds = row.css('td')
-      next unless tds.size >= 7
-      team_code = tds[3].text.strip
-      scorer = tds[5].text.split('(').first.strip
-      assists = tds[6].text.strip
-      entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
+      next if tds.size < [idx_team, idx_goal, idx_assist].max + 1
 
-      if team_code == team_abbrevs[:away]
-        away_goals << entry
-      elsif team_code == team_abbrevs[:home]
-        home_goals << entry
+      team_code = tds[idx_team]&.text&.strip
+      scorer = tds[idx_goal]&.text&.split('(')&.first&.strip
+      assists = tds[idx_assist]&.text&.strip
+      entry = assists.empty? ? "#{scorer}" : "#{scorer} (#{assists})"
+
+      case team_code
+      when /GVL|GRN|Greenville/i
+        away_goals << entry if away_team =~ /Greenville/i
+        home_goals << entry if home_team =~ /Greenville/i
+      when /SAV|Savannah/i
+        away_goals << entry if away_team =~ /Savannah/i
+        home_goals << entry if home_team =~ /Savannah/i
+      when /UTA|Utah/i
+        away_goals << entry if away_team =~ /Utah/i
+        home_goals << entry if home_team =~ /Utah/i
+      else
+        # Fallback: if team_code matches home_team string
+        if team_code && home_team.downcase.include?(team_code.downcase)
+          home_goals << entry
+        elsif team_code && away_team.downcase.include?(team_code.downcase)
+          away_goals << entry
+        end
       end
     end
   end
 
-  # --- 3️⃣ Handle shootout correctly ---
+  # --- 3️⃣ Handle shootout bonus goal correctly ---
+  if overtime_type == "SO"
+    if away_score == home_score
+      if away_team =~ /Greenville/i
+        away_score += 1
+      else
+        home_score += 1
+      end
+    end
+  end
+
+  # --- 4️⃣ Build result string ---
   if overtime_type == "SO"
     result = away_score > home_score ? "W(SO) #{away_score}-#{home_score}" : "L(SO) #{away_score}-#{home_score}"
   elsif overtime_type == "OT"
@@ -92,7 +110,7 @@ def parse_game_sheet(game_id)
     "game_report_url" => url
   }
 rescue => e
-  warn "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
+  warn "⚠️ Failed to parse game sheet for #{game_id}: #{e}"
   nil
 end
 
