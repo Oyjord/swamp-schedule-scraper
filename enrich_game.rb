@@ -34,28 +34,46 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # 🧠 Detect shootout result
-  shootout_table = doc.css('table').find { |t| t.text.include?('SHOOTOUT') }
-  shootout_rows = shootout_table&.css('tr')&.select { |tr| tr.text.include?('Yes') } || []
-  greenville_so_goals = shootout_rows.count { |r| r.text.include?('Greenville') && r.text.include?('Yes') }
-  savannah_so_goals = shootout_rows.count { |r| r.text.include?('Savannah') && r.text.include?('Yes') }
+  # 🧠 Parse scoring summary table to get final totals
+  summary_table = doc.css('table').find { |t| t.text.include?('Scoring') && t.text.include?('SO') && t.text.include?('T') }
+  summary_rows = summary_table&.css('tr')&.drop(1) || []
 
-  greenville_total = greenville_is_away ? away_goals.size : home_goals.size
-  savannah_total = greenville_is_away ? home_goals.size : away_goals.size
+  greenville_total = nil
+  savannah_total = nil
 
-  if greenville_so_goals != savannah_so_goals
-    if greenville_so_goals > savannah_so_goals
-      greenville_total += 1
-      result = greenville_is_away ? "W(SO)" : "L(SO)"
-    else
-      savannah_total += 1
-      result = greenville_is_away ? "L(SO)" : "W(SO)"
+  summary_rows.each do |row|
+    cells = row.css('td').map { |td| td.text.strip }
+    next unless cells.size >= 7
+
+    team_name = cells[0]
+    total = cells[-1].to_i
+
+    if team_name.include?("Greenville")
+      greenville_total = total
+    elsif team_name.include?("Savannah")
+      savannah_total = total
     end
-    status = "Final (SO)"
-  else
-    result = nil
-    status = "Final"
   end
+
+  # Fallback if summary table fails
+  greenville_total ||= (greenville_is_away ? away_goals.size : home_goals.size)
+  savannah_total ||= (greenville_is_away ? home_goals.size : away_goals.size)
+
+  # 🧠 Determine result
+  swamp_score = greenville_is_away ? greenville_total : savannah_total
+  opponent_score = greenville_is_away ? savannah_total : greenville_total
+
+  result =
+    if swamp_score > opponent_score
+      greenville_is_away ? "W" : "L"
+    elsif swamp_score < opponent_score
+      greenville_is_away ? "L" : "W"
+    else
+      nil # Should never happen if summary table is correct
+    end
+
+  status = "Final"
+  status += " (SO)" if summary_table&.text&.include?("SO")
 
   {
     game_id: game_id.to_i,
@@ -70,12 +88,6 @@ def parse_game_sheet(game_id)
 rescue => e
   puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
   nil
-end
-
-# ✅ Final execution block
-if ARGV.empty?
-  puts "Usage: ruby enrich_game.rb <game_id>"
-  exit 1
 end
 
 game_id = ARGV[0]
