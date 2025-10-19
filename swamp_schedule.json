@@ -1196,15 +1196,16 @@
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
-      "C. Hausinger (J. Power, B. Pedersen)"
+
     ],
     "away_goals": [
+      "C. Hausinger (J. Power, B. Pedersen)",
       "G. Pyke (M. Messner)",
       "G. Pyke ( )",
       "T. Voit (L. Manning, N. Shea)"
     ],
-    "result": "L 3-1",
-    "overtime_type": null,
+    "result": "L(OT) 3-1",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1"
   },
   {
@@ -1236,19 +1237,22 @@
     "date": "Oct. 19",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
     "away_score": 4,
     "home_goals": [
-      "T. Singleton (R. O'Reilly, H. Schandor)",
-      "K. Mastrodonato (T. Singleton)",
-      "K. Isogai (J. Modry)"
+      "S. Pinard (S. Cooley, J. Wilkins)",
+      "J. Wilkins (S. Pinard, K. Kupka)",
+      "K. Mastrodonato (T. Singleton)"
     ],
     "away_goals": [
-
+      "T. Singleton (R. O'Reilly, H. Schandor)",
+      "S. Cooley (D. Loukus, R. Webb)",
+      "J. Wilkins (S. Pinard, J. Fusco)",
+      "K. Isogai (J. Modry)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(OT) 4-3",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1"
   },
   {
