@@ -1237,15 +1237,17 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 3,
     "away_score": 4,
     "home_goals": [
-      "T. Singleton (R. O'Reilly, H. Schandor)"
+      "T. Singleton (R. O'Reilly, H. Schandor)",
+      "K. Mastrodonato (T. Singleton)",
+      "K. Isogai (J. Modry)"
     ],
     "away_goals": [
 
     ],
-    "result": "L(OT) 4-1",
+    "result": "L(OT) 4-3",
     "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1"
   },
