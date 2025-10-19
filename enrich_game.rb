@@ -25,13 +25,15 @@ def parse_game_sheet(game_id, location)
 
     team1 = row1[0]
     team2 = row2[0]
+    score1 = row1.last.to_i
+    score2 = row2.last.to_i
 
     if location == "Home"
-      final_home_score = team1 == "GVL" ? row1.last.to_i : row2.last.to_i
-      final_away_score = team1 == "GVL" ? row2.last.to_i : row1.last.to_i
+      final_home_score = team1 == "GVL" ? score1 : score2
+      final_away_score = team1 == "GVL" ? score2 : score1
     else
-      final_away_score = team1 == "GVL" ? row1.last.to_i : row2.last.to_i
-      final_home_score = team1 == "GVL" ? row2.last.to_i : row1.last.to_i
+      final_away_score = team1 == "GVL" ? score1 : score2
+      final_home_score = team1 == "GVL" ? score2 : score1
     end
 
     if header_cells.include?("SO")
