@@ -54,25 +54,12 @@ def parse_game_sheet(game_id, location, opponent)
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
     if team_code == "GVL"
-      if greenville_is_home
-        home_goals << entry
-        puts "🏒 GVL goal → home_goals: #{entry}" if debug
-      else
-        away_goals << entry
-        puts "🏒 GVL goal → away_goals: #{entry}" if debug
-      end
+      greenville_is_home ? home_goals << entry : away_goals << entry
     else
-      if greenville_is_home
-        away_goals << entry
-        puts "🏒 Opponent goal → away_goals: #{entry}" if debug
-      else
-        home_goals << entry
-        puts "🏒 Opponent goal → home_goals: #{entry}" if debug
-      end
+      greenville_is_home ? away_goals << entry : home_goals << entry
     end
   end
 
-  # 🧠 Determine result from Greenville’s perspective
   greenville_score = greenville_is_home ? home_score : away_score
   opponent_score = greenville_is_home ? away_score : home_score
 
@@ -108,7 +95,6 @@ rescue => e
   nil
 end
 
-# ✅ Final execution block
 if ARGV.size < 3
   puts "Usage: ruby enrich_game.rb <game_id> <location: Home|Away> <opponent>"
   exit 1
