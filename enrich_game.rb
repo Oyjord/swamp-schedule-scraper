@@ -9,7 +9,7 @@ def parse_game_sheet(game_id)
   html = URI.open(url).read
   doc  = Nokogiri::HTML(html)
 
-  # --- 1️⃣ Parse SCORING table (top = away, bottom = home) ---
+  # --- 1️⃣ Parse SCORING table ---
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') }
   raise "No scoring table found for #{game_id}" unless scoring_table
 
@@ -24,7 +24,7 @@ def parse_game_sheet(game_id)
   away_score = away_cells.last.to_i
   home_score = home_cells.last.to_i
 
-  # --- 2️⃣ Parse GOAL SUMMARY table dynamically ---
+  # --- 2️⃣ Parse GOAL SUMMARY dynamically ---
   goal_table = doc.css('table').find do |t|
     header = t.at_css('tr')
     header && header.text.match?(/Goal|Scorer/i)
@@ -58,7 +58,6 @@ def parse_game_sheet(game_id)
         away_goals << entry if away_team =~ /Utah/i
         home_goals << entry if home_team =~ /Utah/i
       else
-        # Fallback if abbreviation doesn’t match
         if team_code && home_team.downcase.include?(team_code.downcase)
           home_goals << entry
         elsif team_code && away_team.downcase.include?(team_code.downcase)
@@ -69,8 +68,14 @@ def parse_game_sheet(game_id)
   end
 
   # --- 3️⃣ Detect OT / SO properly ---
-  ot_goals = (away_cells[4].to_i + home_cells[4].to_i)
-  so_goals = (away_cells[5].to_i + home_cells[5].to_i)
+  ot_val_away = away_cells[4]&.strip
+  ot_val_home = home_cells[4]&.strip
+  so_val_away = away_cells[5]&.strip
+  so_val_home = home_cells[5]&.strip
+
+  ot_goals = (ot_val_away.to_i + ot_val_home.to_i)
+  so_goals = (so_val_away.to_i + so_val_home.to_i)
+
   overtime_type =
     if so_goals > 0
       "SO"
@@ -91,7 +96,7 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # --- 5️⃣ Build result string from Greenville perspective ---
+  # --- 5️⃣ Build result from Greenville’s perspective ---
   greenville_is_home = home_team =~ /Greenville/i
   greenville_score = greenville_is_home ? home_score : away_score
   opponent_score   = greenville_is_home ? away_score : home_score
