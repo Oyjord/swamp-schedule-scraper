@@ -27,17 +27,17 @@ def parse_game(game_id, _location, _opponent)
 
     greenville_is_home = home_team.include?("Greenville")
 
-    puts "📊 SCORING → Away: #{away_team} #{away_score}, Home: #{home_team} #{home_score}"
-    puts "🏠 Greenville is home? #{greenville_is_home}"
+    $stderr.puts "📊 SCORING → Away: #{away_team} #{away_score}, Home: #{home_team} #{home_score}"
+    $stderr.puts "🏠 Greenville is home? #{greenville_is_home}"
   else
-    puts "⚠️ SCORING table not found or incomplete"
+    $stderr.puts "⚠️ SCORING table not found or incomplete"
   end
 
   # ✅ GOALS table: parse <tbody> rows only
   goal_table = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }
   goal_rows = goal_table&.css('tbody tr') || []
 
-  puts "🧪 Found #{goal_rows.size} goal rows"
+  $stderr.puts "🧪 Found #{goal_rows.size} goal rows"
 
   goal_rows.each do |row|
     tds = row.css('td')
@@ -52,7 +52,7 @@ def parse_game(game_id, _location, _opponent)
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
     if greenville_is_home.nil?
-      puts "⚠️ Cannot assign goals — Greenville role unknown"
+      $stderr.puts "⚠️ Cannot assign goals — Greenville role unknown"
       next
     end
 
@@ -86,7 +86,7 @@ def parse_game(game_id, _location, _opponent)
     game_report_url: url
   }
 rescue => e
-  puts "⚠️ Error parsing game #{game_id}: #{e}"
+  $stderr.puts "⚠️ Error parsing game #{game_id}: #{e}"
   nil
 end
 
@@ -102,7 +102,7 @@ opponent = ARGV[2]
 parsed = parse_game(game_id, location, opponent)
 if parsed
   puts JSON.pretty_generate(parsed)
-  puts "✅ JSON written for game #{game_id}"
+  $stderr.puts "✅ JSON written for game #{game_id}"
 else
-  puts "⚠️ No data parsed for game #{game_id}"
+  $stderr.puts "⚠️ No data parsed for game #{game_id}"
 end
