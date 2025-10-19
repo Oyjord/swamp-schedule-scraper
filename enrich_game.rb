@@ -10,7 +10,7 @@ def parse_game_sheet(game_id)
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
-  # ✅ Parse GOALS table
+  # --- Find scoring summary table ---
   rows = doc.css('table').find do |table|
     header = table.at_css('tr')
     header && header.text.include?('Goals') && header.text.include?('Assists')
@@ -25,6 +25,7 @@ def parse_game_sheet(game_id)
 
   home_goals, away_goals = [], []
 
+  # --- Parse goals ---
   rows.each do |row|
     tds = row.css('td')
     next unless tds.size >= 7
@@ -34,11 +35,12 @@ def parse_game_sheet(game_id)
     assists = tds[6].text.strip
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-    puts "→ team: #{team.inspect}, scorer: #{scorer.inspect}, assists: #{assists.inspect}, entry: #{entry.inspect}" if debug
+    puts "→ team: #{team.inspect}, scorer: #{scorer.inspect}, assists: #{assists.inspect}" if debug
 
+    # You may adjust this to dynamically detect home/away, but for now:
     if team == "GVL"
       home_goals << entry
-    elsif team
+    elsif !team.empty?
       away_goals << entry
     end
   end
@@ -46,24 +48,45 @@ def parse_game_sheet(game_id)
   home_score = home_goals.size
   away_score = away_goals.size
 
-  # ✅ Parse SCORING table for shootout winner
-  so_winner = nil
+  # --- Detect overtime / shootout ---
+  overtime_type = nil
+  result = nil
 
-  scoring_table = doc.css('table').find do |table|
-    table.text.include?("SCORING") && table.text.include?("SO")
+  full_text = doc.text
+
+  if full_text.include?("Shootout Summary")
+    overtime_type = "SO"
+  elsif full_text.include?("Overtime") || full_text.include?("OT Period")
+    overtime_type = "OT"
   end
 
-  if scoring_table
-    score_rows = scoring_table.css('tr').select { |r| r.css('td').size == 7 }
-    score_rows.each do |row|
-      cells = row.css('td').map(&:text).map(&:strip)
-      team = cells[0]
-      so = cells[5].to_i
-      puts "🧪 SCORING row: team=#{team.inspect}, SO=#{so}" if debug
-      if so > 0
-        so_winner = team.include?("Greenville") ? "GVL" : "OPP"
-      end
+  # --- Detect winner ---
+  # The site’s header typically lists team names and scores
+  header_text = doc.css('h3, h2, h4, b').map(&:text).join(" ")
+  winner = nil
+
+  if header_text =~ /Final/i
+    # Example: "Final - Greenville 5 Savannah 4 (SO)"
+    if header_text =~ /Greenville.*?(\d+).*?Savannah.*?(\d+)/
+      gvl_score = $1.to_i
+      sav_score = $2.to_i
+      winner = gvl_score > sav_score ? "away" : "home"
+    elsif header_text =~ /Savannah.*?(\d+).*?Greenville.*?(\d+)/
+      sav_score = $1.to_i
+      gvl_score = $2.to_i
+      winner = gvl_score > sav_score ? "away" : "home"
     end
+  else
+    winner = home_score > away_score ? "home" : "away"
+  end
+
+  # --- Compose result ---
+  if overtime_type == "SO"
+    result = winner == "away" ? "W(SO)" : "L(SO)"
+  elsif overtime_type == "OT"
+    result = winner == "away" ? "W(OT)" : "L(OT)"
+  else
+    result = winner == "away" ? "W" : "L"
   end
 
   {
@@ -72,15 +95,17 @@ def parse_game_sheet(game_id)
     away_score: away_score,
     home_goals: home_goals,
     away_goals: away_goals,
-    result: so_winner == "GVL" ? "W(SO)" : so_winner == "OPP" ? "L(SO)" : nil,
-    overtime_type: so_winner ? "SO" : nil,
-    game_report_url: url
+    game_report_url: url,
+    status: "Final",
+    result: result,
+    overtime_type: overtime_type
   }
 rescue => e
   puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
   nil
 end
 
+# --- CLI entrypoint ---
 if ARGV.empty?
   puts "Usage: ruby enrich_game.rb <game_id>"
   exit 1
