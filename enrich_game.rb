@@ -10,37 +10,37 @@ def parse_game_sheet(game_id, location)
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
-  # ✅ Parse SCORING table first to detect OT/SO and final score
+  # ✅ Parse SCORING table first to detect OT/SO and shootout winner
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
   scoring_rows = scoring_table&.css('tbody tr') || []
   header_cells = scoring_table&.at_css('thead')&.css('tr')&.first&.css('th')&.map(&:text)&.map(&:strip) || []
 
   overtime_type = nil
-  final_home_score = nil
-  final_away_score = nil
+  shootout_winner = nil
 
-  if scoring_rows.size >= 2
+  if scoring_rows.size >= 2 && header_cells.include?("SO")
+    overtime_type = "SO"
+    so_index = header_cells.index("SO")
+
     row1 = scoring_rows[0].css('td').map(&:text).map(&:strip)
     row2 = scoring_rows[1].css('td').map(&:text).map(&:strip)
 
     team1 = row1[0]
     team2 = row2[0]
-    score1 = row1.last.to_i
-    score2 = row2.last.to_i
+    so1 = row1[so_index].to_i
+    so2 = row2[so_index].to_i
 
-    if location == "Home"
-      final_home_score = team1 == "GVL" ? score1 : score2
-      final_away_score = team1 == "GVL" ? score2 : score1
-    else
-      final_away_score = team1 == "GVL" ? score1 : score2
-      final_home_score = team1 == "GVL" ? score2 : score1
+    if team1 == "GVL" && so1 > 0
+      shootout_winner = "GVL"
+    elsif team2 == "GVL" && so2 > 0
+      shootout_winner = "GVL"
+    elsif team1 != "GVL" && so1 > 0
+      shootout_winner = "OPP"
+    elsif team2 != "GVL" && so2 > 0
+      shootout_winner = "OPP"
     end
-
-    if header_cells.include?("SO")
-      overtime_type = "SO"
-    elsif header_cells.any? { |h| h.start_with?("OT") }
-      overtime_type = "OT"
-    end
+  elsif header_cells.any? { |h| h.start_with?("OT") }
+    overtime_type = "OT"
   end
 
   # ✅ Parse GOALS table
@@ -48,13 +48,6 @@ def parse_game_sheet(game_id, location)
     header = table.at_css('tr')
     header && header.text.include?('Goals') && header.text.include?('Assists')
   end&.css('tr')&.drop(1) || []
-
-  puts "🧪 Found #{rows.size} scoring rows" if debug
-
-  if rows.empty?
-    File.write("/tmp/debug_#{game_id}.html", html)
-    puts "⚠️ No scoring rows found — dumped HTML to /tmp/debug_#{game_id}.html" if debug
-  end
 
   home_goals, away_goals = [], []
 
@@ -67,8 +60,6 @@ def parse_game_sheet(game_id, location)
     assists = tds[6].text.strip
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-    puts "→ team: #{team.inspect}, scorer: #{scorer.inspect}, assists: #{assists.inspect}, entry: #{entry.inspect}" if debug
-
     if team == "GVL"
       home_goals << entry
     elsif team
@@ -76,11 +67,9 @@ def parse_game_sheet(game_id, location)
     end
   end
 
-  # ✅ Use goal counts for score display
   home_score = home_goals.size
   away_score = away_goals.size
 
-  # ✅ Result logic
   greenville_score = location == "Home" ? home_score : away_score
   opponent_score = location == "Home" ? away_score : home_score
 
@@ -90,16 +79,7 @@ def parse_game_sheet(game_id, location)
   elsif greenville_score < opponent_score
     result = "L"
   elsif greenville_score == opponent_score && overtime_type == "SO"
-    if final_home_score && final_away_score
-      final_greenville_score = location == "Home" ? final_home_score : final_away_score
-      final_opponent_score = location == "Home" ? final_away_score : final_home_score
-
-      if final_greenville_score > final_opponent_score
-        result = "W(SO)"
-      elsif final_greenville_score < final_opponent_score
-        result = "L(SO)"
-      end
-    end
+    result = shootout_winner == "GVL" ? "W(SO)" : shootout_winner == "OPP" ? "L(SO)" : nil
   end
 
   {
