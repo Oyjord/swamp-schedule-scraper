@@ -25,10 +25,18 @@ def parse_game_sheet(game_id, _location, _opponent)
 
     away_team_name = away_cells[0]
     home_team_name = home_cells[0]
-    away_score = away_cells[-1].to_i
-    home_score = home_cells[-1].to_i
 
-    greenville_is_home = home_team_name.include?("Greenville")
+    if home_team_name.include?("Greenville")
+      greenville_is_home = true
+      home_score = home_cells[-1].to_i
+      away_score = away_cells[-1].to_i
+    elsif away_team_name.include?("Greenville")
+      greenville_is_home = false
+      home_score = home_cells[-1].to_i
+      away_score = away_cells[-1].to_i
+    else
+      puts "⚠️ Greenville not found in SCORING table" if debug
+    end
 
     puts "📊 SCORING table → Away: #{away_team_name} #{away_score}, Home: #{home_team_name} #{home_score}" if debug
     puts "🏠 Greenville is home? #{greenville_is_home}" if debug
