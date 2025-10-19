@@ -1,52 +1,8 @@
 [
   {
-    "game_id": 24297,
-    "date": "Oct. 17",
-    "opponent": "Utah",
-    "location": "Home",
-    "status": "Final",
-    "result": "W",
-    "overtime_type": null,
-    "home_score": 0,
-    "away_score": 1,
-    "home_goals": [
-      "G. Pyke (M. Messner)",
-      "G. Pyke (unassisted)",
-      "T. Voit (L. Manning, N. Shea)"
-    ],
-    "away_goals": [
-      "C. Hausinger (J. Power, B. Pedersen)"
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1"
-  },
-  {
-    "game_id": 24312,
-    "date": "Oct. 18",
-    "opponent": "Savannah",
-    "location": "Away",
-    "status": "Final",
-    "result": "W",
-    "overtime_type": null,
-    "home_score": 0,
-    "away_score": 4,
-    "home_goals": [
-      "J. Lopina (D. Cesana, N. Zabaneh)",
-      "R. Mastrosimone (M. Koopman)",
-      "B. Brodzinski (N. Zabaneh)",
-      "M. Koopman (N. Granowicz, L. Walsh)"
-    ],
-    "away_goals": [
-      "P. Polino (J. Murray, T. Lovell)",
-      "S. Timofeyev (J. Atkinson, J. Murray)",
-      "C. Hausinger (K. Mastrodonato, J. Murray)",
-      "C. Hausinger (T. Singleton)"
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24312&lang_id=1"
-  },
-  {
-    "game_id": 24319,
-    "date": "Oct. 19",
-    "opponent": "South Carolina",
+    "game_id": 25355,
+    "date": "Apr. 11",
+    "opponent": "Bloomington",
     "location": "Home",
     "status": "Final",
     "result": null,
@@ -59,12 +15,12 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25355&lang_id=1"
   },
   {
-    "game_id": 24330,
-    "date": "Oct. 24",
-    "opponent": "Jacksonville",
+    "game_id": 25340,
+    "date": "Apr. 12",
+    "opponent": "Bloomington",
     "location": "Home",
     "status": "Final",
     "result": null,
@@ -77,12 +33,12 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24330&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25340&lang_id=1"
   },
   {
-    "game_id": 24342,
-    "date": "Oct. 25",
-    "opponent": "South Carolina",
+    "game_id": 25299,
+    "date": "Apr. 2",
+    "opponent": "Atlanta",
     "location": "Home",
     "status": "Final",
     "result": null,
@@ -95,47 +51,11 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24342&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25299&lang_id=1"
   },
   {
-    "game_id": 24366,
-    "date": "Oct. 31",
-    "opponent": "Orlando",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24366&lang_id=1"
-  },
-  {
-    "game_id": 24377,
-    "date": "Nov. 1",
-    "opponent": "South Carolina",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24377&lang_id=1"
-  },
-  {
-    "game_id": 24395,
-    "date": "Nov. 5",
+    "game_id": 25302,
+    "date": "Apr. 3",
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
@@ -149,191 +69,11 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24395&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25302&lang_id=1"
   },
   {
-    "game_id": 24419,
-    "date": "Nov. 8",
-    "opponent": "Orlando",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24419&lang_id=1"
-  },
-  {
-    "game_id": 24435,
-    "date": "Nov. 12",
-    "opponent": "Florida",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24435&lang_id=1"
-  },
-  {
-    "game_id": 24445,
-    "date": "Nov. 14",
-    "opponent": "Florida",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24445&lang_id=1"
-  },
-  {
-    "game_id": 24456,
-    "date": "Nov. 15",
-    "opponent": "Florida",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24456&lang_id=1"
-  },
-  {
-    "game_id": 24485,
-    "date": "Nov. 21",
-    "opponent": "Jacksonville",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24485&lang_id=1"
-  },
-  {
-    "game_id": 24496,
-    "date": "Nov. 22",
-    "opponent": "Atlanta",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24496&lang_id=1"
-  },
-  {
-    "game_id": 24517,
-    "date": "Nov. 26",
-    "opponent": "Greensboro",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24517&lang_id=1"
-  },
-  {
-    "game_id": 24540,
-    "date": "Nov. 29",
-    "opponent": "Atlanta",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24540&lang_id=1"
-  },
-  {
-    "game_id": 24554,
-    "date": "Nov. 30",
-    "opponent": "Atlanta",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24554&lang_id=1"
-  },
-  {
-    "game_id": 24570,
-    "date": "Dec. 5",
-    "opponent": "Orlando",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24570&lang_id=1"
-  },
-  {
-    "game_id": 24588,
-    "date": "Dec. 6",
+    "game_id": 25323,
+    "date": "Apr. 4",
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
@@ -347,13 +87,13 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24588&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25323&lang_id=1"
   },
   {
-    "game_id": 24597,
-    "date": "Dec. 7",
-    "opponent": "South Carolina",
-    "location": "Away",
+    "game_id": 25332,
+    "date": "Apr. 9",
+    "opponent": "Bloomington",
+    "location": "Home",
     "status": "Final",
     "result": null,
     "overtime_type": null,
@@ -365,7 +105,7 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24597&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25332&lang_id=1"
   },
   {
     "game_id": 24619,
@@ -530,46 +270,10 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24732&lang_id=1"
   },
   {
-    "game_id": 24743,
-    "date": "Jan. 2",
-    "opponent": "Atlanta",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24743&lang_id=1"
-  },
-  {
-    "game_id": 24759,
-    "date": "Jan. 3",
-    "opponent": "Jacksonville",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24759&lang_id=1"
-  },
-  {
-    "game_id": 24770,
-    "date": "Jan. 5",
+    "game_id": 24570,
+    "date": "Dec. 5",
     "opponent": "Orlando",
-    "location": "Away",
+    "location": "Home",
     "status": "Final",
     "result": null,
     "overtime_type": null,
@@ -581,30 +285,12 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24770&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24570&lang_id=1"
   },
   {
-    "game_id": 24797,
-    "date": "Jan. 10",
+    "game_id": 24588,
+    "date": "Dec. 6",
     "opponent": "South Carolina",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24797&lang_id=1"
-  },
-  {
-    "game_id": 24818,
-    "date": "Jan. 13",
-    "opponent": "Savannah",
     "location": "Away",
     "status": "Final",
     "result": null,
@@ -617,30 +303,12 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24818&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24588&lang_id=1"
   },
   {
-    "game_id": 25270,
-    "date": "Jan. 17",
-    "opponent": "Atlanta",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25270&lang_id=1"
-  },
-  {
-    "game_id": 24851,
-    "date": "Jan. 18",
-    "opponent": "Atlanta",
+    "game_id": 24597,
+    "date": "Dec. 7",
+    "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
     "result": null,
@@ -653,187 +321,7 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24851&lang_id=1"
-  },
-  {
-    "game_id": 24857,
-    "date": "Jan. 19",
-    "opponent": "Atlanta",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24857&lang_id=1"
-  },
-  {
-    "game_id": 24862,
-    "date": "Jan. 23",
-    "opponent": "Florida",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24862&lang_id=1"
-  },
-  {
-    "game_id": 24877,
-    "date": "Jan. 24",
-    "opponent": "Savannah",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24877&lang_id=1"
-  },
-  {
-    "game_id": 24891,
-    "date": "Jan. 25",
-    "opponent": "Savannah",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1"
-  },
-  {
-    "game_id": 24904,
-    "date": "Jan. 28",
-    "opponent": "Utah",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24904&lang_id=1"
-  },
-  {
-    "game_id": 24916,
-    "date": "Jan. 30",
-    "opponent": "Utah",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24916&lang_id=1"
-  },
-  {
-    "game_id": 24931,
-    "date": "Jan. 31",
-    "opponent": "Utah",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24931&lang_id=1"
-  },
-  {
-    "game_id": 24952,
-    "date": "Feb. 4",
-    "opponent": "Idaho",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24952&lang_id=1"
-  },
-  {
-    "game_id": 24962,
-    "date": "Feb. 6",
-    "opponent": "Idaho",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24962&lang_id=1"
-  },
-  {
-    "game_id": 24975,
-    "date": "Feb. 7",
-    "opponent": "Idaho",
-    "location": "Away",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24975&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24597&lang_id=1"
   },
   {
     "game_id": 24988,
@@ -1016,9 +504,9 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25104&lang_id=1"
   },
   {
-    "game_id": 25119,
-    "date": "Mar. 4",
-    "opponent": "Florida",
+    "game_id": 24952,
+    "date": "Feb. 4",
+    "opponent": "Idaho",
     "location": "Away",
     "status": "Final",
     "result": null,
@@ -1031,12 +519,12 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25119&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24952&lang_id=1"
   },
   {
-    "game_id": 25127,
-    "date": "Mar. 6",
-    "opponent": "Florida",
+    "game_id": 24962,
+    "date": "Feb. 6",
+    "opponent": "Idaho",
     "location": "Away",
     "status": "Final",
     "result": null,
@@ -1049,7 +537,277 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25127&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24962&lang_id=1"
+  },
+  {
+    "game_id": 24975,
+    "date": "Feb. 7",
+    "opponent": "Idaho",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24975&lang_id=1"
+  },
+  {
+    "game_id": 24797,
+    "date": "Jan. 10",
+    "opponent": "South Carolina",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24797&lang_id=1"
+  },
+  {
+    "game_id": 24818,
+    "date": "Jan. 13",
+    "opponent": "Savannah",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24818&lang_id=1"
+  },
+  {
+    "game_id": 25270,
+    "date": "Jan. 17",
+    "opponent": "Atlanta",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25270&lang_id=1"
+  },
+  {
+    "game_id": 24851,
+    "date": "Jan. 18",
+    "opponent": "Atlanta",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24851&lang_id=1"
+  },
+  {
+    "game_id": 24857,
+    "date": "Jan. 19",
+    "opponent": "Atlanta",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24857&lang_id=1"
+  },
+  {
+    "game_id": 24743,
+    "date": "Jan. 2",
+    "opponent": "Atlanta",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24743&lang_id=1"
+  },
+  {
+    "game_id": 24862,
+    "date": "Jan. 23",
+    "opponent": "Florida",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24862&lang_id=1"
+  },
+  {
+    "game_id": 24877,
+    "date": "Jan. 24",
+    "opponent": "Savannah",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24877&lang_id=1"
+  },
+  {
+    "game_id": 24891,
+    "date": "Jan. 25",
+    "opponent": "Savannah",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1"
+  },
+  {
+    "game_id": 24904,
+    "date": "Jan. 28",
+    "opponent": "Utah",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24904&lang_id=1"
+  },
+  {
+    "game_id": 24759,
+    "date": "Jan. 3",
+    "opponent": "Jacksonville",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24759&lang_id=1"
+  },
+  {
+    "game_id": 24916,
+    "date": "Jan. 30",
+    "opponent": "Utah",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24916&lang_id=1"
+  },
+  {
+    "game_id": 24931,
+    "date": "Jan. 31",
+    "opponent": "Utah",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24931&lang_id=1"
+  },
+  {
+    "game_id": 24770,
+    "date": "Jan. 5",
+    "opponent": "Orlando",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24770&lang_id=1"
   },
   {
     "game_id": 25146,
@@ -1196,27 +954,9 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25281&lang_id=1"
   },
   {
-    "game_id": 25299,
-    "date": "Apr. 2",
-    "opponent": "Atlanta",
-    "location": "Home",
-    "status": "Final",
-    "result": null,
-    "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25299&lang_id=1"
-  },
-  {
-    "game_id": 25302,
-    "date": "Apr. 3",
-    "opponent": "Atlanta",
+    "game_id": 25119,
+    "date": "Mar. 4",
+    "opponent": "Florida",
     "location": "Away",
     "status": "Final",
     "result": null,
@@ -1229,12 +969,120 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25302&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25119&lang_id=1"
   },
   {
-    "game_id": 25323,
-    "date": "Apr. 4",
+    "game_id": 25127,
+    "date": "Mar. 6",
+    "opponent": "Florida",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25127&lang_id=1"
+  },
+  {
+    "game_id": 24377,
+    "date": "Nov. 1",
     "opponent": "South Carolina",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24377&lang_id=1"
+  },
+  {
+    "game_id": 24435,
+    "date": "Nov. 12",
+    "opponent": "Florida",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24435&lang_id=1"
+  },
+  {
+    "game_id": 24445,
+    "date": "Nov. 14",
+    "opponent": "Florida",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24445&lang_id=1"
+  },
+  {
+    "game_id": 24456,
+    "date": "Nov. 15",
+    "opponent": "Florida",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24456&lang_id=1"
+  },
+  {
+    "game_id": 24485,
+    "date": "Nov. 21",
+    "opponent": "Jacksonville",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24485&lang_id=1"
+  },
+  {
+    "game_id": 24496,
+    "date": "Nov. 22",
+    "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
     "result": null,
@@ -1247,12 +1095,84 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25323&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24496&lang_id=1"
   },
   {
-    "game_id": 25332,
-    "date": "Apr. 9",
-    "opponent": "Bloomington",
+    "game_id": 24517,
+    "date": "Nov. 26",
+    "opponent": "Greensboro",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24517&lang_id=1"
+  },
+  {
+    "game_id": 24540,
+    "date": "Nov. 29",
+    "opponent": "Atlanta",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24540&lang_id=1"
+  },
+  {
+    "game_id": 24554,
+    "date": "Nov. 30",
+    "opponent": "Atlanta",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24554&lang_id=1"
+  },
+  {
+    "game_id": 24395,
+    "date": "Nov. 5",
+    "opponent": "Atlanta",
+    "location": "Away",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24395&lang_id=1"
+  },
+  {
+    "game_id": 24419,
+    "date": "Nov. 8",
+    "opponent": "Orlando",
     "location": "Home",
     "status": "Final",
     "result": null,
@@ -1265,12 +1185,56 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25332&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24419&lang_id=1"
   },
   {
-    "game_id": 25355,
-    "date": "Apr. 11",
-    "opponent": "Bloomington",
+    "game_id": 24297,
+    "date": "Oct. 17",
+    "opponent": "Utah",
+    "location": "Home",
+    "status": "Final",
+    "result": "W",
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 1,
+    "home_goals": [
+      "G. Pyke (M. Messner)",
+      "G. Pyke (unassisted)",
+      "T. Voit (L. Manning, N. Shea)"
+    ],
+    "away_goals": [
+      "C. Hausinger (J. Power, B. Pedersen)"
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1"
+  },
+  {
+    "game_id": 24312,
+    "date": "Oct. 18",
+    "opponent": "Savannah",
+    "location": "Away",
+    "status": "Final",
+    "result": "W",
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 4,
+    "home_goals": [
+      "J. Lopina (D. Cesana, N. Zabaneh)",
+      "R. Mastrosimone (M. Koopman)",
+      "B. Brodzinski (N. Zabaneh)",
+      "M. Koopman (N. Granowicz, L. Walsh)"
+    ],
+    "away_goals": [
+      "P. Polino (J. Murray, T. Lovell)",
+      "S. Timofeyev (J. Atkinson, J. Murray)",
+      "C. Hausinger (K. Mastrodonato, J. Murray)",
+      "C. Hausinger (T. Singleton)"
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24312&lang_id=1"
+  },
+  {
+    "game_id": 24319,
+    "date": "Oct. 19",
+    "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
     "result": null,
@@ -1283,12 +1247,12 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25355&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1"
   },
   {
-    "game_id": 25340,
-    "date": "Apr. 12",
-    "opponent": "Bloomington",
+    "game_id": 24330,
+    "date": "Oct. 24",
+    "opponent": "Jacksonville",
     "location": "Home",
     "status": "Final",
     "result": null,
@@ -1301,6 +1265,42 @@
     "away_goals": [
 
     ],
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25340&lang_id=1"
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24330&lang_id=1"
+  },
+  {
+    "game_id": 24342,
+    "date": "Oct. 25",
+    "opponent": "South Carolina",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24342&lang_id=1"
+  },
+  {
+    "game_id": 24366,
+    "date": "Oct. 31",
+    "opponent": "Orlando",
+    "location": "Home",
+    "status": "Final",
+    "result": null,
+    "overtime_type": null,
+    "home_score": null,
+    "away_score": null,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24366&lang_id=1"
   }
 ]
