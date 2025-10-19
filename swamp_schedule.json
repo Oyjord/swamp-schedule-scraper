@@ -1061,16 +1061,19 @@
     "opponent": "Utah",
     "location": "Home",
     "status": "Final",
-    "home_score": 0,
-    "away_score": 1,
+    "home_score": 3,
+    "away_score": 0,
     "home_goals": [
-
+      "C. Hausinger (J. Power, B. Pedersen)",
+      "G. Pyke (M. Messner)",
+      "G. Pyke ( )",
+      "T. Voit (L. Manning, N. Shea)"
     ],
     "away_goals": [
-      "C. Hausinger (J. Power, B. Pedersen)"
+
     ],
-    "result": "W 1-0",
-    "overtime_type": null,
+    "result": "L(OT) 0-3",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1"
   },
   {
@@ -1079,21 +1082,22 @@
     "opponent": "Savannah",
     "location": "Away",
     "status": "Final",
-    "home_score": 4,
-    "away_score": 6,
+    "home_score": 5,
+    "away_score": 0,
     "home_goals": [
       "J. Lopina (D. Cesana, N. Zabaneh)",
-      "R. Mastrosimone (M. Koopman)",
-      "B. Brodzinski (N. Zabaneh)",
-      "M. Koopman (N. Granowicz, L. Walsh)"
-    ],
-    "away_goals": [
       "P. Polino (J. Murray, T. Lovell)",
       "S. Timofeyev (J. Atkinson, J. Murray)",
+      "R. Mastrosimone (M. Koopman)",
       "C. Hausinger (K. Mastrodonato, J. Murray)",
+      "B. Brodzinski (N. Zabaneh)",
+      "M. Koopman (N. Granowicz, L. Walsh)",
       "C. Hausinger (T. Singleton)"
     ],
-    "result": "W(SO) 6-4",
+    "away_goals": [
+
+    ],
+    "result": "L(SO) 0-5",
     "overtime_type": "SO",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24312&lang_id=1"
   },
