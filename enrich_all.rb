@@ -1,5 +1,6 @@
 require 'json'
 require 'open3'
+require 'digest'
 
 game_ids = JSON.parse(File.read("swamp_game_ids.json"))
 existing = File.exist?("swamp_schedule.json") ? JSON.parse(File.read("swamp_schedule.json")) : []
@@ -28,6 +29,8 @@ game_ids.each do |game|
     next
   end
 
+  puts "✅ Enriched game #{game_id}: #{data["result"]} (#{data["home_score"]}-#{data["away_score"]})"
+
   existing_by_id[game_id] = {
     game_id: game_id,
     date: game["date"],
@@ -44,5 +47,12 @@ game_ids.each do |game|
   }
 end
 
-File.write("swamp_schedule.json", JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] }))
-puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games at #{Time.now}"
+new_json = JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] })
+old_json = File.exist?("swamp_schedule.json") ? File.read("swamp_schedule.json") : ""
+
+if Digest::SHA256.hexdigest(new_json) != Digest::SHA256.hexdigest(old_json)
+  File.write("swamp_schedule.json", new_json)
+  puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games at #{Time.now}"
+else
+  puts "ℹ️ No changes detected — swamp_schedule.json remains unchanged"
+end
