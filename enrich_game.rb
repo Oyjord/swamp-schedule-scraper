@@ -1,94 +1,39 @@
-require 'open-uri'
-require 'nokogiri'
 require 'json'
 
-GAME_REPORT_BASE = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
+game_ids = JSON.parse(File.read("swamp_game_ids.json"))
+existing = File.exist?("swamp_schedule.json") ? JSON.parse(File.read("swamp_schedule.json")) : []
+existing_by_id = {}
+existing.each { |g| existing_by_id[g["game_id"]] = g }
 
-def parse_game_sheet(game_id)
-  url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
-  html = URI.open(url).read
-  doc = Nokogiri::HTML(html)
-  debug = ENV["DEBUG"] == "true"
+game_ids.each do |game|
+  game_id = game["game_id"]
+  puts "🔍 Enriching game #{game_id}..."
 
-  rows = doc.css('table').find do |table|
-    header = table.at_css('tr')
-    header && header.text.include?('Goals') && header.text.include?('Assists')
-  end&.css('tr')&.drop(1) || []
+  enriched = `ruby enrich_game.rb #{game_id}`
+  next if enriched.strip.empty?
 
-  puts "🧪 Found #{rows.size} scoring rows" if debug
-
-  if rows.empty?
-    File.write("/tmp/debug_#{game_id}.html", html)
-    puts "⚠️ No scoring rows found — dumped HTML to /tmp/debug_#{game_id}.html" if debug
+  begin
+    data = JSON.parse(enriched)
+  rescue JSON::ParserError => e
+    puts "⚠️ Failed to parse game #{game_id}: #{e}"
+    next
   end
 
-  home_goals, away_goals = [], []
-
-  rows.each do |row|
-    tds = row.css('td')
-    next unless tds.size >= 7
-
-    team = tds[3].text.strip
-    scorer = tds[5].text.split('(').first.strip
-    assists = tds[6].text.strip
-    entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
-
-    puts "→ team: #{team.inspect}, scorer: #{scorer.inspect}, assists: #{assists.inspect}, entry: #{entry.inspect}" if debug
-
-    if team == "GVL"
-      home_goals << entry
-    elsif team
-      away_goals << entry
-    end
-  end
-
-  home_score = home_goals.size
-  away_score = away_goals.size
-
-  # ✅ Parse SCORING table for shootout winner
-  scoring_rows = doc.css('table').css('tr').select do |row|
-    row.css('td').size == 7 && row.text.include?("Greenville") || row.text.include?("Savannah")
-  end
-
-  so_winner = nil
-  scoring_rows.each do |row|
-    cells = row.css('td').map(&:text).map(&:strip)
-    team = cells[0]
-    so = cells[5].to_i
-    puts "🧪 SCORING row: team=#{team.inspect}, SO=#{so}" if debug
-
-    if so > 0
-      so_winner = team.include?("Greenville") ? "GVL" : "OPP"
-    end
-  end
-
-  result = nil
-  if home_score != away_score
-    result = home_score > away_score ? "W" : "L"
-  elsif so_winner
-    result = so_winner == "GVL" ? "W(SO)" : "L(SO)"
-  end
-
-  {
-    game_id: game_id.to_i,
-    home_score: home_score,
-    away_score: away_score,
-    home_goals: home_goals,
-    away_goals: away_goals,
-    result: result,
-    overtime_type: so_winner ? "SO" : nil,
-    game_report_url: url
+  existing_by_id[game_id] = {
+    game_id: game_id,
+    date: game["date"],
+    opponent: game["opponent"],
+    location: game["location"],
+    status: "Final",
+    result: data["result"],
+    overtime_type: data["overtime_type"],
+    home_score: data["home_score"],
+    away_score: data["away_score"],
+    home_goals: data["home_goals"],
+    away_goals: data["away_goals"],
+    game_report_url: data["game_report_url"]
   }
-rescue => e
-  puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
-  nil
 end
 
-if ARGV.empty?
-  puts "Usage: ruby enrich_game.rb <game_id>"
-  exit 1
-end
-
-game_id = ARGV[0]
-enriched = parse_game_sheet(game_id)
-puts JSON.pretty_generate(enriched) if enriched
+File.write("swamp_schedule.json", JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] }))
+puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games"
