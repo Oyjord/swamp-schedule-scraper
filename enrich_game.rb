@@ -9,101 +9,87 @@ def parse_game_sheet(game_id)
   html = URI.open(url).read
   doc  = Nokogiri::HTML(html)
 
-  # --- 1️⃣ Identify the main scoring summary table ---
-  scoring_table = doc.css('table').find { |t| t.text.include?("SCORING") }
-  return nil unless scoring_table
+  # --- 1️⃣ Parse SCORING table (away row always comes first) ---
+  scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') }
+  raise "No scoring table found for #{game_id}" unless scoring_table
 
-  rows = scoring_table.css('tr')
-  header = rows[1]&.text&.strip
-  data_rows = rows.select { |r| r.css('td').any? && r.text.strip.size > 0 }[0..1]
-  return nil if data_rows.nil? || data_rows.empty?
+  rows = scoring_table.css('tr')[2..3] # row[2] = away, row[3] = home
+  raise "Unexpected scoring table structure" unless rows && rows.size == 2
 
-  # Detect which row is HOME and which is VISITOR
-  if header&.upcase&.include?("HOME")
-    home_row = data_rows.find { |r| r.text =~ /HOME|Host/i } || data_rows[1]
-    away_row = data_rows.find { |r| r.text =~ /VIS|Visitor|Away/i } || data_rows[0]
-  else
-    # fallback: first row = away, second = home
-    away_row, home_row = data_rows
-  end
+  away_cells = rows[0].css('td').map { |td| td.text.strip }
+  home_cells = rows[1].css('td').map { |td| td.text.strip }
 
-  home_name = home_row.css('td')[0]&.text&.strip
-  away_name = away_row.css('td')[0]&.text&.strip
-  home_total = home_row.css('td').last&.text&.strip.to_i
-  away_total = away_row.css('td').last&.text&.strip.to_i
+  away_team = away_cells[0]
+  home_team = home_cells[0]
 
-  # --- 2️⃣ Determine OT / SO ---
+  away_score = away_cells.last.to_i
+  home_score = home_cells.last.to_i
+
+  # Detect if the game had OT or SO
   overtime_type = nil
-  overtime_type = "SO" if doc.text.include?("SHOOTOUT")
-  overtime_type ||= "OT" if scoring_table.text.include?("OT1")
+  overtime_type = "SO" if scoring_table.text.include?("SO")
+  overtime_type = "OT" if scoring_table.text.include?("OT1") && !scoring_table.text.include?("SO")
 
-  # --- 3️⃣ Parse the goals table ---
+  # --- 2️⃣ Parse the detailed goal table ---
   goal_table = doc.css('table').find do |t|
     header = t.at_css('tr')
     header && header.text.include?('Goals') && header.text.include?('Assists')
   end
 
   home_goals, away_goals = [], []
-  abbrev_map = {}
-
-  # Try to infer the abbreviations used for each team from the table
-  if goal_table
-    abbrevs = goal_table.css('td:nth-child(4)').map { |td| td.text.strip }.uniq.reject(&:empty?)
-    # Find likely abbreviations for home and away based on the first letter match
-    abbrevs.each do |abbr|
-      if away_name.downcase.start_with?(abbr[0,3].downcase) || away_name.downcase.include?(abbr[0,3].downcase)
-        abbrev_map[:away] = abbr
-      elsif home_name.downcase.start_with?(abbr[0,3].downcase) || home_name.downcase.include?(abbr[0,3].downcase)
-        abbrev_map[:home] = abbr
-      end
-    end
-  end
-
-  # If we couldn’t detect, fall back to known ones
-  abbrev_map[:away] ||= "GVL" if away_name =~ /Greenville/i
-  abbrev_map[:home] ||= "SAV" if home_name =~ /Savannah/i
 
   if goal_table
     goal_rows = goal_table.css('tr')[1..] || []
     goal_rows.each do |row|
       tds = row.css('td')
       next unless tds.size >= 7
-
-      team_abbrev = tds[3].text.strip
+      team = tds[3].text.strip
       scorer = tds[5].text.split('(').first.strip
       assists = tds[6].text.strip
       entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-      if team_abbrev == abbrev_map[:away]
+      if team == away_team[0,3].upcase || team.include?(away_team[0,3].upcase)
         away_goals << entry
-      elsif team_abbrev == abbrev_map[:home]
+      elsif team == home_team[0,3].upcase || team.include?(home_team[0,3].upcase)
         home_goals << entry
       end
     end
   end
 
-  # --- 4️⃣ Build final JSON structure ---
-  # DO NOT add +1 for SO — SCORING table totals already include it
-  if away_total > home_total
-    result = overtime_type ? "W(#{overtime_type}) #{away_total}-#{home_total}" : "W #{away_total}-#{home_total}"
-  elsif home_total > away_total
-    result = overtime_type ? "L(#{overtime_type}) #{away_total}-#{home_total}" : "L #{away_total}-#{home_total}"
+  # --- 3️⃣ Handle shootout correctly (+1 for the winner only) ---
+  if overtime_type == "SO"
+    if away_score > home_score
+      result = "W(SO) #{away_score}-#{home_score}"
+    else
+      result = "L(SO) #{away_score}-#{home_score}"
+    end
+  elsif overtime_type == "OT"
+    if away_score > home_score
+      result = "W(OT) #{away_score}-#{home_score}"
+    else
+      result = "L(OT) #{away_score}-#{home_score}"
+    end
   else
-    result = "T #{away_total}-#{home_total}"
+    if away_score > home_score
+      result = "W #{away_score}-#{home_score}"
+    else
+      result = "L #{away_score}-#{home_score}"
+    end
   end
 
+  # --- 4️⃣ Return normalized JSON ---
   {
     "game_id" => game_id.to_i,
-    "home_team" => home_name,
-    "away_team" => away_name,
-    "home_score" => home_total,
-    "away_score" => away_total,
+    "status" => "Final",
+    "home_team" => home_team,
+    "away_team" => away_team,
+    "home_score" => home_score,
+    "away_score" => away_score,
     "home_goals" => home_goals,
     "away_goals" => away_goals,
-    "game_report_url" => url,
-    "status" => "Final",
+    "overtime_type" => overtime_type,
     "result" => result,
-    "overtime_type" => overtime_type
+    "game_report_url" => url
   }
 rescue => e
   warn "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
