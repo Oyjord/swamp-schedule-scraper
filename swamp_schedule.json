@@ -5,15 +5,17 @@
     "opponent": "Utah",
     "location": "Home",
     "status": "Final",
-    "result": null,
+    "result": "L",
     "overtime_type": null,
-    "home_score": null,
-    "away_score": null,
+    "home_score": 3,
+    "away_score": 0,
     "home_goals": [
-
+      "G. Pyke (M. Messner)",
+      "G. Pyke (unassisted)",
+      "T. Voit (L. Manning, N. Shea)"
     ],
     "away_goals": [
-
+      "C. Hausinger (J. Power, B. Pedersen)"
     ],
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1"
   },
@@ -22,9 +24,9 @@
     "date": "Oct. 18",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Final (SO)",
+    "status": "Final",
     "result": "W",
-    "overtime_type": "SO",
+    "overtime_type": null,
     "home_score": 5,
     "away_score": 0,
     "home_goals": [
