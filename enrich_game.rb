@@ -20,13 +20,14 @@ def parse_game(game_id, _location, _opponent)
   scoring_rows = scoring_table&.css('tbody tr') || []
 
   if scoring_rows.size >= 2
-    away_cells = scoring_rows[0].css('td').map(&:text).map(&:strip)
-    home_cells = scoring_rows[1].css('td').map(&:text).map(&:strip)
+    away_team_cell = scoring_rows[0].at_css('td')
+    home_team_cell = scoring_rows[1].at_css('td')
 
-    away_team = away_cells[0]
-    home_team = home_cells[0]
-    away_score = away_cells[-1].to_i
-    home_score = home_cells[-1].to_i
+    away_team = away_team_cell ? away_team_cell.text.strip : ""
+    home_team = home_team_cell ? home_team_cell.text.strip : ""
+
+    away_score = scoring_rows[0].css('td')[-1].text.strip.to_i
+    home_score = scoring_rows[1].css('td')[-1].text.strip.to_i
 
     greenville_is_home = home_team.downcase.include?("greenville")
 
