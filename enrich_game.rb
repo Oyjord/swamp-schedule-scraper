@@ -128,7 +128,7 @@ status =
     "Final"
   elsif is_future
     "Upcoming"
-  elsif game_day == today && (has_scores || greenville_minutes_played > 0)
+  elsif game_day == today && length_raw.to_s.strip.empty? && (has_scores || greenville_minutes_played > 0)
     "Live"
   elsif length_raw.to_s.strip.empty? && is_past && has_scores
     "Final"
