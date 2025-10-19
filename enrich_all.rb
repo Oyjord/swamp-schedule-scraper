@@ -48,4 +48,14 @@ game_ids.each do |game|
     "home_goals" => data["home_goals"],
     "away_goals" => data["away_goals"],
     "result" => data["result"],
-    "overtime_type"_
+    "overtime_type" => data["overtime_type"],
+    "game_report_url" => data["game_report_url"]
+  }
+end
+
+# --- Sort safely by date (handle nil dates) ---
+sorted_games = existing_by_id.values.sort_by { |g| g["date"] || "" }
+
+# --- Write updated file ---
+File.write("swamp_schedule.json", JSON.pretty_generate(sorted_games))
+puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games"
