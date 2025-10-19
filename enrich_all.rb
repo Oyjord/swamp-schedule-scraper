@@ -12,39 +12,45 @@ game_ids.each do |game|
   puts "🔍 Enriching game #{game_id}..."
 
   cmd = "ruby enrich_game.rb #{game_id} #{game["location"]} \"#{game["opponent"]}\""
-  stdout, stderr, status = Open3.capture3(cmd)
 
-  if !status.success? || stdout.strip.empty?
-    puts "⚠️ Script failed or returned no output for game #{game_id}"
-    puts "stderr:\n#{stderr}" unless stderr.strip.empty?
-    next
+  Open3.popen3(cmd) do |stdin, stdout_io, stderr_io, wait_thr|
+    stdout = stdout_io.read
+    stderr = stderr_io.read
+    status = wait_thr.value
+
+    if !status.success? || stdout.strip.empty?
+      puts "⚠️ Script failed or returned no output for game #{game_id}"
+      puts "stderr:\n#{stderr}" unless stderr.strip.empty?
+      next
+    end
+
+    begin
+      data = JSON.parse(stdout)
+    rescue JSON::ParserError => e
+      puts "⚠️ Failed to parse game #{game_id}: #{e}"
+      puts "Raw stdout:\n#{stdout}"
+      puts "Raw stderr:\n#{stderr}" unless stderr.strip.empty?
+      next
+    end
+
+    puts stderr unless stderr.strip.empty?
+    puts "✅ Enriched game #{game_id}: #{data["result"] || "-"} (#{data["home_score"]}-#{data["away_score"]})"
+
+    existing_by_id[game_id] = {
+      game_id: game_id,
+      date: game["date"],
+      opponent: game["opponent"],
+      location: game["location"],
+      status: data["status"],
+      result: data["result"],
+      overtime_type: data["overtime_type"],
+      home_score: data["home_score"],
+      away_score: data["away_score"],
+      home_goals: data["home_goals"],
+      away_goals: data["away_goals"],
+      game_report_url: data["game_report_url"]
+    }
   end
-
-  begin
-    data = JSON.parse(stdout)
-  rescue JSON::ParserError => e
-    puts "⚠️ Failed to parse game #{game_id}: #{e}"
-    puts "Raw stdout:\n#{stdout}"
-    puts "Raw stderr:\n#{stderr}" unless stderr.strip.empty?
-    next
-  end
-
-  puts "✅ Enriched game #{game_id}: #{data["result"]} (#{data["home_score"]}-#{data["away_score"]})"
-
-  existing_by_id[game_id] = {
-    game_id: game_id,
-    date: game["date"],
-    opponent: game["opponent"],
-    location: game["location"],
-    status: data["status"],
-    result: data["result"],
-    overtime_type: data["overtime_type"],
-    home_score: data["home_score"],
-    away_score: data["away_score"],
-    home_goals: data["home_goals"],
-    away_goals: data["away_goals"],
-    game_report_url: data["game_report_url"]
-  }
 end
 
 new_json = JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] })
