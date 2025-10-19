@@ -1,115 +1,59 @@
-require 'open-uri'
-require 'nokogiri'
 require 'json'
+require 'open3'
+require 'digest'
 
-BASE_URL = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
+game_ids = JSON.parse(File.read("swamp_game_ids.json"))
+existing = File.exist?("swamp_schedule.json") ? JSON.parse(File.read("swamp_schedule.json")) : []
+existing_by_id = {}
+existing.each { |g| existing_by_id[g["game_id"]] = g }
 
-def parse_game(game_id, _location, _opponent)
-  url = "#{BASE_URL}#{game_id}&lang_id=1"
-  html = URI.open(url).read
-  doc = Nokogiri::HTML(html)
+game_ids.each do |game|
+  game_id = game["game_id"]
+  puts "🔍 Enriching game #{game_id}..."
 
-  home_score = nil
-  away_score = nil
-  greenville_is_home = nil
-  home_goals = []
-  away_goals = []
+  cmd = "ruby enrich_game.rb #{game_id} #{game["location"]} \"#{game["opponent"]}\""
+  stdout, stderr, status = Open3.capture3(cmd)
 
-  # ✅ SCORING table: top row = away, bottom row = home
-  scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
-  scoring_rows = scoring_table&.css('tbody tr') || []
-
-  if scoring_rows.size >= 2
-    away_team_cell = scoring_rows[0].at_css('td')
-    home_team_cell = scoring_rows[1].at_css('td')
-
-    away_team = away_team_cell ? away_team_cell.text.strip : ""
-    home_team = home_team_cell ? home_team_cell.text.strip : ""
-
-    $stderr.puts "🧩 Raw away cell: #{away_team.inspect}"
-    $stderr.puts "🧩 Raw home cell: #{home_team.inspect}"
-
-    away_score = scoring_rows[0].css('td')[-1].text.strip.to_i
-    home_score = scoring_rows[1].css('td')[-1].text.strip.to_i
-
-    greenville_is_home = home_team.downcase.include?("greenville")
-
-    $stderr.puts "📊 SCORING → Away: #{away_team} #{away_score}, Home: #{home_team} #{home_score}"
-    $stderr.puts "🏠 Greenville is home? #{greenville_is_home}"
-  else
-    $stderr.puts "⚠️ SCORING table not found or incomplete"
+  if !status.success? || stdout.strip.empty?
+    puts "⚠️ Script failed or returned no output for game #{game_id}"
+    puts "stderr:\n#{stderr}" unless stderr.strip.empty?
+    next
   end
 
-  # ✅ GOALS table: parse <tbody> rows only
-  goal_table = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }
-  goal_rows = goal_table&.css('tbody tr') || []
-
-  $stderr.puts "🧪 Found #{goal_rows.size} goal rows"
-
-  goal_rows.each do |row|
-    tds = row.css('td')
-    next unless tds.size >= 7
-
-    team_code = tds[3].text.strip
-    scorer_raw = tds[5].text.strip
-    next if scorer_raw.empty? || scorer_raw.include?("Goals")
-
-    scorer = scorer_raw.split('(').first.strip
-    assists = tds[6].text.strip.gsub(/\u00A0/, '').strip
-    entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
-
-    if greenville_is_home.nil?
-      $stderr.puts "⚠️ Cannot assign goals — Greenville role unknown"
-      next
-    end
-
-    if team_code == "GVL"
-      greenville_is_home ? home_goals << entry : away_goals << entry
-    else
-      greenville_is_home ? away_goals << entry : home_goals << entry
-    end
+  begin
+    data = JSON.parse(stdout)
+  rescue JSON::ParserError => e
+    puts "⚠️ Failed to parse game #{game_id}: #{e}"
+    puts "Raw stdout:\n#{stdout}"
+    puts "Raw stderr:\n#{stderr}" unless stderr.strip.empty?
+    next
   end
 
-  # ✅ Result logic
-  greenville_score = greenville_is_home ? home_score : away_score
-  opponent_score = greenville_is_home ? away_score : home_score
+  puts stderr unless stderr.strip.empty?  # ✅ Always show debug output
+  puts "✅ Enriched game #{game_id}: #{data["result"] || "-"} (#{data["home_score"]}-#{data["away_score"]})"
 
-  result =
-    if greenville_score && opponent_score
-      greenville_score > opponent_score ? "W" : greenville_score < opponent_score ? "L" : nil
-    else
-      nil
-    end
-
-  {
-    game_id: game_id.to_i,
-    home_score: home_score,
-    away_score: away_score,
-    home_goals: home_goals,
-    away_goals: away_goals,
-    status: "Final",
-    result: result,
-    overtime_type: nil,
-    game_report_url: url
+  existing_by_id[game_id] = {
+    game_id: game_id,
+    date: game["date"],
+    opponent: game["opponent"],
+    location: game["location"],
+    status: data["status"],
+    result: data["result"],
+    overtime_type: data["overtime_type"],
+    home_score: data["home_score"],
+    away_score: data["away_score"],
+    home_goals: data["home_goals"],
+    away_goals: data["away_goals"],
+    game_report_url: data["game_report_url"]
   }
-rescue => e
-  $stderr.puts "⚠️ Error parsing game #{game_id}: #{e}"
-  nil
 end
 
-# ✅ CLI entry
-if ARGV.size < 3
-  puts "Usage: ruby enrich_game.rb <game_id> <location> <opponent>"
-  exit 1
-end
+new_json = JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] })
+old_json = File.exist?("swamp_schedule.json") ? File.read("swamp_schedule.json") : ""
 
-game_id = ARGV[0]
-location = ARGV[1]
-opponent = ARGV[2]
-parsed = parse_game(game_id, location, opponent)
-if parsed
-  puts JSON.pretty_generate(parsed)
-  $stderr.puts "✅ JSON written for game #{game_id}"
+if Digest::SHA256.hexdigest(new_json) != Digest::SHA256.hexdigest(old_json)
+  File.write("swamp_schedule.json", new_json)
+  puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games at #{Time.now}"
 else
-  $stderr.puts "⚠️ No data parsed for game #{game_id}"
+  puts "ℹ️ No changes detected — swamp_schedule.json remains unchanged"
 end
