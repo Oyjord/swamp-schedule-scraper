@@ -1,9 +1,13 @@
 require 'json'
 
+puts "🟡 Starting enrichment at #{Time.now}"
+
 game_ids = JSON.parse(File.read("swamp_game_ids.json"))
 existing = File.exist?("swamp_schedule.json") ? JSON.parse(File.read("swamp_schedule.json")) : []
 existing_by_id = {}
 existing.each { |g| existing_by_id[g["game_id"]] = g }
+
+puts "🟡 Found #{game_ids.size} games to enrich"
 
 game_ids.each do |game|
   game_id = game["game_id"]
@@ -19,6 +23,8 @@ game_ids.each do |game|
     puts "⚠️ Failed to parse game #{game_id}: #{e}"
     next
   end
+
+  puts "📦 Enriched game #{game_id}: result=#{data['result']}, OT=#{data['overtime_type']}"
 
   existing_by_id[game_id] = {
     game_id: game_id,
@@ -36,10 +42,12 @@ game_ids.each do |game|
   }
 end
 
-# ✅ Always write the file, no checksum guard
+puts "🧪 Preparing to write swamp_schedule.json..."
+puts "🧪 Sample game 24312: #{existing_by_id[24312].inspect}" if existing_by_id[24312]
+
 begin
   File.write("swamp_schedule.json", JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] }))
-  puts "✅ Force-wrote swamp_schedule.json with #{existing_by_id.size} games at #{Time.now}"
+  puts "✅ Wrote swamp_schedule.json with #{existing_by_id.size} games at #{Time.now}"
 rescue => e
   puts "❌ Failed to write swamp_schedule.json: #{e}"
 end
