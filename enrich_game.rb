@@ -80,13 +80,15 @@ def parse_game_sheet(game_id, location)
   elsif greenville_score < opponent_score
     result = "L"
   elsif greenville_score == opponent_score && overtime_type == "SO"
-    final_greenville_score = location == "Home" ? final_home_score : final_away_score
-    final_opponent_score = location == "Home" ? final_away_score : final_home_score
+    if final_home_score && final_away_score
+      final_greenville_score = location == "Home" ? final_home_score : final_away_score
+      final_opponent_score = location == "Home" ? final_away_score : final_home_score
 
-    if final_greenville_score > final_opponent_score
-      result = "W(SO)"
-    elsif final_greenville_score < final_opponent_score
-      result = "L(SO)"
+      if final_greenville_score > final_opponent_score
+        result = "W(SO)"
+      elsif final_greenville_score < final_opponent_score
+        result = "L(SO)"
+      end
     end
   end
 
