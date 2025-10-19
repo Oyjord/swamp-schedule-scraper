@@ -10,25 +10,36 @@ def parse_game_sheet(game_id)
   doc  = Nokogiri::HTML(html)
 
   # --- 🧠 Extract game metadata for status ---
-  meta_table = doc.css('table').find { |t| t.text.include?('Game Start') && t.text.include?('Game Length') }
-  meta_rows = meta_table&.css('tr') || []
+meta_table = doc.css('table').find { |t| t.text.include?('Game Start') && t.text.include?('Game Length') }
+meta_rows = meta_table&.css('tr') || []
 
-  meta = {}
-  meta_rows.each do |row|
-    cells = row.css('td').map { |td| td.text.gsub(/\u00A0/, ' ').strip }
-    next unless cells.size == 2
-    label, value = cells
-    meta[label.gsub(':', '')] = value
+meta = {}
+meta_rows.each do |row|
+  cells = row.css('td').map { |td| td.text.gsub(/\u00A0/, ' ').strip }
+  next unless cells.size == 2
+  label, value = cells
+  meta[label.gsub(':', '')] = value
+end
+
+# --- 🧠 Determine status based on metadata and scoring ---
+length_raw = meta["Game Length"]&.strip
+status_raw = meta["Game Status"]&.strip
+start_raw  = meta["Game Start"]&.strip
+
+has_length = length_raw&.match?(/\d+:\d+/)
+has_status = status_raw&.match?(/\d/)
+has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
+
+status =
+  if has_length
+    "Final"
+  elsif has_status || has_scores
+    "Live"
+  elsif start_raw.nil? || start_raw.empty? || start_raw == "EST"
+    "Upcoming"
+  else
+    "Upcoming"
   end
-
-  status =
-    if meta["Game Length"]&.match?(/\d+:\d+/)
-      "Final"
-    elsif meta["Game Status"]&.match?(/\d/)
-      "Live"
-    else
-      "Upcoming"
-    end
 
   # --- 1️⃣ Parse SCORING table ---
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') }
