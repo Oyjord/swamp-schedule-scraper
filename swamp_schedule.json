@@ -1060,7 +1060,7 @@
     "date": "Oct. 17",
     "opponent": "Utah",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
@@ -1080,7 +1080,7 @@
     "date": "Oct. 18",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
     "away_score": 5,
     "home_goals": [
@@ -1104,16 +1104,16 @@
     "date": "Oct. 19",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
-    "away_score": 1,
+    "away_score": 2,
     "home_goals": [
       "T. Singleton (R. O'Reilly, H. Schandor)"
     ],
     "away_goals": [
 
     ],
-    "result": "L(OT) 1-1",
+    "result": "L(OT) 2-1",
     "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1"
   },
