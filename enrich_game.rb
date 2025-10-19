@@ -42,12 +42,37 @@ def parse_game_sheet(game_id)
     end
   end
 
+  home_score = home_goals.size
+  away_score = away_goals.size
+
+  # ✅ Parse SCORING table for shootout winner
+  so_winner = nil
+
+  scoring_table = doc.css('table').find do |table|
+    table.css('tr').any? { |row| row.text.include?('SCORING') && row.css('td').size == 7 }
+  end
+
+  if scoring_table
+    rows = scoring_table.css('tr').select { |r| r.css('td').size == 7 }
+    rows.each do |row|
+      cells = row.css('td').map(&:text).map(&:strip)
+      team = cells[0]
+      so = cells[5].to_i
+      puts "🧪 SCORING row: team=#{team.inspect}, SO=#{so}" if debug
+      if so > 0
+        so_winner = team.include?("Greenville") ? "GVL" : "OPP"
+      end
+    end
+  end
+
   {
     game_id: game_id.to_i,
-    home_score: home_goals.size,
-    away_score: away_goals.size,
+    home_score: home_score,
+    away_score: away_score,
     home_goals: home_goals,
     away_goals: away_goals,
+    result: so_winner == "GVL" ? "W(SO)" : so_winner == "OPP" ? "L(SO)" : nil,
+    overtime_type: so_winner ? "SO" : nil,
     game_report_url: url
   }
 rescue => e
