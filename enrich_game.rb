@@ -145,18 +145,28 @@ has_length = length_raw&.match?(/\d+:\d+/)
 has_status = status_raw&.match?(/\d/)
 has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
 
-today = Date.today
-game_day = Date.new(2025, *game_id_to_date(game_id)) rescue nil
-is_past = game_day && game_day < today
+# Extract Greenville goalie minutes
+greenville_goalie_minutes = doc.text.scan(/GREENVILLE GOALIES.*?Min\s+\|\s+(\d+:\d+)/m).flatten.first
+greenville_minutes_played = greenville_goalie_minutes&.split(":")&.map(&:to_i)&.then { |m| m[0] * 60 + m[1] rescue 0 } || 0
 
+# Check for blank or unavailable HTML
 html_blank = doc.text.strip.empty? || doc.text.include?("This game is not available.")
 
+# Use hardcoded season window: Oct 1 to Apr 12
+today = Date.today
+season_start = Date.new(today.year, 10, 1)
+season_end   = Date.new(today.year + (today.month >= 10 ? 1 : 0), 4, 12)
+
+game_day = Date.new(2025, *game_id_to_date(game_id)) rescue nil
+is_future = game_day && game_day > today && game_day <= season_end
+is_past   = game_day && game_day < today
+
 status =
-  if html_blank
+  if html_blank || is_future
     "Upcoming"
-  elsif has_length
+  elsif has_length || greenville_minutes_played >= 55
     "Final"
-  elsif has_status
+  elsif has_status || (greenville_minutes_played > 0 && greenville_minutes_played < 55)
     "Live"
   elsif has_scores && is_past
     "Final"
