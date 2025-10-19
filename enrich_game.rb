@@ -97,10 +97,10 @@ end
 
   # --- 3️⃣ Detect OT / SO accurately ---
   normalize = ->(val) { val.to_s.gsub(/\u00A0/, '').strip }
-  ot_val_away = normalize.call(away_cells[4])
-  ot_val_home = normalize.call(home_cells[4])
-  so_val_away = normalize.call(away_cells[5])
-  so_val_home = normalize.call(home_cells[5])
+  ot_val_away = away_cells[4] ? normalize.call(away_cells[4]) : nil
+ot_val_home = home_cells[4] ? normalize.call(home_cells[4]) : nil
+so_val_away = away_cells[5] ? normalize.call(away_cells[5]) : nil
+so_val_home = home_cells[5] ? normalize.call(home_cells[5]) : nil
 
   ot_cells_blank = [ot_val_away, ot_val_home].all? { |v| v.nil? || v.empty? || v == "0" }
 
@@ -108,13 +108,13 @@ end
   ot_goals = (ot_val_away.to_i + ot_val_home.to_i)
 
   overtime_type =
-    if so_goals > 0
-      "SO"
-    elsif ot_goals > 0 && !ot_cells_blank
-      "OT"
-    else
-      nil
-    end
+  if so_val_away && so_val_home && (so_val_away.to_i + so_val_home.to_i) > 0
+    "SO"
+  elsif ot_val_away && ot_val_home && (ot_val_away.to_i + ot_val_home.to_i) > 0
+    "OT"
+  else
+    nil
+  end
 
   # --- 4️⃣ Handle shootout bonus goal correctly ---
   if overtime_type == "SO"
