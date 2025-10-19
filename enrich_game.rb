@@ -24,14 +24,6 @@ def parse_game_sheet(game_id)
   away_score = away_cells.last.to_i
   home_score = home_cells.last.to_i
 
-  # --- Detect OT / SO ---
-  overtime_type = nil
-  if away_cells[5].to_i > 0 || home_cells[5].to_i > 0
-    overtime_type = "SO"
-  elsif away_cells[4].to_i > 0 || home_cells[4].to_i > 0
-    overtime_type = "OT"
-  end
-
   # --- 2️⃣ Parse GOAL SUMMARY table dynamically ---
   goal_table = doc.css('table').find do |t|
     header = t.at_css('tr')
@@ -66,7 +58,7 @@ def parse_game_sheet(game_id)
         away_goals << entry if away_team =~ /Utah/i
         home_goals << entry if home_team =~ /Utah/i
       else
-        # Fallback: if team_code matches home_team string
+        # Fallback if abbreviation doesn’t match
         if team_code && home_team.downcase.include?(team_code.downcase)
           home_goals << entry
         elsif team_code && away_team.downcase.include?(team_code.downcase)
@@ -76,7 +68,19 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # --- 3️⃣ Handle shootout bonus goal correctly ---
+  # --- 3️⃣ Detect OT / SO properly ---
+  ot_goals = (away_cells[4].to_i + home_cells[4].to_i)
+  so_goals = (away_cells[5].to_i + home_cells[5].to_i)
+  overtime_type =
+    if so_goals > 0
+      "SO"
+    elsif ot_goals > 0
+      "OT"
+    else
+      nil
+    end
+
+  # --- 4️⃣ Handle shootout bonus goal correctly ---
   if overtime_type == "SO"
     if away_score == home_score
       if away_team =~ /Greenville/i
@@ -87,15 +91,22 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # --- 4️⃣ Build result string ---
+  # --- 5️⃣ Build result string from Greenville perspective ---
+  greenville_is_home = home_team =~ /Greenville/i
+  greenville_score = greenville_is_home ? home_score : away_score
+  opponent_score   = greenville_is_home ? away_score : home_score
+
   if overtime_type == "SO"
-    result = away_score > home_score ? "W(SO) #{away_score}-#{home_score}" : "L(SO) #{away_score}-#{home_score}"
+    result_prefix = greenville_score > opponent_score ? "W(SO)" : "L(SO)"
   elsif overtime_type == "OT"
-    result = away_score > home_score ? "W(OT) #{away_score}-#{home_score}" : "L(OT) #{away_score}-#{home_score}"
+    result_prefix = greenville_score > opponent_score ? "W(OT)" : "L(OT)"
   else
-    result = away_score > home_score ? "W #{away_score}-#{home_score}" : "L #{away_score}-#{home_score}"
+    result_prefix = greenville_score > opponent_score ? "W" : "L"
   end
 
+  result = "#{result_prefix} #{[greenville_score, opponent_score].max}-#{[greenville_score, opponent_score].min}"
+
+  # --- 6️⃣ Final JSON ---
   {
     "game_id" => game_id.to_i,
     "status" => "Final",
@@ -114,6 +125,7 @@ rescue => e
   nil
 end
 
+# --- Entry point ---
 if ARGV.empty?
   warn "Usage: ruby enrich_game.rb <game_id>"
   exit 1
