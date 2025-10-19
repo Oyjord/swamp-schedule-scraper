@@ -9,6 +9,27 @@ def parse_game_sheet(game_id)
   html = URI.open(url).read
   doc  = Nokogiri::HTML(html)
 
+  # --- 🧠 Extract game metadata for status ---
+  meta_table = doc.css('table').find { |t| t.text.include?('Game Start') && t.text.include?('Game Length') }
+  meta_rows = meta_table&.css('tr') || []
+
+  meta = {}
+  meta_rows.each do |row|
+    cells = row.css('td').map { |td| td.text.gsub(/\u00A0/, ' ').strip }
+    next unless cells.size == 2
+    label, value = cells
+    meta[label.gsub(':', '')] = value
+  end
+
+  status =
+    if meta["Game Length"]&.match?(/\d+:\d+/)
+      "Final"
+    elsif meta["Game Status"]&.match?(/\d/)
+      "Live"
+    else
+      "Upcoming"
+    end
+
   # --- 1️⃣ Parse SCORING table ---
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') }
   raise "No scoring table found for #{game_id}" unless scoring_table
@@ -74,7 +95,6 @@ def parse_game_sheet(game_id)
   so_val_away = normalize.call(away_cells[5])
   so_val_home = normalize.call(home_cells[5])
 
-  # If both OT cells are truly empty, zero, or whitespace → no OT
   ot_cells_blank = [ot_val_away, ot_val_home].all? { |v| v.nil? || v.empty? || v == "0" }
 
   so_goals = (so_val_away.to_i + so_val_home.to_i)
@@ -118,7 +138,7 @@ def parse_game_sheet(game_id)
   # --- 6️⃣ Final JSON ---
   {
     "game_id" => game_id.to_i,
-    "status" => "Final",
+    "status" => status,
     "home_team" => home_team,
     "away_team" => away_team,
     "home_score" => home_score,
