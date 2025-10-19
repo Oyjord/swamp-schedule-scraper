@@ -9,35 +9,59 @@ def parse_game_sheet(game_id)
   html = URI.open(url).read
   doc  = Nokogiri::HTML(html)
 
-  # Find the SCORING table (has header "SCORING")
+  # --- 1️⃣ Identify the main scoring summary table ---
   scoring_table = doc.css('table').find { |t| t.text.include?("SCORING") }
   return nil unless scoring_table
 
-  # The scoring table layout: header row, then header numbers row, then two team rows
-  scoring_rows = scoring_table.css('tr')
-  # Defensive: find the two rows containing team names (skip header rows)
-  team_rows = scoring_rows.select { |r| r.css('td').any? && r.text.strip =~ /\w/ }[1..2] # pick the first two data rows
-  return nil unless team_rows && team_rows.size >= 2
+  rows = scoring_table.css('tr')
+  header = rows[1]&.text&.strip
+  data_rows = rows.select { |r| r.css('td').any? && r.text.strip.size > 0 }[0..1]
+  return nil if data_rows.nil? || data_rows.empty?
 
-  # Extract full team names and their final totals (last TD is "T")
-  away_full = team_rows[0].css('td')[0]&.text&.strip || ""
-  home_full = team_rows[1].css('td')[0]&.text&.strip || ""
-  away_total = team_rows[0].css('td').last&.text&.strip.to_i
-  home_total = team_rows[1].css('td').last&.text&.strip.to_i
+  # Detect which row is HOME and which is VISITOR
+  if header&.upcase&.include?("HOME")
+    home_row = data_rows.find { |r| r.text =~ /HOME|Host/i } || data_rows[1]
+    away_row = data_rows.find { |r| r.text =~ /VIS|Visitor|Away/i } || data_rows[0]
+  else
+    # fallback: first row = away, second = home
+    away_row, home_row = data_rows
+  end
 
-  # Detect OT / SO
+  home_name = home_row.css('td')[0]&.text&.strip
+  away_name = away_row.css('td')[0]&.text&.strip
+  home_total = home_row.css('td').last&.text&.strip.to_i
+  away_total = away_row.css('td').last&.text&.strip.to_i
+
+  # --- 2️⃣ Determine OT / SO ---
   overtime_type = nil
   overtime_type = "SO" if doc.text.include?("SHOOTOUT")
-  overtime_type ||= "OT" if scoring_table.text.include?("OT") # OT column present
+  overtime_type ||= "OT" if scoring_table.text.include?("OT1")
 
-  # Now parse goal details from the Goals table (rows with Goals/Assists)
+  # --- 3️⃣ Parse the goals table ---
   goal_table = doc.css('table').find do |t|
     header = t.at_css('tr')
     header && header.text.include?('Goals') && header.text.include?('Assists')
   end
 
-  home_goals = []
-  away_goals = []
+  home_goals, away_goals = [], []
+  abbrev_map = {}
+
+  # Try to infer the abbreviations used for each team from the table
+  if goal_table
+    abbrevs = goal_table.css('td:nth-child(4)').map { |td| td.text.strip }.uniq.reject(&:empty?)
+    # Find likely abbreviations for home and away based on the first letter match
+    abbrevs.each do |abbr|
+      if away_name.downcase.start_with?(abbr[0,3].downcase) || away_name.downcase.include?(abbr[0,3].downcase)
+        abbrev_map[:away] = abbr
+      elsif home_name.downcase.start_with?(abbr[0,3].downcase) || home_name.downcase.include?(abbr[0,3].downcase)
+        abbrev_map[:home] = abbr
+      end
+    end
+  end
+
+  # If we couldn’t detect, fall back to known ones
+  abbrev_map[:away] ||= "GVL" if away_name =~ /Greenville/i
+  abbrev_map[:home] ||= "SAV" if home_name =~ /Savannah/i
 
   if goal_table
     goal_rows = goal_table.css('tr')[1..] || []
@@ -45,77 +69,41 @@ def parse_game_sheet(game_id)
       tds = row.css('td')
       next unless tds.size >= 7
 
-      team_abbrev = tds[3].text.strip # e.g. "GVL" or "SAV"
-      scorer = tds[5].text.split('(').first&.strip || ""
+      team_abbrev = tds[3].text.strip
+      scorer = tds[5].text.split('(').first.strip
       assists = tds[6].text.strip
       entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-      # Map the team abbreviation to side (away/home) dynamically.
-      # Heuristic: check if the abbrev corresponds to Greenville / Savannah specifically,
-      # otherwise fall back to comparing known names in the full team strings.
-      side = nil
-      case team_abbrev.upcase
-      when "GVL", "GVL."
-        # if away_full contains 'Greenville' then GVL is away, else home
-        side = away_full.downcase.include?("greenville") ? :away : :home
-      when "SAV", "SAV."
-        side = away_full.downcase.include?("savannah") ? :away : :home
-      else
-        # Generic fallback: if full names contain a short form of the abbrev's letters,
-        # try to detect: e.g. 'TBL' vs 'Tampa' etc. If we can't detect, default to putting
-        # into away if the first scoring row's team matches the common known name.
-        if away_full.downcase.include?(team_abbrev.downcase[0,3])
-          side = :away
-        elsif home_full.downcase.include?(team_abbrev.downcase[0,3])
-          side = :home
-        else
-          # fallback: compare common tokens
-          # (This is conservative — not expected to trigger for Greenville/Savannah)
-          side = :away
-        end
-      end
-
-      if side == :away
+      if team_abbrev == abbrev_map[:away]
         away_goals << entry
-      else
+      elsif team_abbrev == abbrev_map[:home]
         home_goals << entry
       end
     end
   end
 
-  # Use totals read from SCORING table (these already include SO decision)
-  away_score = away_total
-  home_score = home_total
-
-  # Build result string including final score and overtime type if present
-  if away_score > home_score
-    diff_str = "#{away_score}-#{home_score}"
-    result = overtime_type ? "W(#{overtime_type}) #{diff_str}" : "W #{diff_str}"
-    winner = :away
-  elsif away_score < home_score
-    diff_str = "#{away_score}-#{home_score}"
-    result = overtime_type ? "L(#{overtime_type}) #{diff_str}" : "L #{diff_str}"
-    winner = :home
+  # --- 4️⃣ Build final JSON structure ---
+  # DO NOT add +1 for SO — SCORING table totals already include it
+  if away_total > home_total
+    result = overtime_type ? "W(#{overtime_type}) #{away_total}-#{home_total}" : "W #{away_total}-#{home_total}"
+  elsif home_total > away_total
+    result = overtime_type ? "L(#{overtime_type}) #{away_total}-#{home_total}" : "L #{away_total}-#{home_total}"
   else
-    # tie (shouldn't happen for finished games with SO/OT present)
-    result = "T #{away_score}-#{home_score}"
-    winner = nil
+    result = "T #{away_total}-#{home_total}"
   end
 
   {
     "game_id" => game_id.to_i,
-    "date" => nil,                 # enrich_all.rb will set date/opponent/location
-    "home_team" => home_full,
-    "away_team" => away_full,
-    "home_score" => home_score,
-    "away_score" => away_score,
+    "home_team" => home_name,
+    "away_team" => away_name,
+    "home_score" => home_total,
+    "away_score" => away_total,
     "home_goals" => home_goals,
     "away_goals" => away_goals,
     "game_report_url" => url,
     "status" => "Final",
     "result" => result,
-    "overtime_type" => overtime_type,
-    "winner" => winner == :away ? away_full : (winner == :home ? home_full : nil)
+    "overtime_type" => overtime_type
   }
 rescue => e
   warn "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
@@ -129,5 +117,4 @@ end
 
 game_id = ARGV[0]
 data = parse_game_sheet(game_id)
-# don't print date here; enrich_all.rb will populate date/opponent/location fields
 puts JSON.pretty_generate(data) if data
