@@ -4,17 +4,9 @@ require 'json'
 
 GAME_REPORT_BASE = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
 
-def game_id_to_date(game_id)
-  # Example mapping for 2025 season — customize as needed
-  case game_id
-  when 24297 then [10, 17]
-  when 24319 then [10, 19]
-  when 25355 then [4, 11]
-  else [1, 1] # fallback
-  end
-end
 
-def parse_game_sheet(game_id)
+
+def parse_game_sheet(game_id, game)
   url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc  = Nokogiri::HTML(html)
@@ -152,12 +144,13 @@ greenville_minutes_played = greenville_goalie_minutes&.split(":")&.map(&:to_i)&.
 # Check for blank or unavailable HTML
 html_blank = doc.text.strip.empty? || doc.text.include?("This game is not available.")
 
-# Use hardcoded season window: Oct 1 to Apr 12
+# Use real date from game hash
 today = Date.today
-season_start = Date.new(today.year, 10, 1)
-season_end   = Date.new(today.year + (today.month >= 10 ? 1 : 0), 4, 12)
+season_end = Date.new(today.year + (today.month >= 10 ? 1 : 0), 4, 12)
 
-game_day = Date.new(2025, *game_id_to_date(game_id)) rescue nil
+raw_date = game["date"].gsub('.', '') # "Oct. 19" → "Oct 19"
+game_day = Date.strptime(raw_date, "%b %d") rescue nil
+game_day = game_day&.change(year: today.year)
 is_future = game_day && game_day > today && game_day <= season_end
 is_past   = game_day && game_day < today
 
@@ -200,5 +193,6 @@ if ARGV.empty?
 end
 
 game_id = ARGV[0]
-data = parse_game_sheet(game_id)
+game = JSON.parse(File.read("swamp_game_ids.json")).find { |g| g["game_id"].to_s == game_id }
+data = parse_game_sheet(game_id, game)
 puts JSON.pretty_generate(data) if data
