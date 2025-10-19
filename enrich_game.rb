@@ -81,7 +81,7 @@ def parse_game_sheet(game_id, location)
     result = shootout_winner == "GVL" ? "W(SO)" : shootout_winner == "OPP" ? "L(SO)" : nil
   end
 
-  enriched = {
+  {
     game_id: game_id.to_i,
     home_score: home_score,
     away_score: away_score,
@@ -92,9 +92,6 @@ def parse_game_sheet(game_id, location)
     overtime_type: overtime_type,
     game_report_url: url
   }
-
-  puts JSON.pretty_generate(enriched)
-  enriched
 rescue => e
   puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
   nil
@@ -108,4 +105,6 @@ end
 game_id = ARGV[0]
 location = ARGV[1]
 enriched = parse_game_sheet(game_id, location)
+
+# ✅ Only emit valid JSON once
 puts JSON.pretty_generate(enriched) if enriched
