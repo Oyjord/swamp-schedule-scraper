@@ -5,8 +5,10 @@
     "opponent": "Bloomington",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -21,8 +23,10 @@
     "opponent": "Bloomington",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -37,8 +41,10 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -53,8 +59,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -69,8 +77,10 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -85,8 +95,10 @@
     "opponent": "Bloomington",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -101,8 +113,10 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -117,8 +131,10 @@
     "opponent": "Greensboro",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -133,8 +149,10 @@
     "opponent": "Cincinnati",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -149,8 +167,10 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -165,8 +185,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -181,8 +203,10 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -197,8 +221,10 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -213,8 +239,10 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -229,8 +257,10 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -245,8 +275,10 @@
     "opponent": "Orlando",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -261,8 +293,10 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -277,8 +311,10 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -293,8 +329,10 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -309,8 +347,10 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -325,8 +365,10 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -341,8 +383,10 @@
     "opponent": "Savannah",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -357,8 +401,10 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -373,8 +419,10 @@
     "opponent": "Tulsa",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -389,8 +437,10 @@
     "opponent": "Tulsa",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -405,8 +455,10 @@
     "opponent": "Tulsa",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -421,8 +473,10 @@
     "opponent": "Reading",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -437,8 +491,10 @@
     "opponent": "Reading",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -453,8 +509,10 @@
     "opponent": "Idaho",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -469,8 +527,10 @@
     "opponent": "Idaho",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -485,8 +545,10 @@
     "opponent": "Idaho",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -501,8 +563,10 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -517,8 +581,10 @@
     "opponent": "Savannah",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -533,8 +599,10 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -549,8 +617,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -565,8 +635,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -581,8 +653,10 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -597,8 +671,10 @@
     "opponent": "Florida",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -613,8 +689,10 @@
     "opponent": "Savannah",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -629,8 +707,10 @@
     "opponent": "Savannah",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -645,8 +725,10 @@
     "opponent": "Utah",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -661,8 +743,10 @@
     "opponent": "Jacksonville",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -677,8 +761,10 @@
     "opponent": "Utah",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -693,8 +779,10 @@
     "opponent": "Utah",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -709,8 +797,10 @@
     "opponent": "Orlando",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -725,8 +815,10 @@
     "opponent": "Orlando",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -741,8 +833,10 @@
     "opponent": "Jacksonville",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -757,8 +851,10 @@
     "opponent": "Orlando",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -773,8 +869,10 @@
     "opponent": "Orlando",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -789,8 +887,10 @@
     "opponent": "Savannah",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -805,8 +905,10 @@
     "opponent": "Savannah",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -821,8 +923,10 @@
     "opponent": "Jacksonville",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -837,8 +941,10 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -853,8 +959,10 @@
     "opponent": "Florida",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -869,8 +977,10 @@
     "opponent": "Florida",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -885,8 +995,10 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -901,8 +1013,10 @@
     "opponent": "Florida",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -917,8 +1031,10 @@
     "opponent": "Florida",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -933,8 +1049,10 @@
     "opponent": "Florida",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -949,8 +1067,10 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -965,8 +1085,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -981,8 +1103,10 @@
     "opponent": "Greensboro",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -997,8 +1121,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1013,8 +1139,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1029,8 +1157,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1045,8 +1175,10 @@
     "opponent": "Orlando",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1061,8 +1193,10 @@
     "opponent": "Utah",
     "location": "Home",
     "status": "Final",
-    "home_score": 0,
-    "away_score": 1,
+    "result": "L",
+    "overtime_type": null,
+    "home_score": 1,
+    "away_score": 3,
     "home_goals": [
       "C. Hausinger (J. Power, B. Pedersen)"
     ],
@@ -1079,7 +1213,9 @@
     "opponent": "Savannah",
     "location": "Away",
     "status": "Final",
-    "home_score": 0,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 4,
     "away_score": 4,
     "home_goals": [
       "P. Polino (J. Murray, T. Lovell)",
@@ -1101,8 +1237,10 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1117,8 +1255,10 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1133,8 +1273,10 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1149,8 +1291,10 @@
     "opponent": "Orlando",
     "location": "Home",
     "status": "Final",
-    "home_score": null,
-    "away_score": null,
+    "result": null,
+    "overtime_type": null,
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
