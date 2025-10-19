@@ -26,6 +26,9 @@ def parse_game(game_id, _location, _opponent)
     away_team = away_team_cell ? away_team_cell.text.strip : ""
     home_team = home_team_cell ? home_team_cell.text.strip : ""
 
+    $stderr.puts "🧩 Raw away cell: #{away_team.inspect}"
+    $stderr.puts "🧩 Raw home cell: #{home_team.inspect}"
+
     away_score = scoring_rows[0].css('td')[-1].text.strip.to_i
     home_score = scoring_rows[1].css('td')[-1].text.strip.to_i
 
