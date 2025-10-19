@@ -1064,13 +1064,15 @@
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
-
+      "C. Hausinger (J. Power, B. Pedersen)"
     ],
     "away_goals": [
-
+      "G. Pyke (M. Messner)",
+      "G. Pyke ( )",
+      "T. Voit (L. Manning, N. Shea)"
     ],
-    "result": "W 3-1",
-    "overtime_type": null,
+    "result": "W(OT) 3-1",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1"
   },
   {
@@ -1082,10 +1084,16 @@
     "home_score": 4,
     "away_score": 5,
     "home_goals": [
-
+      "J. Lopina (D. Cesana, N. Zabaneh)",
+      "R. Mastrosimone (M. Koopman)",
+      "B. Brodzinski (N. Zabaneh)",
+      "M. Koopman (N. Granowicz, L. Walsh)"
     ],
     "away_goals": [
-
+      "P. Polino (J. Murray, T. Lovell)",
+      "S. Timofeyev (J. Atkinson, J. Murray)",
+      "C. Hausinger (K. Mastrodonato, J. Murray)",
+      "C. Hausinger (T. Singleton)"
     ],
     "result": "W(SO) 5-4",
     "overtime_type": "SO",
