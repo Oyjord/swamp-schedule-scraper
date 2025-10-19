@@ -10,6 +10,7 @@ def parse_game_sheet(game_id)
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
+  # ✅ Parse GOALS table
   rows = doc.css('table').find do |table|
     header = table.at_css('tr')
     header && header.text.include?('Goals') && header.text.include?('Assists')
@@ -49,12 +50,12 @@ def parse_game_sheet(game_id)
   so_winner = nil
 
   scoring_table = doc.css('table').find do |table|
-    table.css('tr').any? { |row| row.text.include?('SCORING') && row.css('td').size == 7 }
+    table.text.include?("SCORING") && table.text.include?("SO")
   end
 
   if scoring_table
-    rows = scoring_table.css('tr').select { |r| r.css('td').size == 7 }
-    rows.each do |row|
+    score_rows = scoring_table.css('tr').select { |r| r.css('td').size == 7 }
+    score_rows.each do |row|
       cells = row.css('td').map(&:text).map(&:strip)
       team = cells[0]
       so = cells[5].to_i
