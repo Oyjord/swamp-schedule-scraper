@@ -43,23 +43,32 @@ def parse_game_sheet(game_id, location)
     end
   end
 
-  home_score = home_goals.size
-  away_score = away_goals.size
-
-  # ✅ Detect OT/SO from SCORING table header
+  # ✅ Parse SCORING table for final score and OT/SO
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
+  scoring_rows = scoring_table&.css('tbody tr') || []
   header_cells = scoring_table&.at_css('thead')&.css('tr')&.first&.css('th')&.map(&:text)&.map(&:strip) || []
 
-  overtime_type =
+  home_score = nil
+  away_score = nil
+  overtime_type = nil
+
+  if scoring_rows.size >= 2
+    away_cells = scoring_rows[0].css('td').map(&:text).map(&:strip)
+    home_cells = scoring_rows[1].css('td').map(&:text).map(&:strip)
+
+    away_score = away_cells.last.to_i
+    home_score = home_cells.last.to_i
+
     if header_cells.include?("SO")
-      "SO"
+      overtime_type = "SO"
     elsif header_cells.any? { |h| h.start_with?("OT") }
-      "OT"
-    else
-      nil
+      overtime_type = "OT"
     end
 
-  # ✅ Result logic based on location
+    puts "📊 SCORING → Home: #{home_score}, Away: #{away_score}, OT Type: #{overtime_type}" if debug
+  end
+
+  # ✅ Result logic based on location and final score
   greenville_score = location == "Home" ? home_score : away_score
   opponent_score = location == "Home" ? away_score : home_score
 
