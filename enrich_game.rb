@@ -32,15 +32,14 @@ def parse_game_sheet(game_id, _location, _opponent)
 
     puts "📊 SCORING table → Away: #{away_team_name} #{away_score}, Home: #{home_team_name} #{home_score}" if debug
     puts "🏠 Greenville is home? #{greenville_is_home}" if debug
+
+    # 🧠 Detect OT/SO only if columns exist
+    header_cells = score_table.css('tr').first.css('td').map(&:text).map(&:strip)
+    overtime_type = "SO" if header_cells.any? { |h| h == "SO" }
+    overtime_type = "OT" if header_cells.any? { |h| h == "OT1" } && overtime_type.nil?
   else
     puts "⚠️ SCORING table not found or incomplete" if debug
   end
-
-  # 🧠 Detect OT or SO from header
-  header_text = score_table&.css('tr')&.first&.text || ""
-  overtime_type = nil
-  overtime_type = "SO" if header_text.include?("SO")
-  overtime_type = "OT" if header_text.include?("OT") && !header_text.include?("SO")
 
   # 🧩 Parse goal rows from <tbody>
   goal_table = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }
@@ -53,8 +52,11 @@ def parse_game_sheet(game_id, _location, _opponent)
     next unless tds.size >= 7
 
     team_code = tds[3].text.strip
-    scorer = tds[5].text.strip.split('(').first.strip
-    assists = tds[6].text.strip
+    scorer_raw = tds[5].text.strip
+    next if scorer_raw.empty? || scorer_raw.include?("Goals")
+
+    scorer = scorer_raw.split('(').first.strip
+    assists = tds[6].text.strip.gsub(/\u00A0/, '').strip
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
     if greenville_is_home.nil?
