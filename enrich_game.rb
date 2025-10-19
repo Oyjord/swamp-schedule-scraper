@@ -1,34 +1,22 @@
+# enrich_game.rb
 require 'open-uri'
 require 'nokogiri'
 require 'json'
+require 'time'
 
 GAME_REPORT_BASE = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
 
-def parse_game_sheet(game_id, game)
+def parse_game_sheet(game_id, game = nil)
   url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc  = Nokogiri::HTML(html)
 
-  # --- 🧠 Extract game metadata block ---
-  meta_table = doc.css('table').find { |t| t.text.include?('Game Start') && t.text.include?('Game Length') }
-  meta_rows = meta_table&.css('tr') || []
-
-  meta = {}
-  meta_rows.each do |row|
-    cells = row.css('td').map { |td| td.text.gsub(/\u00A0/, ' ').strip }
-    next unless cells.size == 2
-    label, value = cells
-    meta[label.gsub(':', '')] = value
-  end
-
-  # --- 1️⃣ Parse SCORING table ---
+  # ---------- SCORING table ----------
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') }
   unless scoring_table
     return {
       "game_id" => game_id.to_i,
       "status" => "Upcoming",
-      "home_team" => game["location"] == "Home" ? "Greenville" : game["opponent"],
-      "away_team" => game["location"] == "Home" ? game["opponent"] : "Greenville",
       "home_score" => 0,
       "away_score" => 0,
       "home_goals" => [],
@@ -40,146 +28,166 @@ def parse_game_sheet(game_id, game)
   end
 
   rows = scoring_table.css('tr')[2..3]
-  raise "Unexpected scoring table structure" unless rows && rows.size == 2
+  raise "Unexpected scoring table structure for game #{game_id}" unless rows && rows.size == 2
 
-  away_cells = rows[0].css('td').map { |td| td.text.strip }
-  home_cells = rows[1].css('td').map { |td| td.text.strip }
+  away_cells = rows[0].css('td').map { |td| td.text.gsub("\u00A0", ' ').strip }
+  home_cells = rows[1].css('td').map { |td| td.text.gsub("\u00A0", ' ').strip }
 
   away_team = away_cells[0]
   home_team = home_cells[0]
   away_score = away_cells.last.to_i
   home_score = home_cells.last.to_i
 
-  # --- 2️⃣ Parse GOAL SUMMARY dynamically ---
-  goal_table = doc.css('table').find { |t| t.at_css('tr')&.text&.match?(/Goal|Scorer/i) }
+  # ---------- GOAL SUMMARY table (dynamic detection) ----------
+  goal_table = doc.css('table').find do |t|
+    header = t.at_css('tr')
+    header && header.text.match?(/Goal|Scorer/i)
+  end
 
-  home_goals, away_goals = [], []
+  home_goals = []
+  away_goals = []
 
   if goal_table
-    headers = goal_table.css('tr').first.css('td,th').map { |td| td.text.strip }
-    idx_team   = headers.index { |h| h.match?(/Team/i) } || 3
-    idx_goal   = headers.index { |h| h.match?(/Goal|Scorer/i) } || 5
-    idx_assist = headers.index { |h| h.match?(/Assist/i) } || 6
+    header_cells = goal_table.css('tr').first.css('td,th').map { |td| td.text.strip }
+    idx_team   = header_cells.index { |h| h.match?(/Team/i) } || 3
+    idx_goal   = header_cells.index { |h| h.match?(/Goal|Scorer/i) } || 5
+    idx_assist = header_cells.index { |h| h.match?(/Assist/i) } || 6
+
+    short_away = away_team.gsub(/[^A-Za-z]/, '').upcase[0,3]
+    short_home = home_team.gsub(/[^A-Za-z]/, '').upcase[0,3]
 
     goal_table.css('tr')[1..]&.each do |row|
       tds = row.css('td')
       next if tds.size < [idx_team, idx_goal, idx_assist].max + 1
 
-      team_code = tds[idx_team]&.text&.strip
+      team_code = tds[idx_team]&.text&.gsub(/\u00A0/, '')&.strip&.upcase
       scorer    = tds[idx_goal]&.text&.split('(')&.first&.strip
       assists   = tds[idx_assist]&.text&.strip
-      entry     = assists.empty? ? "#{scorer}" : "#{scorer} (#{assists})"
+      next if scorer.nil? || scorer.empty?
 
-      case team_code
-      when /GVL|GRN|Greenville/i
-        away_goals << entry if away_team =~ /Greenville/i
-        home_goals << entry if home_team =~ /Greenville/i
-      when /SAV|Savannah/i
-        away_goals << entry if away_team =~ /Savannah/i
-        home_goals << entry if home_team =~ /Savannah/i
-      when /UTA|Utah/i
-        away_goals << entry if away_team =~ /Utah/i
-        home_goals << entry if home_team =~ /Utah/i
+      entry = assists.nil? || assists.empty? ? "#{scorer}" : "#{scorer} (#{assists})"
+
+      if team_code.start_with?(short_away) || away_team.upcase.include?(team_code)
+        away_goals << entry
+      elsif team_code.start_with?(short_home) || home_team.upcase.include?(team_code)
+        home_goals << entry
       else
-        if team_code && home_team.downcase.include?(team_code.downcase)
-          home_goals << entry
-        elsif team_code && away_team.downcase.include?(team_code.downcase)
+        # fallback: assign to whichever side has fewer goals so far
+        if away_goals.size <= home_goals.size
           away_goals << entry
+        else
+          home_goals << entry
         end
       end
     end
   end
 
-  # --- 🧠 Determine status AFTER scores and goals are parsed ---
-  length_raw = meta["Game Length"]&.gsub(/\u00A0/, ' ')&.strip
-  status_raw = meta["Game Status"]&.strip
-  start_raw  = meta["Game Start"]&.strip
+  # ---------- META: Game Start / End / Length ----------
+  meta_table = doc.css('table').find { |t| t.text.match?(/Game Start|Game End|Game Length/i) }
+  meta = {}
+  if meta_table
+    meta_table.css('tr').each do |r|
+      tds = r.css('td').map { |td| td.text.gsub("\u00A0", ' ').strip }
+      next unless tds.size >= 2
+      label = tds[0].gsub(':', '').strip
+      value = tds[1].strip
+      meta[label] = value
+    end
+  end
 
-  has_length = length_raw&.match?(/\d+:\d+/)
-  has_status = status_raw&.match?(/\d/)
+  game_start_raw = meta['Game Start'] || nil
+  game_end_raw   = meta['Game End']   || nil
+  game_length_raw = meta['Game Length'] || nil
+
+  # ---------- determine scheduled start ----------
+  scheduled_start = nil
+  begin
+    if game && game["date"] && game_start_raw && !game_start_raw.empty?
+      date_str = game["date"].gsub('.', '').strip
+      year = (date_str =~ /,\s*\d{4}/) ? "" : ", #{Time.now.year}"
+      scheduled_start = Time.parse("#{date_str}#{year} #{game_start_raw}")
+    end
+  rescue
+    scheduled_start = nil
+  end
+
+  scheduled_date = nil
+  begin
+    if game && game["date"]
+      ds = game["date"].gsub('.', '').strip
+      if ds =~ /\w+\s+\d{1,2}/
+        scheduled_date = Date.parse("#{ds} #{Time.now.year}")
+      end
+    end
+  rescue
+    scheduled_date = nil
+  end
+
+  # ---------- determine status ----------
+  has_final_indicator =
+    (game_length_raw && game_length_raw.match?(/\d+:\d+/)) ||
+    (game_end_raw && !game_end_raw.empty?) ||
+    (doc.text =~ /\bFinal\b/i && doc.text !~ /not available/i)
+
   has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
 
-  greenville_goalie_minutes = doc.text.scan(/GREENVILLE GOALIES.*?Min\s+\|\s+(\d+:\d+)/m).flatten.first
-  greenville_minutes_played = greenville_goalie_minutes&.split(":")&.map(&:to_i)&.then { |m| m[0] * 60 + m[1] rescue 0 } || 0
-
-  html_blank = doc.text.strip.empty? || doc.text.include?("This game is not available.")
-
-  today = Date.today
-  season_end = Date.new(today.year + (today.month >= 10 ? 1 : 0), 4, 12)
-
-  raw_date = game["date"].gsub('.', '')
-  game_day = Date.strptime(raw_date, "%b %d") rescue nil
-  game_day = Date.new(today.year, game_day.month, game_day.day) rescue nil
-  is_future = game_day && game_day > today && game_day <= season_end
-  is_past   = game_day && game_day < today
-
+  now = Time.now
   status =
-    if html_blank
+    if doc.text.include?("This game is not available")
       "Upcoming"
-    elsif has_length || greenville_minutes_played >= 55
+    elsif has_final_indicator
       "Final"
-    elsif is_future
-      "Upcoming"
-    elsif game_day == today && (has_scores || greenville_minutes_played > 0)
-      "Live"
-    elsif is_past && has_scores
-      "Final"
-    elsif greenville_minutes_played > 0
-      "Live"
+    elsif scheduled_start
+      now < scheduled_start ? "Upcoming" : "Live"
+    elsif scheduled_date
+      if Date.today < scheduled_date
+        "Upcoming"
+      elsif Date.today > scheduled_date
+        has_scores ? "Final" : "Upcoming"
+      else
+        has_scores ? "Live" : "Upcoming"
+      end
     else
-      "Upcoming"
+      has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
     end
 
-  # --- 3️⃣ Detect OT / SO accurately ---
+  # ---------- Detect OT / SO (only relevant for Final) ----------
   normalize = ->(val) { val.to_s.gsub(/\u00A0/, '').strip }
-
-  ot_val_away = away_cells.length > 5 ? normalize.call(away_cells[4]) : nil
-  ot_val_home = home_cells.length > 5 ? normalize.call(home_cells[4]) : nil
+  ot_val_away = away_cells.length > 4 ? normalize.call(away_cells[4]) : nil
+  ot_val_home = home_cells.length > 4 ? normalize.call(home_cells[4]) : nil
   so_val_away = away_cells.length > 5 ? normalize.call(away_cells[5]) : nil
   so_val_home = home_cells.length > 5 ? normalize.call(home_cells[5]) : nil
 
   so_goals = (so_val_away.to_i + so_val_home.to_i)
-  ot_goals = (ot_val_away.to_i + ot_val_home.to_i)
-
+  ot_has_real_value =
+    ((ot_val_away =~ /\d+/) && ot_val_away.to_i > 0) ||
+    ((ot_val_home =~ /\d+/) && ot_val_home.to_i > 0)
   overtime_type = nil
   if status == "Final"
-    if so_val_away && so_val_home && so_goals > 0
-      overtime_type = "SO"
-    elsif ot_val_away && ot_val_home && ot_goals > 0
-      overtime_type = "OT"
-    end
+    overtime_type = "SO" if so_goals > 0
+    overtime_type = "OT" if overtime_type.nil? && ot_has_real_value
   end
 
-  # --- 4️⃣ Handle shootout bonus goal correctly ---
-  if overtime_type == "SO"
-    if away_score == home_score
-      if away_team =~ /Greenville/i
-        away_score += 1
-      else
-        home_score += 1
-      end
-    end
-  end
-
-  # --- 5️⃣ Build result ONLY if game is final ---
-  greenville_is_home = home_team =~ /Greenville/i
-  greenville_score = greenville_is_home ? home_score : away_score
-  opponent_score   = greenville_is_home ? away_score : home_score
-
+  # ---------- Build result (only for Final) ----------
   result = nil
   if status == "Final"
-    if overtime_type == "SO"
-      result_prefix = greenville_score > opponent_score ? "W(SO)" : "L(SO)"
-    elsif overtime_type == "OT"
-      result_prefix = greenville_score > opponent_score ? "W(OT)" : "L(OT)"
-    else
-      result_prefix = greenville_score > opponent_score ? "W" : "L"
-    end
+    greenville_is_home = home_team =~ /Greenville/i
+    greenville_score = greenville_is_home ? home_score : away_score
+    opponent_score   = greenville_is_home ? away_score : home_score
 
-    result = "#{result_prefix} #{[greenville_score, opponent_score].max}-#{[greenville_score, opponent_score].min}"
+    prefix =
+      if overtime_type == "SO"
+        greenville_score > opponent_score ? "W(SO)" : "L(SO)"
+      elsif overtime_type == "OT"
+        greenville_score > opponent_score ? "W(OT)" : "L(OT)"
+      else
+        greenville_score > opponent_score ? "W" : "L"
+      end
+
+    result = "#{prefix} #{[greenville_score, opponent_score].max}-#{[greenville_score, opponent_score].min}"
   end
 
-  # --- 7️⃣ Final JSON ---
+  # ---------- Final JSON ----------
   {
     "game_id" => game_id.to_i,
     "status" => status,
@@ -198,13 +206,22 @@ rescue => e
   nil
 end
 
-# --- Entry point ---
+# ---------- CLI entry ----------
 if ARGV.empty?
   warn "Usage: ruby enrich_game.rb <game_id>"
   exit 1
 end
 
 game_id = ARGV[0]
-game = JSON.parse(File.read("swamp_game_ids.json")).find { |g| g["game_id"].to_s == game_id }
+game = nil
+if File.exist?("swamp_game_ids.json")
+  begin
+    games = JSON.parse(File.read("swamp_game_ids.json"))
+    game = games.find { |g| g["game_id"].to_s == game_id.to_s }
+  rescue
+    game = nil
+  end
+end
+
 data = parse_game_sheet(game_id, game)
 puts JSON.pretty_generate(data) if data
