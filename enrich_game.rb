@@ -17,6 +17,16 @@ def parse_game_sheet(game_id, location)
   overtime_type = nil
   shootout_winner = nil
 
+  if scoring_table
+    puts "🧪 SCORING header: #{header_cells.join(' | ')}"
+    scoring_rows.each_with_index do |row, i|
+      cells = row.css('td').map(&:text).map(&:strip)
+      puts "🧪 Row #{i}: #{cells.join(' | ')}"
+    end
+  else
+    puts "❌ No SCORING table found for game #{game_id}"
+  end
+
   if scoring_rows.size >= 2 && header_cells.include?("SO")
     overtime_type = "SO"
     so_index = header_cells.index("SO")
@@ -29,15 +39,13 @@ def parse_game_sheet(game_id, location)
     so1 = row1[so_index].to_i
     so2 = row2[so_index].to_i
 
-    puts "🧪 SCORING table: team1=#{team1}, SO1=#{so1}; team2=#{team2}, SO2=#{so2}"
-
-    if team1 == "Greenville" && so1 > 0
+    if team1.strip.downcase.include?("greenville") && so1 > 0
       shootout_winner = "GVL"
-    elsif team2 == "Greenville" && so2 > 0
+    elsif team2.strip.downcase.include?("greenville") && so2 > 0
       shootout_winner = "GVL"
-    elsif team1 != "Greenville" && so1 > 0
+    elsif !team1.strip.downcase.include?("greenville") && so1 > 0
       shootout_winner = "OPP"
-    elsif team2 != "Greenville" && so2 > 0
+    elsif !team2.strip.downcase.include?("greenville") && so2 > 0
       shootout_winner = "OPP"
     end
   elsif header_cells.any? { |h| h.start_with?("OT") }
