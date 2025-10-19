@@ -10,7 +10,7 @@ def parse_game_sheet(game_id, location)
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
-  # ✅ Parse SCORING table first to detect OT/SO and shootout winner
+  # ✅ Parse SCORING table to detect OT/SO and shootout winner
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
   scoring_rows = scoring_table&.css('tbody tr') || []
   header_cells = scoring_table&.at_css('thead')&.css('tr')&.first&.css('th')&.map(&:text)&.map(&:strip) || []
