@@ -7,9 +7,10 @@ existing.each { |g| existing_by_id[g["game_id"]] = g }
 
 game_ids.each do |game|
   game_id = game["game_id"]
+  location = game["location"]
   puts "🔍 Enriching game #{game_id}..."
 
-  enriched = `ruby enrich_game.rb #{game_id}`
+  enriched = `ruby enrich_game.rb #{game_id} #{location}`
   next if enriched.strip.empty?
 
   begin
@@ -23,8 +24,10 @@ game_ids.each do |game|
     game_id: game_id,
     date: game["date"],
     opponent: game["opponent"],
-    location: game["location"],
-    status: "Final",
+    location: location,
+    status: data["status"],
+    result: data["result"],
+    overtime_type: data["overtime_type"],
     home_score: data["home_score"],
     away_score: data["away_score"],
     home_goals: data["home_goals"],
