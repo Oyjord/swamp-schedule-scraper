@@ -169,13 +169,17 @@ is_future = game_day && game_day > today && game_day <= season_end
 is_past   = game_day && game_day < today
 
 status =
-  if html_blank || is_future
+  if html_blank
+    "Upcoming"
+  elsif game_day == today && length_raw.to_s.strip.empty? && (has_scores || greenville_minutes_played > 0)
+    "Live"
+  elsif is_future
     "Upcoming"
   elsif has_length || greenville_minutes_played >= 55
     "Final"
-  elsif length_raw == "" && is_past && has_scores
+  elsif length_raw.to_s.strip.empty? && is_past && has_scores
     "Final"
-  elsif length_raw == "" && (!is_past || greenville_minutes_played < 55 || !has_scores)
+  elsif length_raw.to_s.strip.empty? && (!is_past || greenville_minutes_played < 55 || !has_scores)
     "Live"
   elsif has_status || (greenville_minutes_played > 0 && greenville_minutes_played < 55)
     "Live"
