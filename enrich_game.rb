@@ -96,42 +96,45 @@ end
   end
 
   # --- 3️⃣ Detect OT / SO accurately ---
-  normalize = ->(val) { val.to_s.gsub(/\u00A0/, '').strip }
-  ot_val_away = away_cells[4] ? normalize.call(away_cells[4]) : nil
+normalize = ->(val) { val.to_s.gsub(/\u00A0/, '').strip }
+
+# ✅ Only assign OT/SO values if columns exist
+ot_val_away = away_cells[4] ? normalize.call(away_cells[4]) : nil
 ot_val_home = home_cells[4] ? normalize.call(home_cells[4]) : nil
 so_val_away = away_cells[5] ? normalize.call(away_cells[5]) : nil
 so_val_home = home_cells[5] ? normalize.call(home_cells[5]) : nil
 
-  ot_cells_blank = [ot_val_away, ot_val_home].all? { |v| v.nil? || v.empty? || v == "0" }
+so_goals = (so_val_away.to_i + so_val_home.to_i)
+ot_goals = (ot_val_away.to_i + ot_val_home.to_i)
 
-  so_goals = (so_val_away.to_i + so_val_home.to_i)
-  ot_goals = (ot_val_away.to_i + ot_val_home.to_i)
-
-  overtime_type =
-  if so_val_away && so_val_home && (so_val_away.to_i + so_val_home.to_i) > 0
-    "SO"
-  elsif ot_val_away && ot_val_home && (ot_val_away.to_i + ot_val_home.to_i) > 0
-    "OT"
-  else
-    nil
+# ✅ Only assign overtime_type if game is Final
+overtime_type = nil
+if status == "Final"
+  if so_val_away && so_val_home && so_goals > 0
+    overtime_type = "SO"
+  elsif ot_val_away && ot_val_home && ot_goals > 0
+    overtime_type = "OT"
   end
+end
 
-  # --- 4️⃣ Handle shootout bonus goal correctly ---
-  if overtime_type == "SO"
-    if away_score == home_score
-      if away_team =~ /Greenville/i
-        away_score += 1
-      else
-        home_score += 1
-      end
+# --- 4️⃣ Handle shootout bonus goal correctly ---
+if overtime_type == "SO"
+  if away_score == home_score
+    if away_team =~ /Greenville/i
+      away_score += 1
+    else
+      home_score += 1
     end
   end
+end
 
-  # --- 5️⃣ Build result from Greenville’s perspective ---
-  greenville_is_home = home_team =~ /Greenville/i
-  greenville_score = greenville_is_home ? home_score : away_score
-  opponent_score   = greenville_is_home ? away_score : home_score
+ # --- 5️⃣ Build result ONLY if game is final ---
+greenville_is_home = home_team =~ /Greenville/i
+greenville_score = greenville_is_home ? home_score : away_score
+opponent_score   = greenville_is_home ? away_score : home_score
 
+result = nil
+if status == "Final"
   if overtime_type == "SO"
     result_prefix = greenville_score > opponent_score ? "W(SO)" : "L(SO)"
   elsif overtime_type == "OT"
@@ -141,6 +144,7 @@ so_val_home = home_cells[5] ? normalize.call(home_cells[5]) : nil
   end
 
   result = "#{result_prefix} #{[greenville_score, opponent_score].max}-#{[greenville_score, opponent_score].min}"
+end
 
   # --- 🧠 Determine status AFTER scores and goals are parsed ---
 length_raw = meta["Game Length"]&.strip
