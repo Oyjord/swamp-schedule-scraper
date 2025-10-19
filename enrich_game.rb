@@ -29,13 +29,13 @@ def parse_game_sheet(game_id, location)
     so1 = row1[so_index].to_i
     so2 = row2[so_index].to_i
 
-    if team1 == "GVL" && so1 > 0
+    if team1 == "Greenville" && so1 > 0
       shootout_winner = "GVL"
-    elsif team2 == "GVL" && so2 > 0
+    elsif team2 == "Greenville" && so2 > 0
       shootout_winner = "GVL"
-    elsif team1 != "GVL" && so1 > 0
+    elsif team1 != "Greenville" && so1 > 0
       shootout_winner = "OPP"
-    elsif team2 != "GVL" && so2 > 0
+    elsif team2 != "Greenville" && so2 > 0
       shootout_winner = "OPP"
     end
   elsif header_cells.any? { |h| h.start_with?("OT") }
