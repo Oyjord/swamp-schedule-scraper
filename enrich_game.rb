@@ -25,16 +25,10 @@ def parse_game(game_id, _location, _opponent)
 
     away_team = away_cells[0]
     home_team = home_cells[0]
+    away_score = away_cells[-1].to_i
+    home_score = home_cells[-1].to_i
 
-    if home_team.include?("Greenville")
-      greenville_is_home = true
-      home_score = home_cells[-1].to_i
-      away_score = away_cells[-1].to_i
-    elsif away_team.include?("Greenville")
-      greenville_is_home = false
-      home_score = home_cells[-1].to_i
-      away_score = away_cells[-1].to_i
-    end
+    greenville_is_home = home_team.include?("Greenville")
   end
 
   # ✅ GOALS table: parse <tbody> rows only
