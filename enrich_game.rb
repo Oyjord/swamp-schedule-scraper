@@ -2,58 +2,36 @@ require 'open-uri'
 require 'nokogiri'
 require 'json'
 
-GAME_REPORT_BASE = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
+BASE_URL = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
 
-def parse_game_sheet(game_id, _location, _opponent)
-  url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
+def parse_game(game_id, _location, _opponent)
+  url = "#{BASE_URL}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
-  debug = ENV["DEBUG"] == "true"
 
   home_score = nil
   away_score = nil
-  overtime_type = nil
   greenville_is_home = nil
+  home_goals = []
+  away_goals = []
 
-  # 🧠 Extract final scores from SCORING table
-  score_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
-  score_rows = score_table&.css('tr')&.drop(1) || []
+  # ✅ SCORING table: top row = away, bottom row = home
+  scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
+  rows = scoring_table&.css('tr')&.drop(1) || []
 
-  if score_rows.size >= 2
-    away_cells = score_rows[0].css('td').map(&:text).map(&:strip)
-    home_cells = score_rows[1].css('td').map(&:text).map(&:strip)
+  if rows.size >= 2
+    away_team = rows[0].css('td')[0].text.strip
+    away_score = rows[0].css('td')[-1].text.strip.to_i
 
-    away_team_name = away_cells[0]
-    home_team_name = home_cells[0]
+    home_team = rows[1].css('td')[0].text.strip
+    home_score = rows[1].css('td')[-1].text.strip.to_i
 
-    if home_team_name.include?("Greenville")
-      greenville_is_home = true
-      home_score = home_cells[-1].to_i
-      away_score = away_cells[-1].to_i
-    elsif away_team_name.include?("Greenville")
-      greenville_is_home = false
-      home_score = home_cells[-1].to_i
-      away_score = away_cells[-1].to_i
-    else
-      puts "⚠️ Greenville not found in SCORING table" if debug
-    end
-
-    puts "📊 SCORING table → Away: #{away_team_name} #{away_score}, Home: #{home_team_name} #{home_score}" if debug
-    puts "🏠 Greenville is home? #{greenville_is_home}" if debug
-
-    # 🧠 Detect OT/SO only if columns exist
-    header_cells = score_table.css('tr').first.css('td').map(&:text).map(&:strip)
-    overtime_type = "SO" if header_cells.any? { |h| h == "SO" }
-    overtime_type = "OT" if header_cells.any? { |h| h == "OT1" } && overtime_type.nil?
-  else
-    puts "⚠️ SCORING table not found or incomplete" if debug
+    greenville_is_home = home_team.include?("Greenville")
   end
 
-  # 🧩 Parse goal rows from <tbody>
+  # ✅ GOALS table: parse <tbody> rows only
   goal_table = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }
   goal_rows = goal_table&.css('tbody tr') || []
-
-  home_goals, away_goals = [], []
 
   goal_rows.each do |row|
     tds = row.css('td')
@@ -67,11 +45,6 @@ def parse_game_sheet(game_id, _location, _opponent)
     assists = tds[6].text.strip.gsub(/\u00A0/, '').strip
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
-    if greenville_is_home.nil?
-      puts "⚠️ Cannot assign goals — Greenville role unknown" if debug
-      next
-    end
-
     if team_code == "GVL"
       greenville_is_home ? home_goals << entry : away_goals << entry
     else
@@ -79,25 +52,16 @@ def parse_game_sheet(game_id, _location, _opponent)
     end
   end
 
-  # 🧠 Determine result from Greenville’s perspective
+  # ✅ Result logic
   greenville_score = greenville_is_home ? home_score : away_score
   opponent_score = greenville_is_home ? away_score : home_score
 
   result =
     if greenville_score && opponent_score
-      if greenville_score > opponent_score
-        "W"
-      elsif greenville_score < opponent_score
-        "L"
-      else
-        nil
-      end
+      greenville_score > opponent_score ? "W" : greenville_score < opponent_score ? "L" : nil
     else
       nil
     end
-
-  status = "Final"
-  status += " (#{overtime_type})" if overtime_type
 
   {
     game_id: game_id.to_i,
@@ -105,24 +69,24 @@ def parse_game_sheet(game_id, _location, _opponent)
     away_score: away_score,
     home_goals: home_goals,
     away_goals: away_goals,
-    status: status,
+    status: "Final",
     result: result,
-    overtime_type: overtime_type,
+    overtime_type: nil,
     game_report_url: url
   }
 rescue => e
-  puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
+  puts "⚠️ Error parsing game #{game_id}: #{e}"
   nil
 end
 
-# ✅ Final execution block
+# ✅ CLI entry
 if ARGV.size < 3
-  puts "Usage: ruby enrich_game.rb <game_id> <location: Home|Away> <opponent>"
+  puts "Usage: ruby enrich_game.rb <game_id> <location> <opponent>"
   exit 1
 end
 
 game_id = ARGV[0]
 location = ARGV[1]
 opponent = ARGV[2]
-enriched = parse_game_sheet(game_id, location, opponent)
-puts JSON.pretty_generate(enriched) if enriched
+parsed = parse_game(game_id, location, opponent)
+puts JSON.pretty_generate(parsed) if parsed
