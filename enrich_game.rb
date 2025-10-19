@@ -4,18 +4,19 @@ require 'json'
 
 GAME_REPORT_BASE = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
 
-def parse_game_sheet(game_id)
+def parse_game_sheet(game_id, location, opponent)
   url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
+  greenville_is_home = location == "Home"
+  greenville_is_away = location == "Away"
+
   # 🧠 Parse scoring summary table
   summary_table = doc.css('table').find { |t| t.text.include?('Scoring') && t.text.include?('T') }
   summary_rows = summary_table&.css('tr')&.drop(1) || []
 
-  home_team = nil
-  away_team = nil
   home_score = nil
   away_score = nil
   overtime_type = nil
@@ -24,8 +25,6 @@ def parse_game_sheet(game_id)
     home_cells = summary_rows[0].css('td')
     away_cells = summary_rows[1].css('td')
 
-    home_team = home_cells[0]&.text&.strip
-    away_team = away_cells[0]&.text&.strip
     home_score = home_cells[-1]&.text&.strip.to_i
     away_score = away_cells[-1]&.text&.strip.to_i
 
@@ -33,7 +32,7 @@ def parse_game_sheet(game_id)
     overtime_type = "SO" if header_text.include?("SO")
     overtime_type = "OT" if header_text.include?("OT") && !header_text.include?("SO")
 
-    puts "📊 Home: #{home_team} (#{home_score}), Away: #{away_team} (#{away_score})" if debug
+    puts "📊 Parsed scores — Home: #{home_score}, Away: #{away_score}" if debug
     puts "⏱️ Overtime type: #{overtime_type || 'none'}" if debug
   else
     puts "⚠️ Scoring summary table not found or incomplete" if debug
@@ -55,7 +54,7 @@ def parse_game_sheet(game_id)
     entry = assists.empty? ? "#{scorer} (unassisted)" : "#{scorer} (#{assists})"
 
     if team_code == "GVL"
-      if home_team&.include?("Greenville")
+      if greenville_is_home
         home_goals << entry
         puts "🏒 GVL goal → home_goals: #{entry}" if debug
       else
@@ -63,7 +62,7 @@ def parse_game_sheet(game_id)
         puts "🏒 GVL goal → away_goals: #{entry}" if debug
       end
     else
-      if home_team&.include?("Greenville")
+      if greenville_is_home
         away_goals << entry
         puts "🏒 Opponent goal → away_goals: #{entry}" if debug
       else
@@ -73,9 +72,9 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # 🧠 Determine result from Greenville's perspective
-  greenville_score = home_team&.include?("Greenville") ? home_score : away_score
-  opponent_score = home_team&.include?("Greenville") ? away_score : home_score
+  # 🧠 Determine result from Greenville’s perspective
+  greenville_score = greenville_is_home ? home_score : away_score
+  opponent_score = greenville_is_home ? away_score : home_score
 
   result =
     if greenville_score && opponent_score
@@ -110,11 +109,13 @@ rescue => e
 end
 
 # ✅ Final execution block
-if ARGV.empty?
-  puts "Usage: ruby enrich_game.rb <game_id>"
+if ARGV.size < 3
+  puts "Usage: ruby enrich_game.rb <game_id> <location: Home|Away> <opponent>"
   exit 1
 end
 
 game_id = ARGV[0]
-enriched = parse_game_sheet(game_id)
+location = ARGV[1]
+opponent = ARGV[2]
+enriched = parse_game_sheet(game_id, location, opponent)
 puts JSON.pretty_generate(enriched) if enriched
