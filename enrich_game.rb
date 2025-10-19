@@ -8,7 +8,6 @@ def parse_game_sheet(game_id, location)
   url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
-  debug = ENV["DEBUG"] == "true"
 
   # ✅ Parse SCORING table to detect OT/SO and shootout winner
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
@@ -82,7 +81,7 @@ def parse_game_sheet(game_id, location)
     result = shootout_winner == "GVL" ? "W(SO)" : shootout_winner == "OPP" ? "L(SO)" : nil
   end
 
-  {
+  enriched = {
     game_id: game_id.to_i,
     home_score: home_score,
     away_score: away_score,
@@ -93,6 +92,9 @@ def parse_game_sheet(game_id, location)
     overtime_type: overtime_type,
     game_report_url: url
   }
+
+  puts "🧠 Enriched game #{game_id}: #{enriched.inspect}"
+  enriched
 rescue => e
   puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
   nil
