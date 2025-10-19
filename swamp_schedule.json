@@ -4,15 +4,14 @@
     "date": "Oct. 17",
     "opponent": "Utah",
     "location": "Home",
-    "status": "Final (OT)",
+    "status": "Final",
     "result": "L",
-    "overtime_type": "OT",
+    "overtime_type": null,
     "home_score": 3,
     "away_score": 0,
     "home_goals": [
-      "Goals (Assists)",
       "G. Pyke (M. Messner)",
-      "G. Pyke ( )",
+      "G. Pyke (unassisted)",
       "T. Voit (L. Manning, N. Shea)"
     ],
     "away_goals": [
@@ -37,7 +36,6 @@
       "C. Hausinger (T. Singleton)"
     ],
     "away_goals": [
-      "Goals (Assists)",
       "J. Lopina (D. Cesana, N. Zabaneh)",
       "R. Mastrosimone (M. Koopman)",
       "B. Brodzinski (N. Zabaneh)",
