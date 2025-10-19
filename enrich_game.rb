@@ -13,30 +13,32 @@ def parse_game_sheet(game_id, location, opponent)
   greenville_is_home = location == "Home"
   greenville_is_away = location == "Away"
 
-  # 🧠 Parse scoring summary table
-  summary_table = doc.css('table').find { |t| t.text.include?('Scoring') && t.text.include?('T') }
-  summary_rows = summary_table&.css('tr')&.drop(1) || []
-
   home_score = nil
   away_score = nil
   overtime_type = nil
 
-  if summary_rows.size >= 2
-    home_cells = summary_rows[0].css('td')
-    away_cells = summary_rows[1].css('td')
+  # 🧠 Extract final scores from SCORING table
+  score_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
+  score_rows = score_table&.css('tr')&.drop(1) || []
 
-    home_score = home_cells[-1]&.text&.strip.to_i
-    away_score = away_cells[-1]&.text&.strip.to_i
+  if score_rows.size >= 2
+    away_cells = score_rows[0].css('td').map(&:text).map(&:strip)
+    home_cells = score_rows[1].css('td').map(&:text).map(&:strip)
 
-    header_text = summary_table.css('tr').first&.text || ""
-    overtime_type = "SO" if header_text.include?("SO")
-    overtime_type = "OT" if header_text.include?("OT") && !header_text.include?("SO")
+    away_team_name = away_cells[0]
+    home_team_name = home_cells[0]
+    away_score = away_cells[-1].to_i
+    home_score = home_cells[-1].to_i
 
-    puts "📊 Parsed scores — Home: #{home_score}, Away: #{away_score}" if debug
-    puts "⏱️ Overtime type: #{overtime_type || 'none'}" if debug
+    puts "📊 SCORING table → Away: #{away_team_name} #{away_score}, Home: #{home_team_name} #{home_score}" if debug
   else
-    puts "⚠️ Scoring summary table not found or incomplete" if debug
+    puts "⚠️ SCORING table not found or incomplete" if debug
   end
+
+  # 🧠 Detect OT or SO from header
+  header_text = score_table&.css('tr')&.first&.text || ""
+  overtime_type = "SO" if header_text.include?("SO")
+  overtime_type = "OT" if header_text.include?("OT") && !header_text.include?("SO")
 
   # 🧩 Parse goal rows
   goal_table = doc.css('table').find { |t| t.text.include?('Goals') && t.text.include?('Assists') }
@@ -60,6 +62,7 @@ def parse_game_sheet(game_id, location, opponent)
     end
   end
 
+  # 🧠 Determine result from Greenville’s perspective
   greenville_score = greenville_is_home ? home_score : away_score
   opponent_score = greenville_is_home ? away_score : home_score
 
@@ -95,6 +98,7 @@ rescue => e
   nil
 end
 
+# ✅ Final execution block
 if ARGV.size < 3
   puts "Usage: ruby enrich_game.rb <game_id> <location: Home|Away> <opponent>"
   exit 1
