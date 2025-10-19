@@ -93,7 +93,7 @@ def parse_game_sheet(game_id, location)
     game_report_url: url
   }
 
-  puts "🧠 Enriched game #{game_id}: #{enriched.inspect}"
+  puts JSON.pretty_generate(enriched)
   enriched
 rescue => e
   puts "⚠️ Failed to parse game sheet for game_id #{game_id}: #{e}"
