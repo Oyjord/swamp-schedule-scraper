@@ -6,9 +6,11 @@
     "location": "Home",
     "status": "Final",
     "home_score": 1,
-    "away_score": 0,
+    "away_score": 3,
     "home_goals": [
-
+      "G. Pyke (M. Messner)",
+      "G. Pyke ( )",
+      "T. Voit (L. Manning, N. Shea)"
     ],
     "away_goals": [
       "C. Hausinger (J. Power, B. Pedersen)"
