@@ -4,39 +4,13 @@ require 'json'
 
 GAME_REPORT_BASE = "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id="
 
-def parse_game_sheet(game_id)
+def parse_game_sheet(game_id, location)
   url = "#{GAME_REPORT_BASE}#{game_id}&lang_id=1"
   html = URI.open(url).read
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
-  # 🧠 Extract SCORING table to detect OT/SO and final scores
-  scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
-  scoring_rows = scoring_table&.css('tbody tr') || []
-  header_cells = scoring_table&.at_css('thead')&.css('tr')&.first&.css('th')&.map(&:text)&.map(&:strip) || []
-
-  overtime_type = nil
-  home_score = nil
-  away_score = nil
-
-  if scoring_rows.size >= 2
-    away_cells = scoring_rows[0].css('td').map(&:text).map(&:strip)
-    home_cells = scoring_rows[1].css('td').map(&:text).map(&:strip)
-
-    # Final score is always in the last column
-    away_score = away_cells.last.to_i
-    home_score = home_cells.last.to_i
-
-    if header_cells.include?("SO")
-      overtime_type = "SO"
-    elsif header_cells.include?("OT") || header_cells.include?("OT1")
-      overtime_type = "OT"
-    end
-
-    puts "📊 SCORING → Home: #{home_score}, Away: #{away_score}, OT Type: #{overtime_type}" if debug
-  end
-
-  # ✅ GOALS table
+  # ✅ Parse GOALS table
   rows = doc.css('table').find do |table|
     header = table.at_css('tr')
     header && header.text.include?('Goals') && header.text.include?('Assists')
@@ -69,17 +43,36 @@ def parse_game_sheet(game_id)
     end
   end
 
-  # ✅ Result logic
-  result = nil
-  if home_score && away_score
-    if home_score > away_score
-      result = "W"
-    elsif home_score < away_score
-      result = "L"
+  home_score = home_goals.size
+  away_score = away_goals.size
+
+  # ✅ Detect OT/SO from SCORING table header
+  scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
+  header_cells = scoring_table&.at_css('thead')&.css('tr')&.first&.css('th')&.map(&:text)&.map(&:strip) || []
+
+  overtime_type =
+    if header_cells.include?("SO")
+      "SO"
+    elsif header_cells.any? { |h| h.start_with?("OT") }
+      "OT"
+    else
+      nil
     end
 
-    result += "(#{overtime_type})" if result && overtime_type
-  end
+  # ✅ Result logic based on location
+  greenville_score = location == "Home" ? home_score : away_score
+  opponent_score = location == "Home" ? away_score : home_score
+
+  result =
+    if greenville_score > opponent_score
+      "W"
+    elsif greenville_score < opponent_score
+      "L"
+    else
+      nil
+    end
+
+  result += "(#{overtime_type})" if result && overtime_type
 
   {
     game_id: game_id.to_i,
@@ -97,11 +90,12 @@ rescue => e
   nil
 end
 
-if ARGV.empty?
-  puts "Usage: ruby enrich_game.rb <game_id>"
+if ARGV.size < 2
+  puts "Usage: ruby enrich_game.rb <game_id> <location>"
   exit 1
 end
 
 game_id = ARGV[0]
-enriched = parse_game_sheet(game_id)
+location = ARGV[1]
+enriched = parse_game_sheet(game_id, location)
 puts JSON.pretty_generate(enriched) if enriched
