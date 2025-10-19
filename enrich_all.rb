@@ -1,6 +1,6 @@
 require 'json'
 
-game_ids = JSON.parse(File.read("swamp_game_ids.json"))
+game_ids = [{"game_id" => 24312, "date" => "Oct. 18", "opponent" => "Savannah", "location" => "Away"}]
 existing = File.exist?("swamp_schedule.json") ? JSON.parse(File.read("swamp_schedule.json")) : []
 existing_by_id = {}
 existing.each { |g| existing_by_id[g["game_id"]] = g }
