@@ -16,7 +16,6 @@ def parse_game_sheet(game_id, location)
   header_cells = scoring_table&.at_css('thead')&.css('tr')&.first&.css('th')&.map(&:text)&.map(&:strip) || []
 
   overtime_type = nil
-  shootout_winner = nil
   final_home_score = nil
   final_away_score = nil
 
@@ -29,12 +28,6 @@ def parse_game_sheet(game_id, location)
 
     if header_cells.include?("SO")
       overtime_type = "SO"
-      shootout_winner =
-        if final_home_score > final_away_score
-          "GVL"
-        elsif final_away_score > final_home_score
-          "OPP"
-        end
     elsif header_cells.any? { |h| h.start_with?("OT") }
       overtime_type = "OT"
     end
@@ -87,12 +80,14 @@ def parse_game_sheet(game_id, location)
   elsif greenville_score < opponent_score
     result = "L"
   elsif greenville_score == opponent_score && overtime_type == "SO"
-    result =
-      if (location == "Home" && shootout_winner == "GVL") || (location == "Away" && shootout_winner == "GVL")
-        "W(SO)"
-      elsif shootout_winner == "OPP"
-        "L(SO)"
-      end
+    final_greenville_score = location == "Home" ? final_home_score : final_away_score
+    final_opponent_score = location == "Home" ? final_away_score : final_home_score
+
+    if final_greenville_score > final_opponent_score
+      result = "W(SO)"
+    elsif final_greenville_score < final_opponent_score
+      result = "L(SO)"
+    end
   end
 
   {
