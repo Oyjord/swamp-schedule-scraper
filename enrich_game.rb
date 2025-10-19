@@ -20,11 +20,19 @@ def parse_game_sheet(game_id, location)
   final_away_score = nil
 
   if scoring_rows.size >= 2
-    away_cells = scoring_rows[0].css('td').map(&:text).map(&:strip)
-    home_cells = scoring_rows[1].css('td').map(&:text).map(&:strip)
+    row1 = scoring_rows[0].css('td').map(&:text).map(&:strip)
+    row2 = scoring_rows[1].css('td').map(&:text).map(&:strip)
 
-    final_away_score = away_cells.last.to_i
-    final_home_score = home_cells.last.to_i
+    team1 = row1[0]
+    team2 = row2[0]
+
+    if location == "Home"
+      final_home_score = team1 == "GVL" ? row1.last.to_i : row2.last.to_i
+      final_away_score = team1 == "GVL" ? row2.last.to_i : row1.last.to_i
+    else
+      final_away_score = team1 == "GVL" ? row1.last.to_i : row2.last.to_i
+      final_home_score = team1 == "GVL" ? row2.last.to_i : row1.last.to_i
+    end
 
     if header_cells.include?("SO")
       overtime_type = "SO"
