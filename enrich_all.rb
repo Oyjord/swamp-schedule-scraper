@@ -36,5 +36,6 @@ game_ids.each do |game|
   }
 end
 
+# ✅ Always write the file, no checksum guard
 File.write("swamp_schedule.json", JSON.pretty_generate(existing_by_id.values.sort_by { |g| g["date"] }))
-puts "✅ Updated swamp_schedule.json with #{existing_by_id.size} games"
+puts "✅ Force-wrote swamp_schedule.json with #{existing_by_id.size} games at #{Time.now}"
