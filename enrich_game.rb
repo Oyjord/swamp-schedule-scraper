@@ -10,12 +10,11 @@ def parse_game_sheet(game_id, location, opponent)
   doc = Nokogiri::HTML(html)
   debug = ENV["DEBUG"] == "true"
 
-  greenville_is_home = location == "Home"
-  greenville_is_away = location == "Away"
-
   home_score = nil
   away_score = nil
   overtime_type = nil
+  greenville_is_home = nil
+  greenville_is_away = nil
 
   # 🧠 Extract final scores from SCORING table
   score_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
@@ -30,7 +29,11 @@ def parse_game_sheet(game_id, location, opponent)
     away_score = away_cells[-1].to_i
     home_score = home_cells[-1].to_i
 
+    greenville_is_home = home_team_name.include?("Greenville")
+    greenville_is_away = away_team_name.include?("Greenville")
+
     puts "📊 SCORING table → Away: #{away_team_name} #{away_score}, Home: #{home_team_name} #{home_score}" if debug
+    puts "🏠 Greenville is home? #{greenville_is_home}" if debug
   else
     puts "⚠️ SCORING table not found or incomplete" if debug
   end
