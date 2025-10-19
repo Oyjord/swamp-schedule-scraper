@@ -17,11 +17,11 @@ def parse_game(game_id, _location, _opponent)
 
   # ✅ SCORING table: top row = away, bottom row = home
   scoring_table = doc.css('table').find { |t| t.text.include?('SCORING') && t.text.include?('T') }
-  rows = scoring_table&.css('tr')&.drop(1) || []
+  scoring_rows = scoring_table&.css('tbody tr') || []
 
-  if rows.size >= 2
-    away_cells = rows[0].css('td').map(&:text).map(&:strip)
-    home_cells = rows[1].css('td').map(&:text).map(&:strip)
+  if scoring_rows.size >= 2
+    away_cells = scoring_rows[0].css('td').map(&:text).map(&:strip)
+    home_cells = scoring_rows[1].css('td').map(&:text).map(&:strip)
 
     away_team = away_cells[0]
     home_team = home_cells[0]
