@@ -56,9 +56,9 @@ if goal_table
   idx_goal   = headers.index { |h| h.match?(/Goal|Scorer/i) } || 5
   idx_assist = headers.index { |h| h.match?(/Assist/i) } || 6
 
-  # Normalize team names for comparison
-  normalized_home = home_team.gsub(/\s+/, '').upcase
-  normalized_away = away_team.gsub(/\s+/, '').upcase
+  greenville_is_home = game["location"] == "Home"
+  greenville_team_code = greenville_is_home ? home_label : away_label
+  opponent_team_code   = greenville_is_home ? away_label : home_label
 
   goal_table.css('tr')[1..]&.each do |row|
     tds = row.css('td')
@@ -71,11 +71,10 @@ if goal_table
 
     entry = assists.nil? || assists.empty? ? scorer : "#{scorer} (#{assists})"
 
-    # ✅ Dynamic attribution using normalized team codes
-    if team_code && normalized_home.include?(team_code)
-      home_goals << entry
-    elsif team_code && normalized_away.include?(team_code)
-      away_goals << entry
+    if team_code == greenville_team_code
+      greenville_is_home ? home_goals << entry : away_goals << entry
+    elsif team_code == opponent_team_code
+      greenville_is_home ? away_goals << entry : home_goals << entry
     else
       # 🧠 Final fallback: assign to team with fewer goals
       if away_goals.size <= home_goals.size
