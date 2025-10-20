@@ -4,9 +4,9 @@
     "date": "Apr. 11",
     "opponent": "Bloomington",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -22,9 +22,9 @@
     "date": "Apr. 12",
     "opponent": "Bloomington",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -40,9 +40,9 @@
     "date": "Apr. 2",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -58,9 +58,9 @@
     "date": "Apr. 3",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -76,9 +76,9 @@
     "date": "Apr. 4",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -94,9 +94,9 @@
     "date": "Apr. 9",
     "opponent": "Bloomington",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -112,9 +112,9 @@
     "date": "Dec. 12",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -130,9 +130,9 @@
     "date": "Dec. 13",
     "opponent": "Greensboro",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -148,9 +148,9 @@
     "date": "Dec. 17",
     "opponent": "Cincinnati",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -166,9 +166,9 @@
     "date": "Dec. 20",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -184,9 +184,9 @@
     "date": "Dec. 21",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -202,9 +202,9 @@
     "date": "Dec. 26",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -220,9 +220,9 @@
     "date": "Dec. 27",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -238,9 +238,9 @@
     "date": "Dec. 28",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -256,9 +256,9 @@
     "date": "Dec. 31",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -274,9 +274,9 @@
     "date": "Dec. 5",
     "opponent": "Orlando",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -292,9 +292,9 @@
     "date": "Dec. 6",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -310,9 +310,9 @@
     "date": "Dec. 7",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -328,9 +328,9 @@
     "date": "Feb. 11",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -346,9 +346,9 @@
     "date": "Feb. 13",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -364,9 +364,9 @@
     "date": "Feb. 14",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -382,9 +382,9 @@
     "date": "Feb. 15",
     "opponent": "Savannah",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -400,9 +400,9 @@
     "date": "Feb. 18",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -418,9 +418,9 @@
     "date": "Feb. 19",
     "opponent": "Tulsa",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -436,9 +436,9 @@
     "date": "Feb. 21",
     "opponent": "Tulsa",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -454,9 +454,9 @@
     "date": "Feb. 22",
     "opponent": "Tulsa",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -472,9 +472,9 @@
     "date": "Feb. 27",
     "opponent": "Reading",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -490,9 +490,9 @@
     "date": "Feb. 28",
     "opponent": "Reading",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -508,9 +508,9 @@
     "date": "Feb. 4",
     "opponent": "Idaho",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -526,9 +526,9 @@
     "date": "Feb. 6",
     "opponent": "Idaho",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -544,9 +544,9 @@
     "date": "Feb. 7",
     "opponent": "Idaho",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -562,9 +562,9 @@
     "date": "Jan. 10",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -580,9 +580,9 @@
     "date": "Jan. 13",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -598,9 +598,9 @@
     "date": "Jan. 17",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -616,9 +616,9 @@
     "date": "Jan. 18",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -634,9 +634,9 @@
     "date": "Jan. 19",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -652,9 +652,9 @@
     "date": "Jan. 2",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -670,9 +670,9 @@
     "date": "Jan. 23",
     "opponent": "Florida",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -688,9 +688,9 @@
     "date": "Jan. 24",
     "opponent": "Savannah",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -706,9 +706,9 @@
     "date": "Jan. 25",
     "opponent": "Savannah",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -724,9 +724,9 @@
     "date": "Jan. 28",
     "opponent": "Utah",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -742,9 +742,9 @@
     "date": "Jan. 3",
     "opponent": "Jacksonville",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -760,9 +760,9 @@
     "date": "Jan. 30",
     "opponent": "Utah",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -778,9 +778,9 @@
     "date": "Jan. 31",
     "opponent": "Utah",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -796,9 +796,9 @@
     "date": "Jan. 5",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -814,9 +814,9 @@
     "date": "Mar. 10",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -832,9 +832,9 @@
     "date": "Mar. 13",
     "opponent": "Jacksonville",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -850,9 +850,9 @@
     "date": "Mar. 14",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -868,9 +868,9 @@
     "date": "Mar. 15",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -886,9 +886,9 @@
     "date": "Mar. 20",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -904,9 +904,9 @@
     "date": "Mar. 21",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -922,9 +922,9 @@
     "date": "Mar. 22",
     "opponent": "Jacksonville",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -940,9 +940,9 @@
     "date": "Mar. 29",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -958,9 +958,9 @@
     "date": "Mar. 4",
     "opponent": "Florida",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -976,9 +976,9 @@
     "date": "Mar. 6",
     "opponent": "Florida",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -994,9 +994,9 @@
     "date": "Nov. 1",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1012,9 +1012,9 @@
     "date": "Nov. 12",
     "opponent": "Florida",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1030,9 +1030,9 @@
     "date": "Nov. 14",
     "opponent": "Florida",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1048,9 +1048,9 @@
     "date": "Nov. 15",
     "opponent": "Florida",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1066,9 +1066,9 @@
     "date": "Nov. 21",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1084,9 +1084,9 @@
     "date": "Nov. 22",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1102,9 +1102,9 @@
     "date": "Nov. 26",
     "opponent": "Greensboro",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1120,9 +1120,9 @@
     "date": "Nov. 29",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1138,9 +1138,9 @@
     "date": "Nov. 30",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1156,9 +1156,9 @@
     "date": "Nov. 5",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1174,9 +1174,9 @@
     "date": "Nov. 8",
     "opponent": "Orlando",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1192,17 +1192,20 @@
     "date": "Oct. 17",
     "opponent": "Utah",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Final",
+    "home_score": 1,
+    "away_score": 3,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "C. Hausinger (J. Power, B. Pedersen)",
+      "G. Pyke (M. Messner)",
+      "G. Pyke ( )",
+      "T. Voit (L. Manning, N. Shea)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(OT) 3-1",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1"
   },
   {
@@ -1210,17 +1213,23 @@
     "date": "Oct. 18",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Final",
+    "home_score": 4,
+    "away_score": 5,
     "home_goals": [
-
+      "J. Lopina (D. Cesana, N. Zabaneh)",
+      "R. Mastrosimone (M. Koopman)",
+      "B. Brodzinski (N. Zabaneh)",
+      "M. Koopman (N. Granowicz, L. Walsh)"
     ],
     "away_goals": [
-
+      "P. Polino (J. Murray, T. Lovell)",
+      "S. Timofeyev (J. Atkinson, J. Murray)",
+      "C. Hausinger (K. Mastrodonato, J. Murray)",
+      "C. Hausinger (T. Singleton)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "W(SO) 5-4",
+    "overtime_type": "SO",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24312&lang_id=1"
   },
   {
@@ -1228,17 +1237,22 @@
     "date": "Oct. 19",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Final",
+    "home_score": 3,
+    "away_score": 4,
     "home_goals": [
-
+      "S. Pinard (S. Cooley, J. Wilkins)",
+      "J. Wilkins (S. Pinard, K. Kupka)",
+      "K. Mastrodonato (T. Singleton)"
     ],
     "away_goals": [
-
+      "T. Singleton (R. O'Reilly, H. Schandor)",
+      "S. Cooley (D. Loukus, R. Webb)",
+      "J. Wilkins (S. Pinard, J. Fusco)",
+      "K. Isogai (J. Modry)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(OT) 4-3",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1"
   },
   {
@@ -1246,9 +1260,9 @@
     "date": "Oct. 24",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1264,9 +1278,9 @@
     "date": "Oct. 25",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
@@ -1282,9 +1296,9 @@
     "date": "Oct. 31",
     "opponent": "Orlando",
     "location": "Home",
-    "status": "Unavailable",
-    "home_score": null,
-    "away_score": null,
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
     "home_goals": [
 
     ],
