@@ -1196,12 +1196,12 @@
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
-      "G. Pyke (M. Messner)",
-      "T. Voit (L. Manning, N. Shea)"
+      "C. Hausinger (J. Power, B. Pedersen)"
     ],
     "away_goals": [
-      "C. Hausinger (J. Power, B. Pedersen)",
-      "G. Pyke ( )"
+      "G. Pyke (M. Messner)",
+      "G. Pyke ( )",
+      "T. Voit (L. Manning, N. Shea)"
     ],
     "result": "L 3-1",
     "overtime_type": null,
@@ -1216,16 +1216,16 @@
     "home_score": 4,
     "away_score": 5,
     "home_goals": [
-      "P. Polino (J. Murray, T. Lovell)",
+      "J. Lopina (D. Cesana, N. Zabaneh)",
       "R. Mastrosimone (M. Koopman)",
       "B. Brodzinski (N. Zabaneh)",
-      "C. Hausinger (T. Singleton)"
+      "M. Koopman (N. Granowicz, L. Walsh)"
     ],
     "away_goals": [
-      "J. Lopina (D. Cesana, N. Zabaneh)",
+      "P. Polino (J. Murray, T. Lovell)",
       "S. Timofeyev (J. Atkinson, J. Murray)",
       "C. Hausinger (K. Mastrodonato, J. Murray)",
-      "M. Koopman (N. Granowicz, L. Walsh)"
+      "C. Hausinger (T. Singleton)"
     ],
     "result": "W(SO) 5-4",
     "overtime_type": "SO",
@@ -1240,15 +1240,15 @@
     "home_score": 3,
     "away_score": 4,
     "home_goals": [
-      "S. Pinard (S. Cooley, J. Wilkins)",
-      "J. Wilkins (S. Pinard, K. Kupka)",
-      "K. Mastrodonato (T. Singleton)"
+      "T. Singleton (R. O'Reilly, H. Schandor)",
+      "K. Mastrodonato (T. Singleton)",
+      "K. Isogai (J. Modry)"
     ],
     "away_goals": [
-      "T. Singleton (R. O'Reilly, H. Schandor)",
+      "S. Pinard (S. Cooley, J. Wilkins)",
       "S. Cooley (D. Loukus, R. Webb)",
-      "J. Wilkins (S. Pinard, J. Fusco)",
-      "K. Isogai (J. Modry)"
+      "J. Wilkins (S. Pinard, K. Kupka)",
+      "J. Wilkins (S. Pinard, J. Fusco)"
     ],
     "result": "L 4-3",
     "overtime_type": null,
