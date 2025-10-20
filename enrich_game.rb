@@ -43,45 +43,49 @@ def parse_game_sheet(game_id, game = nil)
   home_label = home_team.gsub(/\s+/, '').upcase
 
   # ---------- GOAL SUMMARY table ----------
-  goal_table = doc.css('table').find do |t|
-    header = t.at_css('tr')
-    header && header.text.match?(/Goal|Scorer/i)
-  end
+goal_table = doc.css('table').find do |t|
+  header = t.at_css('tr')
+  header && header.text.match?(/Goal|Scorer/i)
+end
 
-  home_goals, away_goals = [], []
+home_goals, away_goals = [], []
 
-  if goal_table
-    headers = goal_table.css('tr').first.css('td,th').map { |td| td.text.strip }
-    idx_team   = headers.index { |h| h.match?(/Team/i) } || 3
-    idx_goal   = headers.index { |h| h.match?(/Goal|Scorer/i) } || 5
-    idx_assist = headers.index { |h| h.match?(/Assist/i) } || 6
+if goal_table
+  headers = goal_table.css('tr').first.css('td,th').map { |td| td.text.strip }
+  idx_team   = headers.index { |h| h.match?(/Team/i) } || 3
+  idx_goal   = headers.index { |h| h.match?(/Goal|Scorer/i) } || 5
+  idx_assist = headers.index { |h| h.match?(/Assist/i) } || 6
 
-    goal_table.css('tr')[1..]&.each do |row|
-      tds = row.css('td')
-      next if tds.size < [idx_team, idx_goal, idx_assist].max + 1
+  # Normalize team names for comparison
+  normalized_home = home_team.gsub(/\s+/, '').upcase
+  normalized_away = away_team.gsub(/\s+/, '').upcase
 
-      team_code = tds[idx_team]&.text&.gsub(/\u00A0/, '')&.strip&.upcase
-      scorer    = tds[idx_goal]&.text&.split('(')&.first&.strip
-      assists   = tds[idx_assist]&.text&.strip
-      next if scorer.nil? || scorer.empty?
+  goal_table.css('tr')[1..]&.each do |row|
+    tds = row.css('td')
+    next if tds.size < [idx_team, idx_goal, idx_assist].max + 1
 
-      entry = assists.nil? || assists.empty? ? scorer : "#{scorer} (#{assists})"
+    team_code = tds[idx_team]&.text&.gsub(/\u00A0/, '')&.strip&.upcase
+    scorer    = tds[idx_goal]&.text&.split('(')&.first&.strip
+    assists   = tds[idx_assist]&.text&.strip
+    next if scorer.nil? || scorer.empty?
 
-      # Determine if the code belongs to home or away team
-      if team_code && away_label.include?(team_code)
+    entry = assists.nil? || assists.empty? ? scorer : "#{scorer} (#{assists})"
+
+    # ✅ Dynamic attribution using normalized team codes
+    if team_code && normalized_home.include?(team_code)
+      home_goals << entry
+    elsif team_code && normalized_away.include?(team_code)
+      away_goals << entry
+    else
+      # 🧠 Final fallback: assign to team with fewer goals
+      if away_goals.size <= home_goals.size
         away_goals << entry
-      elsif team_code && home_label.include?(team_code)
-        home_goals << entry
       else
-        # fallback heuristic: assign to team with fewer goals
-        if away_goals.size <= home_goals.size
-          away_goals << entry
-        else
-          home_goals << entry
-        end
+        home_goals << entry
       end
     end
   end
+end
 
   # ---------- META info ----------
   meta_table = doc.css('table').find { |t| t.text.match?(/Game Start|Game End|Game Length/i) }
@@ -151,20 +155,26 @@ def parse_game_sheet(game_id, game = nil)
     end
 
   # ---------- Detect OT / SO ----------
-  normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
-  ot_away = normalize.call(away_cells[4]) rescue ""
-  ot_home = normalize.call(home_cells[4]) rescue ""
-  so_away = normalize.call(away_cells[5]) rescue ""
-  so_home = normalize.call(home_cells[5]) rescue ""
+normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
 
-  ot_blank = [ot_away, ot_home].all? { |v| v.empty? || v == "0" }
-  so_blank = [so_away, so_home].all? { |v| v.empty? || v == "0" }
+# ✅ Only read OT/SO columns if they exist
+ot_away = away_cells.length > 5 ? normalize.call(away_cells[4]) : ""
+ot_home = home_cells.length > 5 ? normalize.call(home_cells[4]) : ""
+so_away = away_cells.length > 5 ? normalize.call(away_cells[5]) : ""
+so_home = home_cells.length > 5 ? normalize.call(home_cells[5]) : ""
 
-  overtime_type = nil
-  if status == "Final"
-    overtime_type = "SO" unless so_blank
-    overtime_type = "OT" if overtime_type.nil? && !ot_blank
+# ✅ Only assign overtime_type if game is Final
+overtime_type = nil
+if status == "Final"
+  so_goals = so_away.to_i + so_home.to_i
+  ot_goals = ot_away.to_i + ot_home.to_i
+
+  if so_goals > 0
+    overtime_type = "SO"
+  elsif ot_goals > 0
+    overtime_type = "OT"
   end
+end
 
   # ---------- Build result ----------
   result = nil
