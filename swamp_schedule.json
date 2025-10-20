@@ -1196,13 +1196,12 @@
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
-
+      "G. Pyke (M. Messner)",
+      "T. Voit (L. Manning, N. Shea)"
     ],
     "away_goals": [
       "C. Hausinger (J. Power, B. Pedersen)",
-      "G. Pyke (M. Messner)",
-      "G. Pyke ( )",
-      "T. Voit (L. Manning, N. Shea)"
+      "G. Pyke ( )"
     ],
     "result": "L 3-1",
     "overtime_type": null,
@@ -1217,16 +1216,16 @@
     "home_score": 4,
     "away_score": 5,
     "home_goals": [
-      "J. Lopina (D. Cesana, N. Zabaneh)",
+      "P. Polino (J. Murray, T. Lovell)",
       "R. Mastrosimone (M. Koopman)",
       "B. Brodzinski (N. Zabaneh)",
-      "M. Koopman (N. Granowicz, L. Walsh)"
+      "C. Hausinger (T. Singleton)"
     ],
     "away_goals": [
-      "P. Polino (J. Murray, T. Lovell)",
+      "J. Lopina (D. Cesana, N. Zabaneh)",
       "S. Timofeyev (J. Atkinson, J. Murray)",
       "C. Hausinger (K. Mastrodonato, J. Murray)",
-      "C. Hausinger (T. Singleton)"
+      "M. Koopman (N. Granowicz, L. Walsh)"
     ],
     "result": "W(SO) 5-4",
     "overtime_type": "SO",
