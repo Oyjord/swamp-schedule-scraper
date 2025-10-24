@@ -155,14 +155,17 @@ status =
     has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
   end
 
-puts "🧪 Game #{game_id} status: #{status}"
-puts "🧪 scheduled_start: #{scheduled_start.inspect}"
-puts "🧪 scheduled_date: #{scheduled_date.inspect}"
-puts "🧪 home_score: #{home_score}, away_score: #{away_score}"
-puts "🧪 home_goals: #{home_goals.inspect}"
-puts "🧪 away_goals: #{away_goals.inspect}"
-puts "🧪 has_final_indicator: #{has_final_indicator}"
-puts "🧪 has_scores: #{has_scores}"
+if game_id.to_s == "24330"
+  puts "🧪 DEBUG FOR GAME #{game_id}"
+  puts "🧪 status: #{status}"
+  puts "🧪 scheduled_start: #{scheduled_start.inspect}"
+  puts "🧪 scheduled_date: #{scheduled_date.inspect}"
+  puts "🧪 home_score: #{home_score}, away_score: #{away_score}"
+  puts "🧪 home_goals: #{home_goals.inspect}"
+  puts "🧪 away_goals: #{away_goals.inspect}"
+  puts "🧪 has_final_indicator: #{has_final_indicator}"
+  puts "🧪 has_scores: #{has_scores}"
+end
 
   # ---------- Detect OT / SO ----------
 normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
