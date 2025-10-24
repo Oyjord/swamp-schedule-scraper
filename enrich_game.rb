@@ -156,15 +156,15 @@ status =
   end
 
 if game_id.to_s == "24330"
-  puts "🧪 DEBUG FOR GAME #{game_id}"
-  puts "🧪 status: #{status}"
-  puts "🧪 scheduled_start: #{scheduled_start.inspect}"
-  puts "🧪 scheduled_date: #{scheduled_date.inspect}"
-  puts "🧪 home_score: #{home_score}, away_score: #{away_score}"
-  puts "🧪 home_goals: #{home_goals.inspect}"
-  puts "🧪 away_goals: #{away_goals.inspect}"
-  puts "🧪 has_final_indicator: #{has_final_indicator}"
-  puts "🧪 has_scores: #{has_scores}"
+  warn "🧪 DEBUG FOR GAME #{game_id}"
+  warn "🧪 status: #{status}"
+  warn "🧪 scheduled_start: #{scheduled_start.inspect}"
+  warn "🧪 scheduled_date: #{scheduled_date.inspect}"
+  warn "🧪 home_score: #{home_score}, away_score: #{away_score}"
+  warn "🧪 home_goals: #{home_goals.inspect}"
+  warn "🧪 away_goals: #{away_goals.inspect}"
+  warn "🧪 has_final_indicator: #{has_final_indicator}"
+  warn "🧪 has_scores: #{has_scores}"
 end
 
   # ---------- Detect OT / SO ----------
