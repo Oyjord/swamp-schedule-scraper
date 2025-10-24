@@ -139,16 +139,25 @@ status =
       "Live"
     end
   elsif scheduled_date
-    if Date.today < scheduled_date
-      "Upcoming"
-    elsif Date.today > scheduled_date
-      has_scores ? "Final" : "Upcoming"
+  if Date.today < scheduled_date
+    "Upcoming"
+  elsif Date.today > scheduled_date
+    has_scores ? "Final" : "Upcoming"
+  else
+    # Game is today — check time proximity
+    if now.hour >= 16 || now >= (scheduled_start || Time.now)
+      has_final_indicator ? "Final" : "Live"
     else
-      has_scores ? "Live" : "Upcoming"
+      "Upcoming"
     end
+  end
   else
     has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
   end
+
+puts "🧪 Game #{game_id} scheduled_start: #{scheduled_start.inspect}"
+puts "🧪 Game #{game_id} scheduled_date: #{scheduled_date.inspect}"
+puts "🧪 Game #{game_id} status: #{status}"
 
   # ---------- Detect OT / SO ----------
 normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
