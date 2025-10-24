@@ -117,32 +117,38 @@ end
   end
 
   # ---------- status ----------
-  has_final_indicator =
-    (game_length_raw && game_length_raw.match?(/\d+:\d+/)) ||
-    (game_end_raw && !game_end_raw.empty?) ||
-    (doc.text =~ /\bFinal\b/i && doc.text !~ /not available/i)
+has_final_indicator =
+  (game_length_raw && game_length_raw.match?(/\d+:\d+/)) ||
+  (game_end_raw && !game_end_raw.empty?) ||
+  (doc.text =~ /\bFinal\b/i && doc.text !~ /not available/i)
 
-  has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
+has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
 
-  now = Time.now
-  status =
-    if doc.text.include?("This game is not available")
+now = Time.now
+status =
+  if doc.text.include?("This game is not available")
+    "Upcoming"
+  elsif has_final_indicator
+    "Final"
+  elsif scheduled_start
+    if now < scheduled_start
       "Upcoming"
     elsif has_final_indicator
       "Final"
-    elsif scheduled_start
-      now < scheduled_start ? "Upcoming" : "Live"
-    elsif scheduled_date
-      if Date.today < scheduled_date
-        "Upcoming"
-      elsif Date.today > scheduled_date
-        has_scores ? "Final" : "Upcoming"
-      else
-        has_scores ? "Live" : "Upcoming"
-      end
     else
-      has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
+      "Live"
     end
+  elsif scheduled_date
+    if Date.today < scheduled_date
+      "Upcoming"
+    elsif Date.today > scheduled_date
+      has_scores ? "Final" : "Upcoming"
+    else
+      has_scores ? "Live" : "Upcoming"
+    end
+  else
+    has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
+  end
 
   # ---------- Detect OT / SO ----------
 normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
