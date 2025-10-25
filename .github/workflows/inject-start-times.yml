@@ -26,6 +26,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add swamp_schedule_enriched.json
+          git add swamp_schedule.json
           git commit -m "Inject scheduled_start into swamp_schedule.json"
           git push
