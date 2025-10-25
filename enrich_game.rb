@@ -174,8 +174,9 @@ warn "🧪 has_final_indicator class: #{has_final_indicator.class}, value: #{has
 warn "🧪 final_indicator_missing: #{final_indicator_missing}"
 
 if status == "Final" && scheduled_date == Date.today && final_indicator_missing
-  warn "🧪 OVERRIDE: Forcing Live due to same-day no-final"
+  warn "🧪 OVERRIDE FIRED — status before: #{status}"
   status = "Live"
+  warn "🧪 OVERRIDE FIRED — status after: #{status}"
 end
 
 
