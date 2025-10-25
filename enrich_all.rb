@@ -1,4 +1,5 @@
 require 'json'
+require 'open3'
 
 # --- Load game IDs and any existing data ---
 game_ids = JSON.parse(File.read("swamp_game_ids.json"))
@@ -13,9 +14,10 @@ game_ids.each do |game|
   game_id = game["game_id"]
   puts "🔍 Enriching game #{game_id}..."
 
-  # Run enrich_game.rb for this game
-  enriched_output = `ruby enrich_game.rb #{game_id}`
-  next if enriched_output.strip.empty?
+  # Run enrich_game.rb and capture only STDOUT
+  stdout, stderr, status = Open3.capture3("ruby enrich_game.rb #{game_id}")
+  enriched_output = stdout.strip
+  next if enriched_output.empty?
 
   # Try parsing the JSON safely
   begin
