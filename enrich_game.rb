@@ -104,18 +104,6 @@ end
     scheduled_start = nil
   end
 
-  scheduled_date = nil
-  begin
-    if game && game["date"]
-      ds = game["date"].gsub('.', '').strip
-      if ds =~ /\w+\s+\d{1,2}/
-        scheduled_date = Date.parse("#{ds} #{Time.now.year}")
-      end
-    end
-  rescue
-    scheduled_date = nil
-  end
-
   # ---------- status ----------
 has_final_indicator =
   (game_length_raw && game_length_raw.match?(/\d+:\d+/)) ||
@@ -125,34 +113,18 @@ has_final_indicator =
 has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
 
 now = Time.now
+
 status =
   if doc.text.include?("This game is not available")
     "Upcoming"
+  elsif scheduled_start && now < scheduled_start
+    "Upcoming"
   elsif has_final_indicator
     "Final"
-  elsif scheduled_start
-    if now < scheduled_start
-      "Upcoming"
-    elsif has_final_indicator
-      "Final"
-    else
-      "Live"
-    end
-  elsif scheduled_date
-  if Date.today < scheduled_date
+  elsif scheduled_start && now >= scheduled_start
+    "Live"
+  else
     "Upcoming"
-  elsif Date.today > scheduled_date
-    has_scores ? "Final" : "Upcoming"
-  else
-    # Game is today — check time proximity
-    if now.hour >= 16 || now >= (scheduled_start || Time.now)
-      has_final_indicator ? "Final" : "Live"
-    else
-      "Upcoming"
-    end
-  end
-  else
-    has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
   end
 
 
@@ -160,23 +132,11 @@ if game_id.to_s == "24330"
   warn "🧪 DEBUG FOR GAME #{game_id}"
   warn "🧪 status: #{status}"
   warn "🧪 scheduled_start: #{scheduled_start.inspect}"
-  warn "🧪 scheduled_date: #{scheduled_date.inspect}"
   warn "🧪 home_score: #{home_score}, away_score: #{away_score}"
   warn "🧪 home_goals: #{home_goals.inspect}"
   warn "🧪 away_goals: #{away_goals.inspect}"
   warn "🧪 has_final_indicator: #{has_final_indicator}"
   warn "🧪 has_scores: #{has_scores}"
-end
-
-# ✅ Prevent false Final for same-day games — must run after debug
-final_indicator_missing = !has_final_indicator || has_final_indicator == false || has_final_indicator.to_s.strip.empty?
-warn "🧪 has_final_indicator class: #{has_final_indicator.class}, value: #{has_final_indicator.inspect}"
-warn "🧪 final_indicator_missing: #{final_indicator_missing}"
-
-if status == "Final" && scheduled_date == Date.today && final_indicator_missing
-  warn "🧪 OVERRIDE FIRED — status before: #{status}"
-  status = "Live"
-  warn "🧪 OVERRIDE FIRED — status after: #{status}"
 end
 
 
