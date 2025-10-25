@@ -1328,7 +1328,7 @@
     "date": "Oct. 24",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
     "away_score": 4,
     "home_goals": [
@@ -1341,7 +1341,7 @@
       "C. Brown (C. Grando, B. Hislop)",
       "C. Brown (B. MacArthur)"
     ],
-    "result": null,
+    "result": "L 4-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24330&lang_id=1",
     "scheduled_start": "2025-10-24T19:05:00+00:00"
