@@ -1260,17 +1260,18 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Final",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 3,
     "home_goals": [
-      "A. Saint (B. Pedersen)"
+      "A. Saint (B. Pedersen)",
+      "J. Atkinson (C. Hausinger, J. Murray)"
     ],
     "away_goals": [
       "M. Costantini (C. Supryka)",
       "A. Fulp (N. Dunkley, P. Bajkov)",
       "C. Brown (C. Grando, B. Hislop)"
     ],
-    "result": "L 3-1",
+    "result": "L 3-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24330&lang_id=1"
   },
