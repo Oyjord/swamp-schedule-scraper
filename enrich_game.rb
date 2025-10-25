@@ -155,16 +155,6 @@ status =
     has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
   end
 
-# ✅ Prevent false Final for same-day games
-final_indicator_missing = !has_final_indicator || has_final_indicator == false || has_final_indicator.to_s.strip.empty?
-
-warn "🧪 has_final_indicator class: #{has_final_indicator.class}, value: #{has_final_indicator.inspect}"
-warn "🧪 final_indicator_missing: #{final_indicator_missing}"
-
-if status == "Final" && scheduled_date == Date.today && final_indicator_missing
-  warn "🧪 OVERRIDE: Forcing Live due to same-day no-final"
-  status = "Live"
-end
 
 if game_id.to_s == "24330"
   warn "🧪 DEBUG FOR GAME #{game_id}"
@@ -177,6 +167,17 @@ if game_id.to_s == "24330"
   warn "🧪 has_final_indicator: #{has_final_indicator}"
   warn "🧪 has_scores: #{has_scores}"
 end
+
+# ✅ Prevent false Final for same-day games — must run after debug
+final_indicator_missing = !has_final_indicator || has_final_indicator == false || has_final_indicator.to_s.strip.empty?
+warn "🧪 has_final_indicator class: #{has_final_indicator.class}, value: #{has_final_indicator.inspect}"
+warn "🧪 final_indicator_missing: #{final_indicator_missing}"
+
+if status == "Final" && scheduled_date == Date.today && final_indicator_missing
+  warn "🧪 OVERRIDE: Forcing Live due to same-day no-final"
+  status = "Live"
+end
+
 
   # ---------- Detect OT / SO ----------
 normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
