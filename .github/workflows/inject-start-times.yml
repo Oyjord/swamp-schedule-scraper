@@ -1,0 +1,31 @@
+name: Inject Scheduled Start Times
+
+on:
+  workflow_dispatch: # Manual trigger from GitHub UI
+
+jobs:
+  inject:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install dependencies
+        run: gem install json
+
+      - name: Run injection script
+        run: ruby inject_start_times.rb
+
+      - name: Commit enriched JSON
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add swamp_schedule_enriched.json
+          git commit -m "Inject scheduled_start into swamp_schedule.json"
+          git push
