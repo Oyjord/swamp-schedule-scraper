@@ -158,6 +158,9 @@ status =
 # ✅ Prevent false Final for same-day games
 final_indicator_missing = !has_final_indicator || has_final_indicator == false || has_final_indicator.to_s.strip.empty?
 
+warn "🧪 has_final_indicator class: #{has_final_indicator.class}, value: #{has_final_indicator.inspect}"
+warn "🧪 final_indicator_missing: #{final_indicator_missing}"
+
 if status == "Final" && scheduled_date == Date.today && final_indicator_missing
   warn "🧪 OVERRIDE: Forcing Live due to same-day no-final"
   status = "Live"
