@@ -95,10 +95,12 @@ end
   # ---------- determine scheduled start ----------
   scheduled_start = nil
 begin
-  scheduled_start = Time.parse(game["scheduled_start"]) if game && game["scheduled_start"]
+  scheduled_start = Time.parse(game["scheduled_start"]).utc if game && game["scheduled_start"]
 rescue
   scheduled_start = nil
 end
+
+now = Time.now.utc
 
   # ---------- status ----------
 has_final_indicator =
@@ -108,7 +110,6 @@ has_final_indicator =
 
 has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
 
-now = Time.now
 
 status =
   if doc.text.include?("This game is not available")
