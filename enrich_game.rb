@@ -156,7 +156,7 @@ status =
   end
 
 # ✅ Prevent false Final for same-day games
-if status == "Final" && scheduled_date == Date.today && !has_final_indicator
+if status == "Final" && scheduled_date == Date.today && !has_final_indicator.to_s.match?(/\S/)
   warn "🧪 OVERRIDE: Forcing Live due to same-day no-final"
   status = "Live"
 end
