@@ -94,15 +94,11 @@ end
 
   # ---------- determine scheduled start ----------
   scheduled_start = nil
-  begin
-    if game && game["date"] && game_start_raw && !game_start_raw.empty?
-      date_str = game["date"].gsub('.', '').strip
-      year = (date_str =~ /,\s*\d{4}/) ? "" : ", #{Time.now.year}"
-      scheduled_start = Time.parse("#{date_str}#{year} #{game_start_raw}")
-    end
-  rescue
-    scheduled_start = nil
-  end
+begin
+  scheduled_start = Time.parse(game["scheduled_start"]) if game && game["scheduled_start"]
+rescue
+  scheduled_start = nil
+end
 
   # ---------- status ----------
 has_final_indicator =
