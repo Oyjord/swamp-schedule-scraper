@@ -155,6 +155,11 @@ status =
     has_scores ? (has_final_indicator ? "Final" : "Live") : "Upcoming"
   end
 
+# ✅ Prevent false Final for same-day games
+if status == "Final" && scheduled_date == Date.today && !has_final_indicator
+  status = "Live"
+end
+
 if game_id.to_s == "24330"
   warn "🧪 DEBUG FOR GAME #{game_id}"
   warn "🧪 status: #{status}"
