@@ -4,7 +4,6 @@ require 'time'
 
 ics_url = "https://swamprabbits.com/schedule-all.ics"
 json_path = "swamp_schedule.json"
-output_path = "swamp_schedule_enriched.json"
 
 # Step 1: Load JSON
 games = JSON.parse(File.read(json_path))
@@ -25,6 +24,6 @@ games.each do |game|
   game["scheduled_start"] = start_times[key] if start_times[key]
 end
 
-# Step 4: Write output
-File.write(output_path, JSON.pretty_generate(games))
-puts "✅ Injected scheduled_start into #{output_path}"
+# Step 4: Overwrite original file
+File.write(json_path, JSON.pretty_generate(games))
+puts "✅ Injected scheduled_start into #{json_path}"
