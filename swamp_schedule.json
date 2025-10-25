@@ -1259,16 +1259,18 @@
     "date": "Oct. 24",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Upcoming",
+    "status": "Final",
     "home_score": 0,
-    "away_score": 0,
+    "away_score": 3,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "M. Costantini (C. Supryka)",
+      "A. Fulp (N. Dunkley, P. Bajkov)",
+      "C. Brown (C. Grando, B. Hislop)"
     ],
-    "result": null,
+    "result": "L 3-0",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24330&lang_id=1"
   },
