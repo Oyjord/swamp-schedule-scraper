@@ -1351,7 +1351,7 @@
     "date": "Oct. 25",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
     "away_score": 2,
     "home_goals": [
@@ -1361,7 +1361,7 @@
       "S. Pinard (K. Kupka, C. Moore)",
       "K. Bohlsen (J. Luypen, P. Guzzo)"
     ],
-    "result": null,
+    "result": "L 2-1",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24342&lang_id=1",
     "scheduled_start": "2025-10-25T19:05:00+00:00"
