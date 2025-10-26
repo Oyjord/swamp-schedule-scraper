@@ -1352,13 +1352,13 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Live",
-    "home_score": 0,
-    "away_score": 0,
+    "home_score": 1,
+    "away_score": 1,
     "home_goals": [
-
+      "A. Saint (R. O'Hara, T. De Jong)"
     ],
     "away_goals": [
-
+      "S. Pinard (K. Kupka, C. Moore)"
     ],
     "result": null,
     "overtime_type": null,
