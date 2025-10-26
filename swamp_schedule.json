@@ -1353,12 +1353,13 @@
     "location": "Home",
     "status": "Live",
     "home_score": 1,
-    "away_score": 1,
+    "away_score": 2,
     "home_goals": [
       "A. Saint (R. O'Hara, T. De Jong)"
     ],
     "away_goals": [
-      "S. Pinard (K. Kupka, C. Moore)"
+      "S. Pinard (K. Kupka, C. Moore)",
+      "K. Bohlsen (J. Luypen, P. Guzzo)"
     ],
     "result": null,
     "overtime_type": null,
