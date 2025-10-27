@@ -88,6 +88,8 @@ end
     end
   end
 
+game_status_raw = meta['Game Status']
+
   game_start_raw = meta['Game Start']
   game_end_raw   = meta['Game End']
   game_length_raw = meta['Game Length']
@@ -111,11 +113,26 @@ has_final_indicator =
 has_scores = (home_score + away_score) > 0 || home_goals.any? || away_goals.any?
 
 
+#status =
+ # if doc.text.include?("This game is not available")
+ #   "Upcoming"
+ # elsif scheduled_start && now < scheduled_start
+ #   "Upcoming"
+#  elsif has_final_indicator
+#    "Final"
+#  elsif scheduled_start && now >= scheduled_start
+#    "Live"
+ # else
+ #   "Upcoming"
+ # end
+
 status =
   if doc.text.include?("This game is not available")
     "Upcoming"
   elsif scheduled_start && now < scheduled_start
     "Upcoming"
+  elsif game_status_raw&.downcase&.include?("unofficial final")
+    "Final"
   elsif has_final_indicator
     "Final"
   elsif scheduled_start && now >= scheduled_start
