@@ -1371,7 +1371,7 @@
     "date": "Oct. 31",
     "opponent": "Orlando",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
     "away_score": 2,
     "home_goals": [
@@ -1383,7 +1383,7 @@
       "A. Tonge (S. Kersten, J. Lukosevicius)",
       "M. Roelens (A. Luchuk, C. Kurth)"
     ],
-    "result": null,
+    "result": "W 3-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24366&lang_id=1",
     "scheduled_start": "2025-10-31T19:05:00+00:00"
