@@ -1372,14 +1372,16 @@
     "opponent": "Orlando",
     "location": "Home",
     "status": "Live",
-    "home_score": 2,
-    "away_score": 1,
+    "home_score": 3,
+    "away_score": 2,
     "home_goals": [
       "T. De Jong (K. Mastrodonato, C. Savoie)",
-      "C. Savoie (T. Lovell, T. Singleton)"
+      "C. Savoie (T. Lovell, T. Singleton)",
+      "C. Savoie ( )"
     ],
     "away_goals": [
-      "A. Tonge (S. Kersten, J. Lukosevicius)"
+      "A. Tonge (S. Kersten, J. Lukosevicius)",
+      "M. Roelens (A. Luchuk, C. Kurth)"
     ],
     "result": null,
     "overtime_type": null,
