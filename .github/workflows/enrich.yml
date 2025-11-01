@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   # Covers 7 AM to 8:59 PM PT (which is 14:00–03:00 UTC)
   schedule:
-    - cron: '*/10 14-23 * * *'  # 7 AM to 4 PM PT
-    - cron: '*/10 0-3 * * *'    # 5 PM to 8:59 PM PT
+    - cron: '*/30 14-23 * * *'  # 7 AM to 4 PM PT
+    - cron: '*/30 0-3 * * *'    # 5 PM to 8:59 PM PT
 
 
 jobs:
