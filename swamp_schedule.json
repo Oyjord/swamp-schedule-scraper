@@ -1049,18 +1049,19 @@
     "date": "Nov. 1",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Live",
-    "home_score": 3,
+    "status": "Final",
+    "home_score": 4,
     "away_score": 0,
     "home_goals": [
       "P. Polino (T. Singleton, A. Saint)",
       "T. Singleton (P. Berge, T. Lovell)",
-      "P. Polino (T. Singleton, T. De Jong)"
+      "P. Polino (K. Mastrodonato, T. De Jong)",
+      "K. Mastrodonato (C. Savoie)"
     ],
     "away_goals": [
 
     ],
-    "result": null,
+    "result": "W 4-0",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24377&lang_id=1",
     "scheduled_start": "2025-11-01T19:05:00+00:00"
