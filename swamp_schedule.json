@@ -1050,11 +1050,12 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 0,
     "home_goals": [
       "P. Polino (T. Singleton, A. Saint)",
-      "T. Singleton (P. Berge, T. Lovell)"
+      "T. Singleton (P. Berge, T. Lovell)",
+      "P. Polino (T. Singleton, T. De Jong)"
     ],
     "away_goals": [
 
