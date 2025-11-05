@@ -197,8 +197,8 @@ end
 
 # ---------- Game time (only if Live) ----------
 game_time = nil
-if status == "Live" && game_status_raw && !game_status_raw.strip.empty?
-  game_time = game_status_raw.strip
+if status == "Live" && meta["Game Status"] && !meta["Game Status"].strip.empty?
+  game_time = meta["Game Status"].strip
 end
 
 
