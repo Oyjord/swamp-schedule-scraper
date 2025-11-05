@@ -186,9 +186,15 @@ end
 # ---------- Game time (only if Live) ----------
 game_time = nil
 if status == "Live"
-  # Normalize keys to handle hidden characters like non-breaking spaces
-  key = meta.keys.find { |k| k.gsub("\u00A0", ' ').strip == "Game Status" }
-  raw = key ? meta[key] : nil
+  # Try direct lookup first
+  raw = meta["Game Status"]
+
+  # If nil, fallback to normalized key match
+  if raw.nil?
+    fallback_key = meta.keys.find { |k| k.gsub("\u00A0", ' ').gsub(':', '').strip == "Game Status" }
+    raw = meta[fallback_key] if fallback_key
+  end
+
   game_time = raw.strip unless raw.nil? || raw.strip.empty?
 end
 
