@@ -186,18 +186,18 @@ end
 # ---------- Game time (only if Live) ----------
 game_time = nil
 if status == "Live"
-  # Try meta first
   raw = meta["Game Status"]
 
-  # If missing, extract directly from HTML
   if raw.nil? || raw.strip.empty?
+    # Fallback: scan for nested <tr> with <b>Game Status:&nbsp;</b>
     status_row = doc.css('tr').find do |tr|
-      tr.text.include?("Game Status") && tr.css('td').size >= 2
+      label_cell = tr.css('td')[0]
+      label_cell && label_cell.at_css('b')&.text&.gsub("\u00A0", ' ')&.strip == "Game Status:"
     end
 
     if status_row
-      tds = status_row.css('td')
-      raw = tds[1]&.text&.gsub("\u00A0", ' ')&.strip
+      value_cell = status_row.css('td')[1]
+      raw = value_cell&.text&.gsub("\u00A0", ' ')&.strip
     end
   end
 
