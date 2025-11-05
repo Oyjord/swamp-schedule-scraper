@@ -186,13 +186,19 @@ end
 # ---------- Game time (only if Live) ----------
 game_time = nil
 if status == "Live"
-  # Try direct lookup first
+  # Try meta first
   raw = meta["Game Status"]
 
-  # If nil, fallback to normalized key match
-  if raw.nil?
-    fallback_key = meta.keys.find { |k| k.gsub("\u00A0", ' ').gsub(':', '').strip == "Game Status" }
-    raw = meta[fallback_key] if fallback_key
+  # If missing, extract directly from HTML
+  if raw.nil? || raw.strip.empty?
+    status_row = doc.css('tr').find do |tr|
+      tr.text.include?("Game Status") && tr.css('td').size >= 2
+    end
+
+    if status_row
+      tds = status_row.css('td')
+      raw = tds[1]&.text&.gsub("\u00A0", ' ')&.strip
+    end
   end
 
   game_time = raw.strip unless raw.nil? || raw.strip.empty?
