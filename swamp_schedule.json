@@ -1287,7 +1287,7 @@
     "date": "Nov. 5",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
@@ -1298,10 +1298,10 @@
       "C. Hausinger (J. Atkinson, H. Schandor)",
       "C. Savoie (K. Mastrodonato, P. Berge)"
     ],
-    "result": null,
+    "result": "W 3-1",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24395&lang_id=1",
-    "game_time": "2:59 3rd",
+    "game_time": null,
     "scheduled_start": "2025-11-05T10:30:00+00:00"
   },
   {
