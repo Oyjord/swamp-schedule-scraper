@@ -201,6 +201,11 @@ if status == "Live" && meta["Game Status"] && !meta["Game Status"].strip.empty?
   game_time = meta["Game Status"].strip
 end
 
+# 🧪 Debug output
+warn "🧪 status: #{status}"
+warn "🧪 meta['Game Status']: #{meta['Game Status'].inspect}"
+warn "🧪 game_time: #{game_time.inspect}"
+
 
 
   {
