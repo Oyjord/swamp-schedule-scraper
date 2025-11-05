@@ -142,7 +142,7 @@ status =
   end
 
 
-if game_id.to_s == "24330"
+if game_id.to_s == "24395"
   warn "🧪 DEBUG FOR GAME #{game_id}"
   warn "🧪 status: #{status}"
   warn "🧪 scheduled_start: #{scheduled_start.inspect}"
@@ -151,6 +151,9 @@ if game_id.to_s == "24330"
   warn "🧪 away_goals: #{away_goals.inspect}"
   warn "🧪 has_final_indicator: #{has_final_indicator}"
   warn "🧪 has_scores: #{has_scores}"
+warn "🧪 status: #{status}"
+warn "🧪 meta['Game Status']: #{meta['Game Status'].inspect}"
+warn "🧪 game_time: #{game_time.inspect}"
 end
 
 
@@ -200,11 +203,6 @@ game_time = nil
 if status == "Live" && meta["Game Status"] && !meta["Game Status"].strip.empty?
   game_time = meta["Game Status"].strip
 end
-
-# 🧪 Debug output
-warn "🧪 status: #{status}"
-warn "🧪 meta['Game Status']: #{meta['Game Status'].inspect}"
-warn "🧪 game_time: #{game_time.inspect}"
 
 
 
