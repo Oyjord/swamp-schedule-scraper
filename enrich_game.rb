@@ -185,8 +185,11 @@ end
 
 # ---------- Game time (only if Live) ----------
 game_time = nil
-if status == "Live" && meta["Game Status"] && !meta["Game Status"].strip.empty?
-  game_time = meta["Game Status"].strip
+if status == "Live"
+  # Normalize keys to handle hidden characters like non-breaking spaces
+  key = meta.keys.find { |k| k.gsub("\u00A0", ' ').strip == "Game Status" }
+  raw = key ? meta[key] : nil
+  game_time = raw.strip unless raw.nil? || raw.strip.empty?
 end
 
 
