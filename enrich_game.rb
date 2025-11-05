@@ -195,9 +195,18 @@ end
     result = "#{prefix} #{[greenville_score, opponent_score].max}-#{[greenville_score, opponent_score].min}"
   end
 
+# ---------- Game time (only if Live) ----------
+game_time = nil
+if status == "Live" && game_status_raw && !game_status_raw.strip.empty?
+  game_time = game_status_raw.strip
+end
+
+
+
   {
     "game_id" => game_id.to_i,
     "status" => status,
+    "game_time" => game_time,
     "home_team" => home_team,
     "away_team" => away_team,
     "home_score" => home_score,
