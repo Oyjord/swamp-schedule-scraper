@@ -52,6 +52,7 @@ existing_by_id[game_id] = {
   "result" => data["result"],
   "overtime_type" => data["overtime_type"],
   "game_report_url" => data["game_report_url"],
+  "game_time" => data["game_time"],
   "scheduled_start" => existing_by_id[game_id]&.dig("scheduled_start")
 }
 end
