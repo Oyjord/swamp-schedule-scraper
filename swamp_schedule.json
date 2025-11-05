@@ -1289,18 +1289,19 @@
     "location": "Away",
     "status": "Live",
     "home_score": 1,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
       "L. Boudon (R. Francis)"
     ],
     "away_goals": [
       "T. Singleton (K. Isogai)",
-      "C. Hausinger (J. Atkinson)"
+      "C. Hausinger (J. Atkinson, H. Schandor)",
+      "C. Savoie (K. Mastrodonato, P. Berge)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24395&lang_id=1",
-    "game_time": "14:36 3rd",
+    "game_time": "7:42 3rd",
     "scheduled_start": "2025-11-05T10:30:00+00:00"
   },
   {
