@@ -27,8 +27,8 @@ jobs:
       - name: Enrich all games
         run: bundle exec ruby enrich_all.rb
 
-      - name: 🧪 Debug enrich_game.rb for 24330
-        run: ruby enrich_game.rb 24330
+      - name: 🧪 Debug enrich_game.rb for 24395
+        run: ruby enrich_game.rb 24395
 
       - name: Upload debug HTML
         if: always()
