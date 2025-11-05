@@ -142,21 +142,6 @@ status =
   end
 
 
-if game_id.to_s == "24395"
-  warn "🧪 DEBUG FOR GAME #{game_id}"
-  warn "🧪 status: #{status}"
-  warn "🧪 scheduled_start: #{scheduled_start.inspect}"
-  warn "🧪 home_score: #{home_score}, away_score: #{away_score}"
-  warn "🧪 home_goals: #{home_goals.inspect}"
-  warn "🧪 away_goals: #{away_goals.inspect}"
-  warn "🧪 has_final_indicator: #{has_final_indicator}"
-  warn "🧪 has_scores: #{has_scores}"
-warn "🧪 status: #{status}"
-warn "🧪 meta['Game Status']: #{meta['Game Status'].inspect}"
-warn "🧪 game_time: #{game_time.inspect}"
-end
-
-
   # ---------- Detect OT / SO ----------
 normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
 
@@ -204,6 +189,20 @@ if status == "Live" && meta["Game Status"] && !meta["Game Status"].strip.empty?
   game_time = meta["Game Status"].strip
 end
 
+
+if game_id.to_s == "24395"
+  warn "🧪 DEBUG FOR GAME #{game_id}"
+  warn "🧪 status: #{status}"
+  warn "🧪 scheduled_start: #{scheduled_start.inspect}"
+  warn "🧪 home_score: #{home_score}, away_score: #{away_score}"
+  warn "🧪 home_goals: #{home_goals.inspect}"
+  warn "🧪 away_goals: #{away_goals.inspect}"
+  warn "🧪 has_final_indicator: #{has_final_indicator}"
+  warn "🧪 has_scores: #{has_scores}"
+warn "🧪 status: #{status}"
+warn "🧪 meta['Game Status']: #{meta['Game Status'].inspect}"
+warn "🧪 game_time: #{game_time.inspect}"
+end
 
 
   {
