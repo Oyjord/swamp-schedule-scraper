@@ -1129,7 +1129,7 @@
     "location": "Home",
     "status": "Live",
     "home_score": 0,
-    "away_score": 4,
+    "away_score": 5,
     "home_goals": [
 
     ],
@@ -1137,12 +1137,13 @@
       "O. Chau (R. Duke, K. Landry)",
       "O. Cooper (K. Penney, G. Cassaro)",
       "J. Lansdell (R. Duke, T. Fizer)",
-      "C. Needham (A. Romano, C. Gicewicz)"
+      "C. Needham (A. Romano, C. Gicewicz)",
+      "C. Gicewicz (J. Jones, A. Romano)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24435&lang_id=1",
-    "game_time": "9:55 2nd",
+    "game_time": "8:48 2nd",
     "scheduled_start": "2025-11-12T10:30:00+00:00"
   },
   {
