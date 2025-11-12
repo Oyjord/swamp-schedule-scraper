@@ -1129,17 +1129,18 @@
     "location": "Home",
     "status": "Live",
     "home_score": 0,
-    "away_score": 1,
+    "away_score": 2,
     "home_goals": [
 
     ],
     "away_goals": [
-      "O. Chau (R. Duke, K. Landry)"
+      "O. Chau (R. Duke, K. Landry)",
+      "O. Cooper (K. Penney, G. Cassaro)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24435&lang_id=1",
-    "game_time": "18:36 2nd",
+    "game_time": "17:42 2nd",
     "scheduled_start": "2025-11-12T10:30:00+00:00"
   },
   {
