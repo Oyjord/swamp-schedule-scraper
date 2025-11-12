@@ -1127,7 +1127,7 @@
     "date": "Nov. 12",
     "opponent": "Florida",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 0,
     "away_score": 5,
     "home_goals": [
@@ -1140,10 +1140,10 @@
       "C. Needham (A. Romano, C. Gicewicz)",
       "C. Gicewicz (J. Jones, A. Romano)"
     ],
-    "result": null,
+    "result": "L 5-0",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24435&lang_id=1",
-    "game_time": "9:08 3rd",
+    "game_time": null,
     "scheduled_start": "2025-11-12T10:30:00+00:00"
   },
   {
