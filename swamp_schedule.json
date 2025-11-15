@@ -1174,7 +1174,7 @@
     "date": "Nov. 15",
     "opponent": "Florida",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
     "away_score": 1,
     "home_goals": [
@@ -1184,10 +1184,10 @@
     "away_goals": [
       "G. Cassaro (J. Sambrook)"
     ],
-    "result": null,
+    "result": "W 2-1",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24456&lang_id=1",
-    "game_time": "1:24 3rd",
+    "game_time": null,
     "scheduled_start": "2025-11-15T16:05:00+00:00"
   },
   {
