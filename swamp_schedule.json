@@ -1196,11 +1196,12 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 1,
     "home_goals": [
       "B. Pedersen (R. O'Hara, R. O'Reilly)",
-      "R. O'Hara ( )"
+      "R. O'Hara ( )",
+      "D. Sheriff (P. Polino)"
     ],
     "away_goals": [
       "D. Duhart (N. Dunkley, J. Hardie)"
@@ -1208,7 +1209,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24485&lang_id=1",
-    "game_time": "1:56 3rd",
+    "game_time": "0:00 3rd",
     "scheduled_start": "2025-11-21T19:05:00+00:00"
   },
   {
