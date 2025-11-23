@@ -1217,7 +1217,7 @@
     "date": "Nov. 22",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
     "away_score": 2,
     "home_goals": [
@@ -1230,10 +1230,10 @@
       "C. Hausinger (H. Schandor, J. Atkinson)",
       "D. Sheriff (T. De Jong)"
     ],
-    "result": null,
+    "result": "L 4-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24496&lang_id=1",
-    "game_time": "0:00 3rd",
+    "game_time": null,
     "scheduled_start": "2025-11-22T19:10:00+00:00"
   },
   {
