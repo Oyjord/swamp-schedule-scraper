@@ -1218,11 +1218,12 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 2,
     "home_goals": [
       "M. McNamee (C. Sylvester)",
-      "J. Cipollone (C. Sylvester, A. Firriolo)"
+      "J. Cipollone (C. Sylvester, A. Firriolo)",
+      "R. Nolan (M. McNamee, A. Young)"
     ],
     "away_goals": [
       "C. Hausinger (H. Schandor, J. Atkinson)",
@@ -1231,7 +1232,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24496&lang_id=1",
-    "game_time": "0:00 2nd",
+    "game_time": "16:56 3rd",
     "scheduled_start": "2025-11-22T19:10:00+00:00"
   },
   {
