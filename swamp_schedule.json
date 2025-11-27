@@ -1241,9 +1241,9 @@
     "date": "Nov. 26",
     "opponent": "Greensboro",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
-    "away_score": 6,
+    "away_score": 8,
     "home_goals": [
       "E. Leyh (J. Elmer, P. Newell)"
     ],
@@ -1253,12 +1253,14 @@
       "C. Hausinger (H. Schandor, D. Sheriff)",
       "B. Pedersen (R. O'Reilly, K. Mastrodonato)",
       "J. Atkinson (J. Murray, R. O'Hara)",
-      "T. Rego (K. Mastrodonato)"
+      "T. Rego (K. Mastrodonato)",
+      "K. Mastrodonato (P. Polino, J. Modry)",
+      "B. Poisson (R. O'Reilly, A. Saint)"
     ],
-    "result": null,
+    "result": "W 8-1",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24517&lang_id=1",
-    "game_time": "17:30 3rd",
+    "game_time": null,
     "scheduled_start": "2025-11-26T19:00:00+00:00"
   },
   {
