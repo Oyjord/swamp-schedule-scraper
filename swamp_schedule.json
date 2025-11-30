@@ -1268,7 +1268,7 @@
     "date": "Nov. 29",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
     "away_score": 2,
     "home_goals": [
@@ -1280,10 +1280,10 @@
       "J. Parker-Jones (R. O'Hara, R. O'Reilly)",
       "K. Mastrodonato (J. Atkinson, C. Savoie)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(SO) 3-2",
+    "overtime_type": "SO",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24540&lang_id=1",
-    "game_time": "1:28 1st OT",
+    "game_time": null,
     "scheduled_start": "2025-11-29T19:10:00+00:00"
   },
   {
