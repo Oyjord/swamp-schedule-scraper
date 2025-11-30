@@ -1292,10 +1292,10 @@
     "opponent": "Atlanta",
     "location": "Away",
     "status": "Live",
-    "home_score": 0,
+    "home_score": 1,
     "away_score": 0,
     "home_goals": [
-
+      "C. Sylvester ( )"
     ],
     "away_goals": [
 
@@ -1303,7 +1303,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24554&lang_id=1",
-    "game_time": "1:36 1st",
+    "game_time": "0:15 1st",
     "scheduled_start": "2025-11-30T15:10:00+00:00"
   },
   {
