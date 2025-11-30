@@ -167,24 +167,25 @@ if status == "Final"
   end
 end
 
-  # ---------- Build result ----------
-  result = nil
-  if status == "Final"
-    greenville_is_home = home_team =~ /Greenville/i
-    greenville_score = greenville_is_home ? home_score : away_score
-    opponent_score   = greenville_is_home ? away_score : home_score
+ # ---------- Build result ----------
+result = nil
+if status == "Final"
+  greenville_is_home = home_team =~ /Greenville/i
+  greenville_score = greenville_is_home ? home_score : away_score
+  opponent_score   = greenville_is_home ? away_score : home_score
 
-    prefix =
-      if overtime_type == "SO"
-        greenville_score > opponent_score ? "W(SO)" : "L(SO)"
-      elsif overtime_type == "OT"
-        greenville_score > opponent_score ? "W(OT)" : "L(OT)"
-      else
-        greenville_score > opponent_score ? "W" : "L"
-      end
+  prefix =
+    if overtime_type == "SO"
+      greenville_score > opponent_score ? "W(SO)" : "L(SO)"
+    elsif overtime_type == "OT"
+      greenville_score > opponent_score ? "W(OT)" : "L(OT)"
+    else
+      greenville_score > opponent_score ? "W" : "L"
+    end
 
-    result = "#{prefix} #{[greenville_score, opponent_score].max}-#{[greenville_score, opponent_score].min}"
-  end
+  # Away–home order on the scoreboard
+  result = "#{prefix} #{away_score}-#{home_score}"
+end
 
 # ---------- Game time (only if Live) ----------
 game_time = nil
