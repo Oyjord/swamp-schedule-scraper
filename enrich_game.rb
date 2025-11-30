@@ -142,25 +142,28 @@ status =
   end
 
 
-  # ---------- Detect OT / SO ----------
+# ---------- Detect OT / SO ----------
 normalize = ->(v) { v.to_s.gsub(/\u00A0/, '').strip }
 
-# ✅ Only read OT/SO columns if they exist
 ot_away = away_cells.length > 5 ? normalize.call(away_cells[4]) : ""
 ot_home = home_cells.length > 5 ? normalize.call(home_cells[4]) : ""
 so_away = away_cells.length > 5 ? normalize.call(away_cells[5]) : ""
 so_home = home_cells.length > 5 ? normalize.call(home_cells[5]) : ""
 
-# ✅ Only assign overtime_type if game is Final
 overtime_type = nil
 if status == "Final"
   so_goals = so_away.to_i + so_home.to_i
   ot_goals = ot_away.to_i + ot_home.to_i
+  gs_text  = game_status_raw.to_s.downcase
 
-  if so_goals > 0
+  if gs_text.include?("shootout") || gs_text.include?("(so)") || gs_text.include?("so")
     overtime_type = "SO"
+  elsif gs_text.include?("overtime") || gs_text.include?("(ot)") || gs_text.include?("ot")
+    overtime_type = "OT"
   elsif ot_goals > 0
     overtime_type = "OT"
+  elsif so_goals > 0
+    overtime_type = "SO"
   end
 end
 
