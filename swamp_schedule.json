@@ -1291,20 +1291,20 @@
     "date": "Nov. 30",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
     "away_score": 1,
     "home_goals": [
       "C. Sylvester (L. Boudon, C. Nychuk)",
-      "A. Young ( )"
+      "A. Young (C. Sylvester, C. Nychuk)"
     ],
     "away_goals": [
       "D. Sheriff (C. Savoie, T. Lovell)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(OT) 1-2",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24554&lang_id=1",
-    "game_time": "2:13 1st OT",
+    "game_time": null,
     "scheduled_start": "2025-11-30T15:10:00+00:00"
   },
   {
