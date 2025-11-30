@@ -1270,18 +1270,19 @@
     "location": "Away",
     "status": "Live",
     "home_score": 2,
-    "away_score": 1,
+    "away_score": 2,
     "home_goals": [
       "R. Conroy (A. Young, R. Francis)",
       "A. Young (L. Boudon, C. Nychuk)"
     ],
     "away_goals": [
-      "J. Parker-Jones (R. O'Hara, R. O'Reilly)"
+      "J. Parker-Jones (R. O'Hara, R. O'Reilly)",
+      "K. Mastrodonato (J. Atkinson, C. Savoie)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24540&lang_id=1",
-    "game_time": "9:38 3rd",
+    "game_time": "3:03 3rd",
     "scheduled_start": "2025-11-29T19:10:00+00:00"
   },
   {
