@@ -1270,17 +1270,17 @@
     "location": "Away",
     "status": "Live",
     "home_score": 0,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "J. Parker-Jones (R. O'Hara, R. O'Reilly)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24540&lang_id=1",
-    "game_time": "17:35 2nd",
+    "game_time": "1:06 2nd",
     "scheduled_start": "2025-11-29T19:10:00+00:00"
   },
   {
