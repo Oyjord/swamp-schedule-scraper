@@ -305,20 +305,21 @@
     "opponent": "Orlando",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 3,
     "home_goals": [
-      "P. Berge (K. Isogai, T. Rego)"
+      "P. Berge (K. Isogai, T. Rego)",
+      "C. Savoie (K. Isogai, R. O'Reilly)"
     ],
     "away_goals": [
       "C. Kurth (C. Allen, J. Lukosevicius)",
       "J. Adams (A. Bardaro, S. Kersten)",
-      "A. Luchuk (C. Kurth)"
+      "A. Bardaro (C. Kurth)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24570&lang_id=1",
-    "game_time": "18:55 3rd",
+    "game_time": "14:48 3rd",
     "scheduled_start": "2025-12-05T19:05:00+00:00"
   },
   {
