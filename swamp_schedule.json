@@ -331,18 +331,19 @@
     "location": "Away",
     "status": "Live",
     "home_score": 0,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
 
     ],
     "away_goals": [
       "T. Rego (P. Polino, R. O'Hara)",
-      "R. O'Hara (P. Berge, P. Polino)"
+      "R. O'Hara (P. Berge, P. Polino)",
+      "C. Savoie (C. Hausinger, P. Polino)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24588&lang_id=1",
-    "game_time": "18:52 2nd",
+    "game_time": "16:22 2nd",
     "scheduled_start": "2025-12-06T18:05:00+00:00"
   },
   {
