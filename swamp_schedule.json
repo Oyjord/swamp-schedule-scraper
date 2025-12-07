@@ -355,11 +355,12 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 0,
     "home_goals": [
       "J. Luypen (C. Moore, R. Rodzinski)",
-      "J. Luypen (C. Moore, S. Pinard)"
+      "J. Luypen (C. Moore, S. Pinard)",
+      "S. Pinard ( )"
     ],
     "away_goals": [
 
@@ -367,7 +368,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24597&lang_id=1",
-    "game_time": "5:20 2nd",
+    "game_time": "4:05 2nd",
     "scheduled_start": "2025-12-07T15:05:00+00:00"
   },
   {
