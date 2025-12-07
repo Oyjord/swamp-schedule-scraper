@@ -329,7 +329,7 @@
     "date": "Dec. 6",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
     "away_score": 5,
     "home_goals": [
@@ -343,10 +343,10 @@
       "J. Parker-Jones (K. Mastrodonato, P. Polino)",
       "P. Polino (C. Hausinger)"
     ],
-    "result": null,
+    "result": "W 5-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24588&lang_id=1",
-    "game_time": "0:00 3rd",
+    "game_time": null,
     "scheduled_start": "2025-12-06T18:05:00+00:00"
   },
   {
