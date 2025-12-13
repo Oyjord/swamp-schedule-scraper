@@ -124,22 +124,24 @@
     "date": "Dec. 12",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Live",
-    "home_score": 3,
-    "away_score": 2,
+    "status": "Final",
+    "home_score": 4,
+    "away_score": 3,
     "home_goals": [
       "P. Guzzo (B. Hawerchuk, Z. Funk)",
       "B. Hawerchuk (C. Combs, L. Breen)",
-      "J. Wilkins (K. Kupka, Z. Funk)"
+      "J. Wilkins (K. Kupka, Z. Funk)",
+      "R. Rodzinski (K. Kupka, J. Wilkins)"
     ],
     "away_goals": [
       "K. Mastrodonato (C. Savoie, J. Atkinson)",
-      "H. Schandor (R. O'Hara, C. Hausinger)"
+      "H. Schandor (R. O'Hara, C. Hausinger)",
+      "K. Mastrodonato (P. Berge, J. Atkinson)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(OT) 3-4",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24619&lang_id=1",
-    "game_time": "0:08 3rd",
+    "game_time": null,
     "scheduled_start": "2025-12-12T19:05:00+00:00"
   },
   {
