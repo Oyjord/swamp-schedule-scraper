@@ -126,18 +126,19 @@
     "location": "Away",
     "status": "Live",
     "home_score": 2,
-    "away_score": 1,
+    "away_score": 2,
     "home_goals": [
       "P. Guzzo (B. Hawerchuk, Z. Funk)",
       "B. Hawerchuk (C. Combs, L. Breen)"
     ],
     "away_goals": [
-      "K. Mastrodonato (C. Savoie, J. Atkinson)"
+      "K. Mastrodonato (C. Savoie, J. Atkinson)",
+      "H. Schandor (R. O'Hara)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24619&lang_id=1",
-    "game_time": "19:13 3rd",
+    "game_time": "7:30 3rd",
     "scheduled_start": "2025-12-12T19:05:00+00:00"
   },
   {
