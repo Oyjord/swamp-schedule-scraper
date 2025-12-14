@@ -149,21 +149,22 @@
     "date": "Dec. 13",
     "opponent": "Greensboro",
     "location": "Home",
-    "status": "Live",
-    "home_score": 3,
+    "status": "Final",
+    "home_score": 4,
     "away_score": 1,
     "home_goals": [
       "B. Pedersen (J. Brackett, J. Murray)",
       "R. O'Reilly (J. Parker-Jones, J. Murray)",
-      "R. O'Reilly (T. Lovell)"
+      "R. O'Reilly (T. Lovell)",
+      "K. Mastrodonato ( )"
     ],
     "away_goals": [
       "A. Borshyov (K. Johnson)"
     ],
-    "result": null,
+    "result": "W 1-4",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24627&lang_id=1",
-    "game_time": "3:03 3rd",
+    "game_time": null,
     "scheduled_start": "2025-12-13T19:05:00+00:00"
   },
   {
