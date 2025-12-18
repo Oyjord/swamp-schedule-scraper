@@ -173,10 +173,11 @@
     "opponent": "Cincinnati",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 1,
     "home_goals": [
-      "J. Brackett (J. Modry, B. Poisson)"
+      "J. Brackett (J. Modry, B. Poisson)",
+      "B. Poisson (T. Rego, B. Pedersen)"
     ],
     "away_goals": [
       "N. Rhéaume (J. Jaworski)"
@@ -184,7 +185,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24645&lang_id=1",
-    "game_time": "8:00 1st",
+    "game_time": "5:03 1st",
     "scheduled_start": "2025-12-17T19:05:00+00:00"
   },
   {
