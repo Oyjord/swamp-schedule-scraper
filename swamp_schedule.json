@@ -172,11 +172,11 @@
     "date": "Dec. 17",
     "opponent": "Cincinnati",
     "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
+    "status": "Live",
+    "home_score": 1,
     "away_score": 0,
     "home_goals": [
-
+      "D. Sheriff (P. Polino, C. Hausinger)"
     ],
     "away_goals": [
 
@@ -184,7 +184,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24645&lang_id=1",
-    "game_time": null,
+    "game_time": "17:52 1st",
     "scheduled_start": "2025-12-17T19:05:00+00:00"
   },
   {
