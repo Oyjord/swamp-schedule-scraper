@@ -238,7 +238,7 @@
   {
     "game_id": 24690,
     "date": "Dec. 26",
-    "opponent": "postponed",
+    "opponent": "Atlanta",
     "location": "Home",
     "status": "Upcoming",
     "home_score": 0,
@@ -258,13 +258,13 @@
   {
     "game_id": 24707,
     "date": "Dec. 27",
-    "opponent": "postponed",
+    "opponent": "Jacksonville",
     "location": "Home",
-    "status": "postponed",
+    "status": "Upcoming",
     "home_score": 0,
     "away_score": 0,
     "home_goals": [
-      "postponed"
+
     ],
     "away_goals": [
 
@@ -279,7 +279,7 @@
     "game_id": 24720,
     "date": "Dec. 28",
     "opponent": "Jacksonville",
-    "location": "Home-postponed",
+    "location": "Home",
     "status": "Upcoming",
     "home_score": 0,
     "away_score": 0,
