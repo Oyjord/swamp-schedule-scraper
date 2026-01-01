@@ -301,10 +301,11 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 5,
     "home_goals": [
-      "R. O'Reilly (C. Hausinger, R. O'Hara)"
+      "R. O'Reilly (C. Hausinger, R. O'Hara)",
+      "C. Hausinger (R. O'Hara, J. Modry)"
     ],
     "away_goals": [
       "K. Bohlsen (L. Persson)",
@@ -316,7 +317,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24732&lang_id=1",
-    "game_time": "15:11 3rd",
+    "game_time": "3:04 3rd",
     "scheduled_start": "2025-12-31T18:05:00+00:00"
   },
   {
