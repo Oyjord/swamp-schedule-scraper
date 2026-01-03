@@ -17,7 +17,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25355&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-04-11T16:05:00+00:00"
+    "scheduled_start": "2026-04-11T16:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25340,
@@ -37,7 +38,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25340&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-04-12T15:05:00+00:00"
+    "scheduled_start": "2026-04-12T15:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25299,
@@ -57,7 +59,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25299&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-04-02T19:05:00+00:00"
+    "scheduled_start": "2026-04-02T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25302,
@@ -77,7 +80,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25302&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-04-03T19:10:00+00:00"
+    "scheduled_start": "2026-04-03T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25323,
@@ -97,7 +101,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25323&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-04-04T18:05:00+00:00"
+    "scheduled_start": "2026-04-04T18:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25332,
@@ -117,7 +122,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25332&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-04-09T19:05:00+00:00"
+    "scheduled_start": "2026-04-09T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24619,
@@ -142,7 +148,8 @@
     "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24619&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-12T19:05:00+00:00"
+    "scheduled_start": "2025-12-12T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24627,
@@ -165,7 +172,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24627&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-13T19:05:00+00:00"
+    "scheduled_start": "2025-12-13T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24645,
@@ -190,7 +198,8 @@
     "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24645&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-17T19:05:00+00:00"
+    "scheduled_start": "2025-12-17T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24670,
@@ -211,7 +220,8 @@
     "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24670&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-20T18:05:00+00:00"
+    "scheduled_start": "2025-12-20T18:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24681,
@@ -233,7 +243,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24681&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-21T15:10:00+00:00"
+    "scheduled_start": "2025-12-21T15:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24690,
@@ -253,7 +264,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24690&lang_id=1",
     "game_time": null,
-    "scheduled_start": null
+    "scheduled_start": null,
+    "note": ""
   },
   {
     "game_id": 24707,
@@ -273,7 +285,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24707&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-27T19:05:00+00:00"
+    "scheduled_start": "2025-12-27T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24720,
@@ -293,7 +306,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24720&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-28T15:05:00+00:00"
+    "scheduled_start": "2025-12-28T15:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24732,
@@ -319,7 +333,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24732&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-31T18:05:00+00:00"
+    "scheduled_start": "2025-12-31T18:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24570,
@@ -344,7 +359,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24570&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-05T19:05:00+00:00"
+    "scheduled_start": "2025-12-05T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24588,
@@ -369,7 +385,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24588&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-06T18:05:00+00:00"
+    "scheduled_start": "2025-12-06T18:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24597,
@@ -393,7 +410,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24597&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-12-07T15:05:00+00:00"
+    "scheduled_start": "2025-12-07T15:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24988,
@@ -413,7 +431,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24988&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-11T19:05:00+00:00"
+    "scheduled_start": "2026-02-11T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24998,
@@ -433,7 +452,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24998&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-13T19:05:00+00:00"
+    "scheduled_start": "2026-02-13T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25016,
@@ -453,7 +473,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25016&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-14T18:05:00+00:00"
+    "scheduled_start": "2026-02-14T18:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25024,
@@ -473,7 +494,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25024&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-15T15:05:00+00:00"
+    "scheduled_start": "2026-02-15T15:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25038,
@@ -493,7 +515,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25038&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-18T10:30:00+00:00"
+    "scheduled_start": "2026-02-18T10:30:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25040,
@@ -513,7 +536,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25040&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-19T19:05:00+00:00"
+    "scheduled_start": "2026-02-19T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25059,
@@ -533,7 +557,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25059&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-21T19:05:00+00:00"
+    "scheduled_start": "2026-02-21T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25070,
@@ -553,7 +578,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25070&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-22T15:05:00+00:00"
+    "scheduled_start": "2026-02-22T15:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25088,
@@ -573,7 +599,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25088&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-27T19:00:00+00:00"
+    "scheduled_start": "2026-02-27T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25104,
@@ -593,7 +620,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25104&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-28T19:00:00+00:00"
+    "scheduled_start": "2026-02-28T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24952,
@@ -613,7 +641,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24952&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-04T19:10:00+00:00"
+    "scheduled_start": "2026-02-04T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24962,
@@ -633,7 +662,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24962&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-06T19:10:00+00:00"
+    "scheduled_start": "2026-02-06T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24975,
@@ -653,7 +683,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24975&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-02-07T19:10:00+00:00"
+    "scheduled_start": "2026-02-07T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24797,
@@ -673,7 +704,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24797&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-10T19:05:00+00:00"
+    "scheduled_start": "2026-01-10T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24818,
@@ -693,7 +725,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24818&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-13T10:30:00+00:00"
+    "scheduled_start": "2026-01-13T10:30:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25270,
@@ -713,7 +746,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25270&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-17T18:05:00+00:00"
+    "scheduled_start": "2026-01-17T18:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24851,
@@ -733,7 +767,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24851&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-18T15:10:00+00:00"
+    "scheduled_start": "2026-01-18T15:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24857,
@@ -753,7 +788,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24857&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-19T13:10:00+00:00"
+    "scheduled_start": "2026-01-19T13:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24743,
@@ -782,7 +818,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24743&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-02T19:05:00+00:00"
+    "scheduled_start": "2026-01-02T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24862,
@@ -802,7 +839,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24862&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-23T19:05:00+00:00"
+    "scheduled_start": "2026-01-23T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24877,
@@ -822,7 +860,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24877&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-24T19:05:00+00:00"
+    "scheduled_start": "2026-01-24T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24891,
@@ -842,7 +881,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-25T15:05:00+00:00"
+    "scheduled_start": "2026-01-25T15:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24904,
@@ -862,7 +902,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24904&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-28T19:10:00+00:00"
+    "scheduled_start": "2026-01-28T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24759,
@@ -882,7 +923,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24759&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-03T19:00:00+00:00"
+    "scheduled_start": "2026-01-03T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24916,
@@ -902,7 +944,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24916&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-30T19:10:00+00:00"
+    "scheduled_start": "2026-01-30T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24931,
@@ -922,7 +965,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24931&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-31T19:10:00+00:00"
+    "scheduled_start": "2026-01-31T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24770,
@@ -942,7 +986,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24770&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-01-05T19:00:00+00:00"
+    "scheduled_start": "2026-01-05T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25146,
@@ -962,7 +1007,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25146&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-10T19:00:00+00:00"
+    "scheduled_start": "2026-03-10T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25173,
@@ -982,7 +1028,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25173&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-13T19:00:00+00:00"
+    "scheduled_start": "2026-03-13T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25188,
@@ -1002,7 +1049,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25188&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-14T19:00:00+00:00"
+    "scheduled_start": "2026-03-14T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25199,
@@ -1022,7 +1070,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25199&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-15T15:00:00+00:00"
+    "scheduled_start": "2026-03-15T15:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25218,
@@ -1042,7 +1091,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25218&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-20T19:00:00+00:00"
+    "scheduled_start": "2026-03-20T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25233,
@@ -1062,7 +1112,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25233&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-21T19:00:00+00:00"
+    "scheduled_start": "2026-03-21T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25239,
@@ -1082,7 +1133,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25239&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-22T15:00:00+00:00"
+    "scheduled_start": "2026-03-22T15:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25281,
@@ -1102,7 +1154,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25281&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-29T15:05:00+00:00"
+    "scheduled_start": "2026-03-29T15:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25119,
@@ -1122,7 +1175,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25119&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-04T19:30:00+00:00"
+    "scheduled_start": "2026-03-04T19:30:00+00:00",
+    "note": ""
   },
   {
     "game_id": 25127,
@@ -1142,7 +1196,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25127&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2026-03-06T19:30:00+00:00"
+    "scheduled_start": "2026-03-06T19:30:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24377,
@@ -1165,7 +1220,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24377&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-01T19:05:00+00:00"
+    "scheduled_start": "2025-11-01T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24435,
@@ -1189,7 +1245,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24435&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-12T10:30:00+00:00"
+    "scheduled_start": "2025-11-12T10:30:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24445,
@@ -1212,7 +1269,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24445&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-14T19:05:00+00:00"
+    "scheduled_start": "2025-11-14T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24456,
@@ -1233,7 +1291,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24456&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-15T16:05:00+00:00"
+    "scheduled_start": "2025-11-15T16:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24485,
@@ -1255,7 +1314,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24485&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-21T19:05:00+00:00"
+    "scheduled_start": "2025-11-21T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24496,
@@ -1279,7 +1339,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24496&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-22T19:10:00+00:00"
+    "scheduled_start": "2025-11-22T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24517,
@@ -1306,7 +1367,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24517&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-26T19:00:00+00:00"
+    "scheduled_start": "2025-11-26T19:00:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24540,
@@ -1329,7 +1391,8 @@
     "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24540&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-29T19:10:00+00:00"
+    "scheduled_start": "2025-11-29T19:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24554,
@@ -1350,7 +1413,8 @@
     "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24554&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-30T15:10:00+00:00"
+    "scheduled_start": "2025-11-30T15:10:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24395,
@@ -1372,7 +1436,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24395&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-05T10:30:00+00:00"
+    "scheduled_start": "2025-11-05T10:30:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24419,
@@ -1395,7 +1460,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24419&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-11-08T19:05:00+00:00"
+    "scheduled_start": "2025-11-08T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24297,
@@ -1417,7 +1483,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24297&lang_id=1",
     "game_time": null,
-    "scheduled_start": null
+    "scheduled_start": null,
+    "note": ""
   },
   {
     "game_id": 24312,
@@ -1443,7 +1510,8 @@
     "overtime_type": "SO",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24312&lang_id=1",
     "game_time": null,
-    "scheduled_start": null
+    "scheduled_start": null,
+    "note": ""
   },
   {
     "game_id": 24319,
@@ -1468,7 +1536,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24319&lang_id=1",
     "game_time": null,
-    "scheduled_start": null
+    "scheduled_start": null,
+    "note": ""
   },
   {
     "game_id": 24330,
@@ -1492,7 +1561,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24330&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-10-24T19:05:00+00:00"
+    "scheduled_start": "2025-10-24T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24342,
@@ -1513,7 +1583,8 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24342&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-10-25T19:05:00+00:00"
+    "scheduled_start": "2025-10-25T19:05:00+00:00",
+    "note": ""
   },
   {
     "game_id": 24366,
@@ -1536,6 +1607,7 @@
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24366&lang_id=1",
     "game_time": null,
-    "scheduled_start": "2025-10-31T19:05:00+00:00"
+    "scheduled_start": "2025-10-31T19:05:00+00:00",
+    "note": ""
   }
 ]
