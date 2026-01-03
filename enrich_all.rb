@@ -53,7 +53,10 @@ existing_by_id[game_id] = {
   "overtime_type" => data["overtime_type"],
   "game_report_url" => data["game_report_url"],
   "game_time" => data["game_time"],
-  "scheduled_start" => existing_by_id[game_id]&.dig("scheduled_start")
+  "scheduled_start" => existing_by_id[game_id]&.dig("scheduled_start"),
+
+  # ✅ NEW — preserve existing note, or default to empty string
+  "note" => existing_by_id[game_id]&.dig("note") || ""
 }
 end
 
