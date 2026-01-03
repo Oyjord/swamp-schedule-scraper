@@ -760,9 +760,9 @@
     "date": "Jan. 2",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
-    "away_score": 6,
+    "away_score": 7,
     "home_goals": [
       "P. Polino (C. Hausinger, R. O'Hara)",
       "J. Atkinson (P. Polino)",
@@ -775,12 +775,13 @@
       "B. Less (M. Burns, R. Nolan)",
       "A. Young ( )",
       "C. Denomie (J. Cipollone, C. Nychuk)",
-      "J. O'Brien (J. Cipollone, N. Orzeck)"
+      "J. O'Brien (J. Cipollone, N. Orzeck)",
+      "A. Young ( )"
     ],
-    "result": null,
+    "result": "L 7-4",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24743&lang_id=1",
-    "game_time": "0:00 2nd",
+    "game_time": null,
     "scheduled_start": "2026-01-02T19:05:00+00:00"
   },
   {
