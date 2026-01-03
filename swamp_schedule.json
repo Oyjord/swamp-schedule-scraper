@@ -761,10 +761,10 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Live",
-    "home_score": 0,
+    "home_score": 1,
     "away_score": 2,
     "home_goals": [
-
+      "P. Polino (C. Hausinger, R. O'Hara)"
     ],
     "away_goals": [
       "N. Orzeck (J. Matier, R. Francis)",
@@ -773,7 +773,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24743&lang_id=1",
-    "game_time": "13:27 1st",
+    "game_time": "2:57 1st",
     "scheduled_start": "2026-01-02T19:05:00+00:00"
   },
   {
