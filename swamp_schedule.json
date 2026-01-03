@@ -265,7 +265,7 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24690&lang_id=1",
     "game_time": null,
     "scheduled_start": null,
-    "note": "postponed"
+    "note": "postponed resulting from stike"
   },
   {
     "game_id": 24707,
@@ -286,7 +286,7 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24707&lang_id=1",
     "game_time": null,
     "scheduled_start": "2025-12-27T19:05:00+00:00",
-    "note": ""
+    "note": "postponed resulting from stike"
   },
   {
     "game_id": 24720,
@@ -307,7 +307,7 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24720&lang_id=1",
     "game_time": null,
     "scheduled_start": "2025-12-28T15:05:00+00:00",
-    "note": ""
+    "note": "postponed resulting from stike"
   },
   {
     "game_id": 24732,
