@@ -761,24 +761,26 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Live",
-    "home_score": 3,
-    "away_score": 5,
+    "home_score": 4,
+    "away_score": 6,
     "home_goals": [
       "P. Polino (C. Hausinger, R. O'Hara)",
       "J. Atkinson (P. Polino)",
-      "R. O'Reilly (K. Mastrodonato, D. Sheriff)"
+      "R. O'Reilly (K. Mastrodonato, D. Sheriff)",
+      "K. Mastrodonato (J. Murray, B. Pedersen)"
     ],
     "away_goals": [
       "N. Orzeck (J. Matier, R. Francis)",
       "Z. Yoder (P. Morgan)",
       "B. Less (M. Burns, R. Nolan)",
       "A. Young ( )",
-      "C. Denomie (J. Cipollone, C. Nychuk)"
+      "C. Denomie (J. Cipollone, C. Nychuk)",
+      "J. O'Brien (J. Cipollone, N. Orzeck)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24743&lang_id=1",
-    "game_time": "5:24 2nd",
+    "game_time": "0:00 2nd",
     "scheduled_start": "2026-01-02T19:05:00+00:00"
   },
   {
