@@ -911,11 +911,12 @@
     "opponent": "Jacksonville",
     "location": "Away",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 3,
     "home_goals": [
       "D. Duhart (J. Spetz, J. Condotta)",
-      "G. Van Wyhe (P. Bajkov, P. Tischke)"
+      "G. Van Wyhe (P. Bajkov, P. Tischke)",
+      "M. Costantini (G. Van Wyhe, P. Bajkov)"
     ],
     "away_goals": [
       "P. Berge ( )",
@@ -925,7 +926,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24759&lang_id=1",
-    "game_time": "4:18 3rd",
+    "game_time": "7:00 1st OT",
     "scheduled_start": "2026-01-03T19:00:00+00:00",
     "note": ""
   },
