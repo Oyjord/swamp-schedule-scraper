@@ -910,9 +910,9 @@
     "date": "Jan. 3",
     "opponent": "Jacksonville",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
-    "away_score": 3,
+    "away_score": 4,
     "home_goals": [
       "D. Duhart (J. Spetz, J. Condotta)",
       "G. Van Wyhe (P. Bajkov, P. Tischke)",
@@ -921,12 +921,13 @@
     "away_goals": [
       "P. Berge ( )",
       "J. Brackett (B. Pedersen)",
-      "C. Hausinger (J. Atkinson, H. Schandor)"
+      "C. Hausinger (J. Atkinson, H. Schandor)",
+      "J. Brackett ( )"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "W(OT) 4-3",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24759&lang_id=1",
-    "game_time": "4:22 1st OT",
+    "game_time": null,
     "scheduled_start": "2026-01-03T19:00:00+00:00",
     "note": ""
   },
