@@ -979,20 +979,21 @@
     "opponent": "Orlando",
     "location": "Away",
     "status": "Live",
-    "home_score": 0,
-    "away_score": 3,
+    "home_score": 1,
+    "away_score": 4,
     "home_goals": [
-
+      "R. Newkirk (A. Luchuk, A. Bardaro)"
     ],
     "away_goals": [
       "D. Sheriff (T. Lovell, H. Schandor)",
       "D. Sheriff (K. Mastrodonato, H. Schandor)",
-      "P. Berge (H. Schandor, C. Hausinger)"
+      "P. Berge (H. Schandor, C. Hausinger)",
+      "R. O'Hara (P. Polino, T. De Jong)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24770&lang_id=1",
-    "game_time": "1:32 2nd",
+    "game_time": "2:08 3rd",
     "scheduled_start": "2026-01-05T19:00:00+00:00",
     "note": ""
   },
