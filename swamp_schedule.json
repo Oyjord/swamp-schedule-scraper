@@ -978,9 +978,9 @@
     "date": "Jan. 5",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
-    "away_score": 4,
+    "away_score": 5,
     "home_goals": [
       "R. Newkirk (A. Luchuk, A. Bardaro)"
     ],
@@ -988,12 +988,13 @@
       "D. Sheriff (T. Lovell, H. Schandor)",
       "D. Sheriff (K. Mastrodonato, H. Schandor)",
       "P. Berge (H. Schandor, C. Hausinger)",
-      "R. O'Hara (P. Polino, T. De Jong)"
+      "R. O'Hara (P. Polino, T. De Jong)",
+      "J. Murray (M. Sholl)"
     ],
-    "result": null,
+    "result": "W 5-1",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24770&lang_id=1",
-    "game_time": "2:08 3rd",
+    "game_time": null,
     "scheduled_start": "2026-01-05T19:00:00+00:00",
     "note": ""
   },
