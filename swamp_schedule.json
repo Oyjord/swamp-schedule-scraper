@@ -980,18 +980,19 @@
     "location": "Away",
     "status": "Live",
     "home_score": 0,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
 
     ],
     "away_goals": [
       "D. Sheriff (T. Lovell, H. Schandor)",
-      "D. Sheriff (K. Mastrodonato, H. Schandor)"
+      "D. Sheriff (K. Mastrodonato, H. Schandor)",
+      "P. Berge (H. Schandor, C. Hausinger)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24770&lang_id=1",
-    "game_time": "11:38 2nd",
+    "game_time": "1:32 2nd",
     "scheduled_start": "2026-01-05T19:00:00+00:00",
     "note": ""
   },
