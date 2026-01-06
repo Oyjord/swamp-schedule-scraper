@@ -978,19 +978,19 @@
     "date": "Jan. 5",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Upcoming",
+    "status": "Live",
     "home_score": 0,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "D. Sheriff (T. Lovell, H. Schandor)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24770&lang_id=1",
-    "game_time": null,
+    "game_time": "2:20 1st",
     "scheduled_start": "2026-01-05T19:00:00+00:00",
     "note": ""
   },
