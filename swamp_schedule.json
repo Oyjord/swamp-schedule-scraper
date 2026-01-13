@@ -713,7 +713,7 @@
     "date": "Jan. 13",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
     "away_score": 1,
     "home_goals": [
@@ -725,10 +725,10 @@
     "away_goals": [
       "C. Hausinger (R. O'Hara)"
     ],
-    "result": null,
+    "result": "L 1-4",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24818&lang_id=1",
-    "game_time": "1:31 3rd",
+    "game_time": null,
     "scheduled_start": "2026-01-13T10:30:00+00:00",
     "note": ""
   },
