@@ -714,10 +714,12 @@
     "opponent": "Savannah",
     "location": "Away",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 3,
     "away_score": 1,
     "home_goals": [
-      "L. Drevitch (N. Carroll)"
+      "L. Drevitch (N. Carroll)",
+      "B. Brodzinski (C. Tellier, R. Hughes)",
+      "C. Huard (N. Zabaneh)"
     ],
     "away_goals": [
       "C. Hausinger (R. O'Hara)"
@@ -725,7 +727,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24818&lang_id=1",
-    "game_time": "16:55 2nd",
+    "game_time": "12:57 3rd",
     "scheduled_start": "2026-01-13T10:30:00+00:00",
     "note": ""
   },
