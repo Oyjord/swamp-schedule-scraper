@@ -42,6 +42,69 @@
     "note": ""
   },
   {
+    "game_id": 24707,
+    "date": "Apr. 17",
+    "opponent": "Jacksonville",
+    "location": "Home",
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "result": null,
+    "overtime_type": null,
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24707&lang_id=1",
+    "game_time": null,
+    "scheduled_start": "2025-12-27T19:05:00+00:00",
+    "note": "postponed (from strike)"
+  },
+  {
+    "game_id": 24720,
+    "date": "Apr. 18",
+    "opponent": "Jacksonville",
+    "location": "Home",
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "result": null,
+    "overtime_type": null,
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24720&lang_id=1",
+    "game_time": null,
+    "scheduled_start": "2025-12-28T15:05:00+00:00",
+    "note": "postponed (from strike)"
+  },
+  {
+    "game_id": 24690,
+    "date": "Apr. 19",
+    "opponent": "Atlanta",
+    "location": "Home",
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "result": null,
+    "overtime_type": null,
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24690&lang_id=1",
+    "game_time": null,
+    "scheduled_start": null,
+    "note": "postponed (from stike)"
+  },
+  {
     "game_id": 25299,
     "date": "Apr. 2",
     "opponent": "Atlanta",
@@ -245,69 +308,6 @@
     "game_time": null,
     "scheduled_start": "2025-12-21T15:10:00+00:00",
     "note": ""
-  },
-  {
-    "game_id": 24690,
-    "date": "Dec. 26",
-    "opponent": "Atlanta",
-    "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
-    "away_score": 0,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "result": null,
-    "overtime_type": null,
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24690&lang_id=1",
-    "game_time": null,
-    "scheduled_start": null,
-    "note": "postponed (from stike)"
-  },
-  {
-    "game_id": 24707,
-    "date": "Dec. 27",
-    "opponent": "Jacksonville",
-    "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
-    "away_score": 0,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "result": null,
-    "overtime_type": null,
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24707&lang_id=1",
-    "game_time": null,
-    "scheduled_start": "2025-12-27T19:05:00+00:00",
-    "note": "postponed (from strike)"
-  },
-  {
-    "game_id": 24720,
-    "date": "Dec. 28",
-    "opponent": "Jacksonville",
-    "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
-    "away_score": 0,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "result": null,
-    "overtime_type": null,
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24720&lang_id=1",
-    "game_time": null,
-    "scheduled_start": "2025-12-28T15:05:00+00:00",
-    "note": "postponed (from strike)"
   },
   {
     "game_id": 24732,

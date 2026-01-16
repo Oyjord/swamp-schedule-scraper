@@ -150,24 +150,6 @@
     "location": "Away"
   },
   {
-    "game_id": 24690,
-    "date": "Dec. 26",
-    "opponent": "Atlanta",
-    "location": "Home"
-  },
-  {
-    "game_id": 24707,
-    "date": "Dec. 27",
-    "opponent": "Jacksonville",
-    "location": "Home"
-  },
-  {
-    "game_id": 24720,
-    "date": "Dec. 28",
-    "opponent": "Jacksonville",
-    "location": "Home"
-  },
-  {
     "game_id": 24732,
     "date": "Dec. 31",
     "opponent": "South Carolina",
@@ -429,6 +411,24 @@
     "game_id": 25340,
     "date": "Apr. 12",
     "opponent": "Bloomington",
+    "location": "Home"
+  },
+  {
+    "game_id": 24707,
+    "date": "Apr. 17",
+    "opponent": "Jacksonville",
+    "location": "Home"
+  },
+  {
+    "game_id": 24720,
+    "date": "Apr. 18",
+    "opponent": "Jacksonville",
+    "location": "Home"
+  },
+  {
+    "game_id": 24690,
+    "date": "Apr. 19",
+    "opponent": "Atlanta",
     "location": "Home"
   }
 ]
