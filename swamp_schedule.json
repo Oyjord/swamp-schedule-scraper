@@ -738,10 +738,11 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 1,
     "home_goals": [
-      "R. Parker (J. Atkinson, K. Mastrodonato)"
+      "R. Parker (J. Atkinson, K. Mastrodonato)",
+      "C. Hausinger (K. Mastrodonato, R. O'Hara)"
     ],
     "away_goals": [
       "C. Sylvester (D. Carabia)"
@@ -749,7 +750,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25270&lang_id=1",
-    "game_time": "5:52 2nd",
+    "game_time": "3:13 2nd",
     "scheduled_start": "2026-01-17T18:05:00+00:00",
     "note": ""
   },
