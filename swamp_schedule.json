@@ -759,21 +759,21 @@
     "date": "Jan. 18",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
     "away_score": 1,
     "home_goals": [
-      "J. Cipollone ( )",
+      "J. Cipollone (R. Francis)",
       "R. Nolan (R. Francis, N. Orzeck)",
       "C. Denomie (J. Cipollone, R. Francis)"
     ],
     "away_goals": [
       "K. Mastrodonato (J. Atkinson, R. O'Hara)"
     ],
-    "result": null,
+    "result": "L 1-3",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24851&lang_id=1",
-    "game_time": "0:00 3rd",
+    "game_time": null,
     "scheduled_start": "2026-01-18T15:10:00+00:00",
     "note": ""
   },
