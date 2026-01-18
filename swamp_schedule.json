@@ -737,7 +737,7 @@
     "date": "Jan. 17",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
     "away_score": 1,
     "home_goals": [
@@ -747,10 +747,10 @@
     "away_goals": [
       "C. Sylvester (D. Carabia)"
     ],
-    "result": null,
+    "result": "W 1-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25270&lang_id=1",
-    "game_time": "2:11 3rd",
+    "game_time": null,
     "scheduled_start": "2026-01-17T18:05:00+00:00",
     "note": ""
   },
