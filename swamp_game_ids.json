@@ -210,18 +210,6 @@
     "location": "Home"
   },
   {
-    "game_id": 24877,
-    "date": "Jan. 24",
-    "opponent": "Savannah",
-    "location": "Home"
-  },
-  {
-    "game_id": 24891,
-    "date": "Jan. 25",
-    "opponent": "Savannah",
-    "location": "Home"
-  },
-  {
     "game_id": 24904,
     "date": "Jan. 28",
     "opponent": "Utah",
@@ -378,6 +366,12 @@
     "location": "Home"
   },
   {
+    "game_id": 24877,
+    "date": "Mar. 31",
+    "opponent": "Savannah",
+    "location": "Home"
+  },
+  {
     "game_id": 25299,
     "date": "Apr. 2",
     "opponent": "Atlanta",
@@ -394,6 +388,12 @@
     "date": "Apr. 4",
     "opponent": "South Carolina",
     "location": "Away"
+  },
+  {
+    "game_id": 24891,
+    "date": "Apr. 8",
+    "opponent": "Savannah",
+    "location": "Home"
   },
   {
     "game_id": 25332,

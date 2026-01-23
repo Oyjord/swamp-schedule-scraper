@@ -168,6 +168,27 @@
     "note": ""
   },
   {
+    "game_id": 24891,
+    "date": "Apr. 8",
+    "opponent": "Savannah",
+    "location": "Home",
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "result": null,
+    "overtime_type": null,
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1",
+    "game_time": null,
+    "scheduled_start": "2026-01-25T15:05:00+00:00",
+    "note": ""
+  },
+  {
     "game_id": 25332,
     "date": "Apr. 9",
     "opponent": "Bloomington",
@@ -851,48 +872,6 @@
     "note": ""
   },
   {
-    "game_id": 24877,
-    "date": "Jan. 24",
-    "opponent": "Savannah",
-    "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
-    "away_score": 0,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "result": null,
-    "overtime_type": null,
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24877&lang_id=1",
-    "game_time": null,
-    "scheduled_start": "2026-01-24T19:05:00+00:00",
-    "note": ""
-  },
-  {
-    "game_id": 24891,
-    "date": "Jan. 25",
-    "opponent": "Savannah",
-    "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
-    "away_score": 0,
-    "home_goals": [
-
-    ],
-    "away_goals": [
-
-    ],
-    "result": null,
-    "overtime_type": null,
-    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1",
-    "game_time": null,
-    "scheduled_start": "2026-01-25T15:05:00+00:00",
-    "note": ""
-  },
-  {
     "game_id": 24904,
     "date": "Jan. 28",
     "opponent": "Utah",
@@ -1172,6 +1151,27 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25281&lang_id=1",
     "game_time": null,
     "scheduled_start": "2026-03-29T15:05:00+00:00",
+    "note": ""
+  },
+  {
+    "game_id": 24877,
+    "date": "Mar. 31",
+    "opponent": "Savannah",
+    "location": "Home",
+    "status": "Upcoming",
+    "home_score": 0,
+    "away_score": 0,
+    "home_goals": [
+
+    ],
+    "away_goals": [
+
+    ],
+    "result": null,
+    "overtime_type": null,
+    "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24877&lang_id=1",
+    "game_time": null,
+    "scheduled_start": "2026-01-24T19:05:00+00:00",
     "note": ""
   },
   {
