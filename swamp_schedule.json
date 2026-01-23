@@ -186,7 +186,7 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1",
     "game_time": null,
     "scheduled_start": "2026-01-25T15:05:00+00:00",
-    "note": "rescheduled for weather"
+    "note": "rescheduled (for weather)"
   },
   {
     "game_id": 25332,
@@ -1172,7 +1172,7 @@
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24877&lang_id=1",
     "game_time": null,
     "scheduled_start": "2026-01-24T19:05:00+00:00",
-    "note": "rescheduled for weather"
+    "note": "rescheduled (for weather)"
   },
   {
     "game_id": 25119,
