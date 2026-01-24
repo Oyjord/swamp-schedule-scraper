@@ -856,12 +856,13 @@
     "opponent": "Florida",
     "location": "Home",
     "status": "Live",
-    "home_score": 3,
+    "home_score": 4,
     "away_score": 2,
     "home_goals": [
       "J. Parker-Jones (D. Sheriff, J. Murray)",
       "K. Isogai (T. Lovell)",
-      "J. Modry (D. Sheriff, P. Polino)"
+      "J. Modry (D. Sheriff, P. Polino)",
+      "P. Polino (K. Isogai, J. Atkinson)"
     ],
     "away_goals": [
       "I. Nurse (J. Lansdell, K. Betts)",
@@ -870,7 +871,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24862&lang_id=1",
-    "game_time": "1:48 2nd",
+    "game_time": "1:29 2nd",
     "scheduled_start": "2026-01-23T19:05:00+00:00",
     "note": ""
   },
