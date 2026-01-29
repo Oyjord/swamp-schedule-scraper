@@ -882,10 +882,10 @@
     "opponent": "Utah",
     "location": "Away",
     "status": "Live",
-    "home_score": 0,
+    "home_score": 1,
     "away_score": 0,
     "home_goals": [
-
+      "R. Stucker (L. Salem, J. Gelatt)"
     ],
     "away_goals": [
 
@@ -893,7 +893,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24904&lang_id=1",
-    "game_time": "19:11 2nd",
+    "game_time": "12:19 2nd",
     "scheduled_start": "2026-01-28T19:10:00+00:00",
     "note": ""
   },
