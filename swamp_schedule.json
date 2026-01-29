@@ -881,7 +881,7 @@
     "date": "Jan. 28",
     "opponent": "Utah",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 1,
     "away_score": 3,
     "home_goals": [
@@ -892,10 +892,10 @@
       "D. Sheriff ( )",
       "H. Schandor (D. Sheriff)"
     ],
-    "result": null,
+    "result": "W 3-1",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24904&lang_id=1",
-    "game_time": "0:53 3rd",
+    "game_time": null,
     "scheduled_start": "2026-01-28T19:10:00+00:00",
     "note": ""
   },
