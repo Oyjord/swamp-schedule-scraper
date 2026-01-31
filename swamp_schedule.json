@@ -932,14 +932,15 @@
     "location": "Away",
     "status": "Live",
     "home_score": 2,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
       "E. Friesen (A. Hansen-Bukata, R. Lebster)",
       "T. Gratton (R. Lebster, A. Hansen-Bukata)"
     ],
     "away_goals": [
       "K. Mastrodonato (K. Isogai, R. O'Hara)",
-      "P. Polino (C. Fraser, J. Atkinson)"
+      "P. Polino (C. Fraser, J. Atkinson)",
+      "R. O'Hara ( )"
     ],
     "result": null,
     "overtime_type": null,
