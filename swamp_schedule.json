@@ -930,7 +930,7 @@
     "date": "Jan. 30",
     "opponent": "Utah",
     "location": "Away",
-    "status": "Upcoming",
+    "status": "Live",
     "home_score": 0,
     "away_score": 0,
     "home_goals": [
@@ -942,7 +942,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24916&lang_id=1",
-    "game_time": null,
+    "game_time": "16:28 1st",
     "scheduled_start": "2026-01-30T21:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
