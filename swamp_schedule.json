@@ -932,12 +932,12 @@
     "location": "Away",
     "status": "Live",
     "home_score": 1,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
       "E. Friesen (A. Hansen-Bukata, R. Lebster)"
     ],
     "away_goals": [
-
+      "K. Mastrodonato (K. Isogai, R. O'Hara)"
     ],
     "result": null,
     "overtime_type": null,
