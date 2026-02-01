@@ -955,10 +955,11 @@
     "opponent": "Utah",
     "location": "Away",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 3,
     "home_goals": [
-      "S. Kennedy (H. Schreifels)"
+      "S. Kennedy (H. Schreifels)",
+      "R. Lebster (S. Kennedy, T. Gratton)"
     ],
     "away_goals": [
       "J. Atkinson (T. Lovell, H. Schandor)",
@@ -968,7 +969,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24931&lang_id=1",
-    "game_time": "4:25 2nd",
+    "game_time": "1:46 2nd",
     "scheduled_start": "2026-01-31T21:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
