@@ -956,7 +956,7 @@
     "location": "Away",
     "status": "Live",
     "home_score": 3,
-    "away_score": 4,
+    "away_score": 5,
     "home_goals": [
       "S. Kennedy (H. Schreifels)",
       "R. Lebster (S. Kennedy, T. Gratton)",
@@ -966,12 +966,13 @@
       "J. Atkinson (T. Lovell, H. Schandor)",
       "D. Sheriff (H. Schandor, P. Polino)",
       "J. Atkinson (T. Lovell, K. Mastrodonato)",
-      "J. Parker-Jones (J. Murray)"
+      "J. Parker-Jones (J. Murray, W. Murphy)",
+      "K. Mastrodonato (W. Murphy, J. Atkinson)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24931&lang_id=1",
-    "game_time": "7:43 3rd",
+    "game_time": "5:11 3rd",
     "scheduled_start": "2026-01-31T21:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
