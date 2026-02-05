@@ -650,7 +650,7 @@
     "opponent": "Idaho",
     "location": "Away",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 2,
     "home_goals": [
       "G. Silianoff ( )",
@@ -663,7 +663,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24952&lang_id=1",
-    "game_time": "0:00 1st OT",
+    "game_time": "In Shootout",
     "scheduled_start": "2026-02-04T19:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
