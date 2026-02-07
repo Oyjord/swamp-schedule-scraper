@@ -674,7 +674,7 @@
     "location": "Away",
     "status": "Live",
     "home_score": 3,
-    "away_score": 3,
+    "away_score": 4,
     "home_goals": [
       "T. Pelton-Byce (J. Baum, B. Hoffmann)",
       "M. Nevers (N. Canade, J. Miller)",
@@ -683,12 +683,13 @@
     "away_goals": [
       "P. Berge (W. Murphy, J. Parker-Jones)",
       "W. Murphy (R. O'Reilly)",
-      "D. Sheriff (J. Atkinson, H. Schandor)"
+      "D. Sheriff (J. Atkinson, H. Schandor)",
+      "K. Mastrodonato (J. Atkinson, W. Murphy)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24962&lang_id=1",
-    "game_time": "20:00 3rd",
+    "game_time": "19:27 3rd",
     "scheduled_start": "2026-02-06T19:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
