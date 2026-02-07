@@ -673,12 +673,13 @@
     "opponent": "Idaho",
     "location": "Away",
     "status": "Live",
-    "home_score": 3,
+    "home_score": 4,
     "away_score": 4,
     "home_goals": [
       "T. Pelton-Byce (J. Baum, B. Hoffmann)",
       "M. Nevers (N. Canade, J. Miller)",
-      "C. Dodero (C. Dodero, J. Baum)"
+      "C. Dodero (C. Dodero, J. Baum)",
+      "L. Malmquist (A. Hreschuk, K. Pearson)"
     ],
     "away_goals": [
       "P. Berge (W. Murphy, J. Parker-Jones)",
@@ -689,7 +690,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24962&lang_id=1",
-    "game_time": "19:27 3rd",
+    "game_time": "6:02 3rd",
     "scheduled_start": "2026-02-06T19:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
