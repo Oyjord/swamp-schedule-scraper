@@ -700,7 +700,7 @@
     "date": "Feb. 7",
     "opponent": "Idaho",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
     "away_score": 2,
     "home_goals": [
@@ -713,10 +713,10 @@
       "T. Lovell ( )",
       "P. Polino (J. Atkinson, K. Isogai)"
     ],
-    "result": null,
+    "result": "L 2-4",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24975&lang_id=1",
-    "game_time": "0:46 3rd",
+    "game_time": null,
     "scheduled_start": "2026-02-07T19:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
