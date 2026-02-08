@@ -701,10 +701,11 @@
     "opponent": "Idaho",
     "location": "Away",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 0,
     "home_goals": [
-      "C. Dodero (J. Miller, J. Baum)"
+      "C. Dodero (J. Miller, J. Baum)",
+      "B. Hoffmann ( )"
     ],
     "away_goals": [
 
@@ -712,7 +713,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24975&lang_id=1",
-    "game_time": "11:00 1st",
+    "game_time": "9:02 1st",
     "scheduled_start": "2026-02-07T19:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
