@@ -700,7 +700,7 @@
     "date": "Feb. 7",
     "opponent": "Idaho",
     "location": "Away",
-    "status": "Upcoming",
+    "status": "Live",
     "home_score": 0,
     "away_score": 0,
     "home_goals": [
@@ -712,7 +712,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24975&lang_id=1",
-    "game_time": null,
+    "game_time": "20:00 1st",
     "scheduled_start": "2026-02-07T19:10:00+00:00",
     "note": "6:10 PM PST actual start"
   },
