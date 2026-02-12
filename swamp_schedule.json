@@ -439,7 +439,7 @@
     "date": "Feb. 11",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
     "away_score": 3,
     "home_goals": [
@@ -451,10 +451,10 @@
       "M. Burns (C. Nychuk, J. O'Brien)",
       "J. Cipollone (C. Nychuk, R. Francis)"
     ],
-    "result": null,
+    "result": "L 3-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24988&lang_id=1",
-    "game_time": "0:00 3rd",
+    "game_time": null,
     "scheduled_start": "2026-02-11T19:05:00+00:00",
     "note": ""
   },
