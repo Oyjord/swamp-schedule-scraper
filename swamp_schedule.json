@@ -440,20 +440,21 @@
     "opponent": "Atlanta",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 3,
     "home_goals": [
-      "K. Mastrodonato (J. Atkinson, K. Isogai)"
+      "K. Mastrodonato (J. Atkinson, K. Isogai)",
+      "K. Mastrodonato (W. Murphy)"
     ],
     "away_goals": [
       "M. McNamee (M. Burns, J. Cipollone)",
       "M. Burns (C. Nychuk, J. O'Brien)",
-      "J. Cipollone (C. Nychuk, C. Denomie)"
+      "J. Cipollone (C. Nychuk, R. Francis)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24988&lang_id=1",
-    "game_time": "9:07 3rd",
+    "game_time": "3:30 3rd",
     "scheduled_start": "2026-02-11T19:05:00+00:00",
     "note": ""
   },
