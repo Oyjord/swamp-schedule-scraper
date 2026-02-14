@@ -465,7 +465,7 @@
     "location": "Home",
     "status": "Live",
     "home_score": 2,
-    "away_score": 3,
+    "away_score": 4,
     "home_goals": [
       "W. Murphy (K. Isogai, P. Polino)",
       "J. Brackett (K. Mastrodonato, J. Atkinson)"
@@ -473,12 +473,13 @@
     "away_goals": [
       "C. Moore (S. Pinard, L. Breen)",
       "P. Guzzo (R. Rodzinski)",
-      "S. Cooley (K. Bohlsen, L. Persson)"
+      "S. Cooley (K. Bohlsen, L. Persson)",
+      "S. Pinard ( )"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24998&lang_id=1",
-    "game_time": "6:22 3rd",
+    "game_time": "0:51 3rd",
     "scheduled_start": "2026-02-13T19:05:00+00:00",
     "note": ""
   },
