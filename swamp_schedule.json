@@ -463,7 +463,7 @@
     "date": "Feb. 13",
     "opponent": "South Carolina",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
     "away_score": 4,
     "home_goals": [
@@ -476,10 +476,10 @@
       "S. Cooley (K. Bohlsen, L. Persson)",
       "S. Pinard ( )"
     ],
-    "result": null,
+    "result": "L 4-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24998&lang_id=1",
-    "game_time": "0:51 3rd",
+    "game_time": null,
     "scheduled_start": "2026-02-13T19:05:00+00:00",
     "note": ""
   },
