@@ -464,10 +464,11 @@
     "opponent": "South Carolina",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 1,
     "home_goals": [
-      "W. Murphy (K. Isogai, P. Polino)"
+      "W. Murphy (K. Isogai, P. Polino)",
+      "J. Brackett (K. Mastrodonato, J. Atkinson)"
     ],
     "away_goals": [
       "C. Moore (S. Pinard, L. Breen)"
@@ -475,7 +476,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24998&lang_id=1",
-    "game_time": "11:03 2nd",
+    "game_time": "3:28 2nd",
     "scheduled_start": "2026-02-13T19:05:00+00:00",
     "note": ""
   },
