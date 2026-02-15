@@ -519,9 +519,9 @@
     "date": "Feb. 15",
     "opponent": "Savannah",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
-    "away_score": 3,
+    "away_score": 4,
     "home_goals": [
       "H. Schandor (T. Lovell)",
       "T. Lovell (J. Atkinson, K. Isogai)",
@@ -530,12 +530,13 @@
     "away_goals": [
       "M. Koopman (L. Walsh, T. Amonte)",
       "B. Brodzinski (T. Amonte)",
-      "R. Sullivan (N. Carroll, J. Lopina)"
+      "R. Sullivan (N. Carroll, J. Lopina)",
+      "R. Hughes (D. Cesana, R. Vitelli)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(OT) 4-3",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25024&lang_id=1",
-    "game_time": "2:53 1st OT",
+    "game_time": null,
     "scheduled_start": "2026-02-15T15:05:00+00:00",
     "note": ""
   },
