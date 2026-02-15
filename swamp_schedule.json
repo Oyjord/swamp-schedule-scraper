@@ -490,7 +490,7 @@
     "location": "Away",
     "status": "Live",
     "home_score": 3,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
       "N. Krenzen (P. Thomas, P. Guzzo)",
       "J. Klimek (P. Thomas)",
@@ -498,12 +498,13 @@
     ],
     "away_goals": [
       "K. Isogai (R. O'Hara, K. Mastrodonato)",
-      "R. O'Reilly (H. Schandor)"
+      "R. O'Reilly (H. Schandor)",
+      "P. Polino (W. Murphy, K. Isogai)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25016&lang_id=1",
-    "game_time": "19:22 2nd",
+    "game_time": "13:33 2nd",
     "scheduled_start": "2026-02-14T18:05:00+00:00",
     "note": ""
   },
