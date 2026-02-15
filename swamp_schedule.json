@@ -489,14 +489,15 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Live",
-    "home_score": 5,
+    "home_score": 6,
     "away_score": 4,
     "home_goals": [
       "N. Krenzen (P. Thomas, P. Guzzo)",
       "J. Klimek (P. Thomas)",
       "S. Pinard (L. Breen, J. Wilkins)",
       "C. Mayer (L. Persson, S. Cooley)",
-      "J. Wilkins (L. Breen)"
+      "J. Wilkins (L. Breen)",
+      "L. Breen (D. King, S. Pinard)"
     ],
     "away_goals": [
       "K. Isogai (R. O'Hara, K. Mastrodonato)",
@@ -507,7 +508,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25016&lang_id=1",
-    "game_time": "8:28 2nd",
+    "game_time": "16:59 3rd",
     "scheduled_start": "2026-02-14T18:05:00+00:00",
     "note": ""
   },
