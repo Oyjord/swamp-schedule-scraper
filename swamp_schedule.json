@@ -520,11 +520,12 @@
     "opponent": "Savannah",
     "location": "Home",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 3,
     "home_goals": [
       "H. Schandor (T. Lovell)",
-      "T. Lovell (J. Atkinson, K. Isogai)"
+      "T. Lovell (J. Atkinson, K. Isogai)",
+      "K. Isogai (R. O'Hara, D. Sheriff)"
     ],
     "away_goals": [
       "M. Koopman (L. Walsh, T. Amonte)",
@@ -534,7 +535,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25024&lang_id=1",
-    "game_time": "6:41 3rd",
+    "game_time": "2:53 1st OT",
     "scheduled_start": "2026-02-15T15:05:00+00:00",
     "note": ""
   },
