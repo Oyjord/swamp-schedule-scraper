@@ -545,7 +545,7 @@
     "date": "Feb. 18",
     "opponent": "South Carolina",
     "location": "Away",
-    "status": "Upcoming",
+    "status": "Live",
     "home_score": 0,
     "away_score": 0,
     "home_goals": [
@@ -557,7 +557,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25038&lang_id=1",
-    "game_time": null,
+    "game_time": "13:10 1st",
     "scheduled_start": "2026-02-18T10:30:00+00:00",
     "note": ""
   },
