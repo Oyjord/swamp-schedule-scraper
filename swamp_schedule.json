@@ -576,7 +576,7 @@
     "away_score": 2,
     "home_goals": [
       "K. Mastrodonato (D. Sheriff, R. O'Hara)",
-      "J. Brackett (T. De Jong)"
+      "J. Brackett (T. De Jong, B. Pedersen)"
     ],
     "away_goals": [
       "M. Davies (T. Goulbourne, D. Elliott)",
@@ -585,7 +585,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25040&lang_id=1",
-    "game_time": "7:40 3rd",
+    "game_time": "0:00 1st OT",
     "scheduled_start": "2026-02-19T19:05:00+00:00",
     "note": ""
   },
