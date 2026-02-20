@@ -571,21 +571,22 @@
     "date": "Feb. 19",
     "opponent": "Tulsa",
     "location": "Home",
-    "status": "Live",
-    "home_score": 2,
+    "status": "Final",
+    "home_score": 3,
     "away_score": 2,
     "home_goals": [
       "K. Mastrodonato (D. Sheriff, R. O'Hara)",
-      "J. Brackett (T. De Jong, B. Pedersen)"
+      "J. Brackett (T. De Jong, B. Pedersen)",
+      "K. Mastrodonato (H. Schandor, T. Lovell)"
     ],
     "away_goals": [
       "M. Davies (T. Goulbourne, D. Elliott)",
       "E. Armstrong (T. Poulsen)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "W(OT) 2-3",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25040&lang_id=1",
-    "game_time": "0:00 1st OT",
+    "game_time": null,
     "scheduled_start": "2026-02-19T19:05:00+00:00",
     "note": ""
   },
