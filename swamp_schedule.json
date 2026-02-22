@@ -595,7 +595,7 @@
     "date": "Feb. 21",
     "opponent": "Tulsa",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
     "away_score": 3,
     "home_goals": [
@@ -609,10 +609,10 @@
       "O. Lindmark (J. Brassard, R. Kinal)",
       "T. Poulsen (O. Lindmark, D. Elliott)"
     ],
-    "result": null,
+    "result": "W 3-4",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25059&lang_id=1",
-    "game_time": "0:34 3rd",
+    "game_time": null,
     "scheduled_start": "2026-02-21T19:05:00+00:00",
     "note": ""
   },
