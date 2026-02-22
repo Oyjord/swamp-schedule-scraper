@@ -597,12 +597,12 @@
     "location": "Home",
     "status": "Live",
     "home_score": 1,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
       "K. Isogai (R. O'Hara)"
     ],
     "away_goals": [
-
+      "R. Kinal (R. Lautenbach, D. Lagrone)"
     ],
     "result": null,
     "overtime_type": null,
