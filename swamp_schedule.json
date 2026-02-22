@@ -596,11 +596,13 @@
     "opponent": "Tulsa",
     "location": "Home",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 4,
     "away_score": 1,
     "home_goals": [
       "K. Isogai (R. O'Hara)",
-      "W. Murphy (P. Berge, J. Murray)"
+      "W. Murphy (P. Berge, J. Murray)",
+      "W. Murphy (J. Atkinson, K. Mastrodonato)",
+      "C. Hausinger (D. Sheriff, J. Murray)"
     ],
     "away_goals": [
       "R. Kinal (R. Lautenbach, D. Lagrone)"
@@ -608,7 +610,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25059&lang_id=1",
-    "game_time": "8:18 2nd",
+    "game_time": "3:06 2nd",
     "scheduled_start": "2026-02-21T19:05:00+00:00",
     "note": ""
   },
