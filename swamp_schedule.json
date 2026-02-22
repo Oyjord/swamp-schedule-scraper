@@ -623,7 +623,7 @@
     "location": "Home",
     "status": "Live",
     "home_score": 2,
-    "away_score": 4,
+    "away_score": 5,
     "home_goals": [
       "C. Hausinger (H. Schandor, T. Lovell)",
       "H. Schandor (R. O'Hara, T. Lovell)"
@@ -632,12 +632,13 @@
       "K. Iverson (R. Lautenbach, O. Lindmark)",
       "L. Jirousek (T. Goulbourne, R. Kinal)",
       "D. Lagrone (T. Poulsen, J. Nelson)",
-      "M. Davies (T. Goulbourne, R. Kinal)"
+      "M. Davies (T. Goulbourne, R. Kinal)",
+      "O. Lindmark (R. Lautenbach)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25070&lang_id=1",
-    "game_time": "5:30 3rd",
+    "game_time": "1:11 3rd",
     "scheduled_start": "2026-02-22T15:05:00+00:00",
     "note": ""
   },
