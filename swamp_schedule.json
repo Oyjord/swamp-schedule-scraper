@@ -622,10 +622,11 @@
     "opponent": "Tulsa",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 3,
     "home_goals": [
-      "C. Hausinger (H. Schandor, T. Lovell)"
+      "C. Hausinger (H. Schandor, T. Lovell)",
+      "H. Schandor (R. O'Hara, T. Lovell)"
     ],
     "away_goals": [
       "K. Iverson (R. Lautenbach, O. Lindmark)",
@@ -635,7 +636,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25070&lang_id=1",
-    "game_time": "8:57 2nd",
+    "game_time": "0:02 2nd",
     "scheduled_start": "2026-02-22T15:05:00+00:00",
     "note": ""
   },
