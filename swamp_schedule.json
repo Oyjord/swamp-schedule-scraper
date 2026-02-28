@@ -648,10 +648,10 @@
     "opponent": "Reading",
     "location": "Away",
     "status": "Live",
-    "home_score": 0,
+    "home_score": 1,
     "away_score": 0,
     "home_goals": [
-
+      "B. Meehan (M. Gendron, M. Rizzo)"
     ],
     "away_goals": [
 
@@ -659,7 +659,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25088&lang_id=1",
-    "game_time": "13:25 2nd",
+    "game_time": "12:23 2nd",
     "scheduled_start": "2026-02-27T19:00:00+00:00",
     "note": ""
   },
