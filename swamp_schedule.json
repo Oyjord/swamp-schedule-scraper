@@ -671,7 +671,7 @@
     "date": "Feb. 28",
     "opponent": "Reading",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 5,
     "away_score": 6,
     "home_goals": [
@@ -686,13 +686,13 @@
       "D. Sheriff (H. Schandor, W. Murphy)",
       "W. Murphy (D. Sheriff)",
       "B. Pedersen (R. O'Reilly)",
-      "K. Mastrodonato (R. O'Hara)",
-      "K. Mastrodonato (H. Schandor)"
+      "K. Mastrodonato ( )",
+      "K. Mastrodonato (H. Schandor, T. Lovell)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "W(OT) 6-5",
+    "overtime_type": "OT",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25104&lang_id=1",
-    "game_time": "3:25 1st OT",
+    "game_time": null,
     "scheduled_start": "2026-02-28T19:00:00+00:00",
     "note": ""
   },
