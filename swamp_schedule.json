@@ -672,19 +672,21 @@
     "opponent": "Reading",
     "location": "Away",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 3,
     "away_score": 2,
     "home_goals": [
-      "G. Devine ( )"
+      "G. Devine (Z. Bannister, B. Meehan)",
+      "J. Frasca (M. Rizzo)",
+      "V. Sevigny (A. Kurapov, C. McMenamin)"
     ],
     "away_goals": [
       "R. O'Hara (C. Fraser)",
-      "D. Sheriff (H. Schandor, J. Parker-Jones)"
+      "D. Sheriff (H. Schandor, W. Murphy)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25104&lang_id=1",
-    "game_time": "11:44 1st",
+    "game_time": "0:00 1st",
     "scheduled_start": "2026-02-28T19:00:00+00:00",
     "note": ""
   },
