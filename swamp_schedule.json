@@ -673,7 +673,7 @@
     "location": "Away",
     "status": "Live",
     "home_score": 3,
-    "away_score": 3,
+    "away_score": 4,
     "home_goals": [
       "G. Devine (Z. Bannister, B. Meehan)",
       "J. Frasca (M. Rizzo)",
@@ -682,7 +682,8 @@
     "away_goals": [
       "R. O'Hara (C. Fraser)",
       "D. Sheriff (H. Schandor, W. Murphy)",
-      "W. Murphy (D. Sheriff)"
+      "W. Murphy (D. Sheriff)",
+      "B. Pedersen (R. O'Reilly)"
     ],
     "result": null,
     "overtime_type": null,
