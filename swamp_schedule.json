@@ -1261,20 +1261,21 @@
     "date": "Mar. 4",
     "opponent": "Florida",
     "location": "Away",
-    "status": "Live",
-    "home_score": 2,
+    "status": "Final",
+    "home_score": 3,
     "away_score": 0,
     "home_goals": [
       "C. Needham (A. Romano, J. Sambrook)",
-      "A. Romano (J. Sambrook, C. Needham)"
+      "A. Romano (J. Sambrook, C. Needham)",
+      "H. Elynuik (J. Lansdell, R. Duke)"
     ],
     "away_goals": [
 
     ],
-    "result": null,
+    "result": "L 0-3",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25119&lang_id=1",
-    "game_time": "3:24 3rd",
+    "game_time": null,
     "scheduled_start": "2026-03-04T19:30:00+00:00",
     "note": ""
   },
