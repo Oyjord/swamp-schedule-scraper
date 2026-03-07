@@ -1284,7 +1284,7 @@
     "date": "Mar. 6",
     "opponent": "Florida",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 4,
     "away_score": 0,
     "home_goals": [
@@ -1296,10 +1296,10 @@
     "away_goals": [
 
     ],
-    "result": null,
+    "result": "L 0-4",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25127&lang_id=1",
-    "game_time": "2:27 3rd",
+    "game_time": null,
     "scheduled_start": "2026-03-06T19:30:00+00:00",
     "note": ""
   },
