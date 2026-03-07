@@ -1285,11 +1285,12 @@
     "opponent": "Florida",
     "location": "Away",
     "status": "Live",
-    "home_score": 2,
+    "home_score": 3,
     "away_score": 0,
     "home_goals": [
       "T. Fizer (H. Elynuik, G. Cassaro)",
-      "O. Cooper (I. Nurse)"
+      "O. Cooper (I. Nurse)",
+      "K. Penney (I. Nurse, P. Kyte)"
     ],
     "away_goals": [
 
@@ -1297,7 +1298,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25127&lang_id=1",
-    "game_time": "12:52 2nd",
+    "game_time": "0:00 2nd",
     "scheduled_start": "2026-03-06T19:30:00+00:00",
     "note": ""
   },
