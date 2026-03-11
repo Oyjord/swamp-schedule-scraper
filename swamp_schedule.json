@@ -1073,10 +1073,11 @@
     "opponent": "Orlando",
     "location": "Away",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 0,
     "home_goals": [
-      "T. Kobryn (D. Gill, A. McDermott)"
+      "T. Kobryn (D. Gill, A. McDermott)",
+      "A. Luchuk (A. Bardaro, J. Lukosevicius)"
     ],
     "away_goals": [
 
@@ -1084,7 +1085,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25146&lang_id=1",
-    "game_time": "18:11 2nd",
+    "game_time": "19:19 3rd",
     "scheduled_start": "2026-03-10T19:00:00+00:00",
     "note": ""
   },
