@@ -3,9 +3,7 @@ name: Enrich Swamp Schedule
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 20-23 * * *'  
-    - cron: '*/15 0-3 * * *'    
-
+    - cron: ‘*/15 20-23,0-3 * * *’  
 
 jobs:
   enrich:
