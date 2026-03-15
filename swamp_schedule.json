@@ -1117,9 +1117,9 @@
     "date": "Mar. 14",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
-    "away_score": 4,
+    "away_score": 5,
     "home_goals": [
       "K. Landry (G. Müller, T. Bird)",
       "A. Bardaro (L. Wilson, K. Landry)",
@@ -1129,12 +1129,13 @@
       "R. O'Hara ( )",
       "D. Sheriff (P. Berge)",
       "N. Shea (T. Lovell, J. Atkinson)",
-      "W. Murphy (J. Murray, N. Shea)"
+      "W. Murphy (J. Murray, N. Shea)",
+      "J. Brackett (P. Polino, J. Murray)"
     ],
-    "result": null,
+    "result": "W 5-3",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25188&lang_id=1",
-    "game_time": "5:07 3rd",
+    "game_time": null,
     "scheduled_start": "2026-03-14T19:00:00+00:00",
     "note": ""
   },
