@@ -1145,10 +1145,11 @@
     "opponent": "Orlando",
     "location": "Away",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 2,
     "away_score": 0,
     "home_goals": [
-      "A. Bardaro (K. Landry)"
+      "A. Bardaro (K. Landry)",
+      "L. Wilson (T. Bird, K. Landry)"
     ],
     "away_goals": [
 
@@ -1156,7 +1157,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25199&lang_id=1",
-    "game_time": "3:28 2nd",
+    "game_time": "20:00 3rd",
     "scheduled_start": "2026-03-15T15:00:00+00:00",
     "note": ""
   },
