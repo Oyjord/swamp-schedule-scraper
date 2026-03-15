@@ -1144,11 +1144,11 @@
     "date": "Mar. 15",
     "opponent": "Orlando",
     "location": "Away",
-    "status": "Upcoming",
-    "home_score": 0,
+    "status": "Live",
+    "home_score": 1,
     "away_score": 0,
     "home_goals": [
-
+      "A. Bardaro (K. Landry)"
     ],
     "away_goals": [
 
@@ -1156,7 +1156,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25199&lang_id=1",
-    "game_time": null,
+    "game_time": "3:28 2nd",
     "scheduled_start": "2026-03-15T15:00:00+00:00",
     "note": ""
   },
