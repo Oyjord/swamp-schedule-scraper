@@ -1168,12 +1168,13 @@
     "opponent": "Savannah",
     "location": "Away",
     "status": "Live",
-    "home_score": 3,
+    "home_score": 4,
     "away_score": 3,
     "home_goals": [
       "B. Brodzinski (J. Wiebe, R. Vitelli)",
       "J. Wiebe (W. Riedell, J. Lopina)",
-      "J. Wiebe (N. Carroll, R. Vitelli)"
+      "J. Wiebe (N. Carroll, R. Vitelli)",
+      "R. Hughes (W. Riedell, J. Lopina)"
     ],
     "away_goals": [
       "K. Mastrodonato (J. Zary, T. Rego)",
@@ -1183,7 +1184,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25218&lang_id=1",
-    "game_time": "7:00 1st OT",
+    "game_time": "0:56 1st OT",
     "scheduled_start": "2026-03-20T19:00:00+00:00",
     "note": ""
   },
