@@ -1193,20 +1193,21 @@
     "date": "Mar. 21",
     "opponent": "Savannah",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 0,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
 
     ],
     "away_goals": [
       "N. Shea (J. Murray)",
-      "W. Murphy ( )"
+      "W. Murphy ( )",
+      "R. O'Hara (K. Mastrodonato, P. Berge)"
     ],
-    "result": null,
+    "result": "W 3-0",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25233&lang_id=1",
-    "game_time": "1:03 3rd",
+    "game_time": null,
     "scheduled_start": "2026-03-21T19:00:00+00:00",
     "note": ""
   },
