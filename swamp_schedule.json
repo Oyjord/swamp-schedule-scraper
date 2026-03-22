@@ -1195,17 +1195,17 @@
     "location": "Away",
     "status": "Live",
     "home_score": 0,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "N. Shea (J. Murray)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25233&lang_id=1",
-    "game_time": "11:20 2nd",
+    "game_time": "2:17 2nd",
     "scheduled_start": "2026-03-21T19:00:00+00:00",
     "note": ""
   },
