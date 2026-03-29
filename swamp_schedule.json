@@ -1239,10 +1239,10 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Live",
-    "home_score": 0,
+    "home_score": 1,
     "away_score": 0,
     "home_goals": [
-
+      "J. Zary (J. Parker-Jones, C. Fraser)"
     ],
     "away_goals": [
 
@@ -1250,7 +1250,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25281&lang_id=1",
-    "game_time": "18:44 1st",
+    "game_time": "17:00 1st",
     "scheduled_start": "2026-03-29T15:05:00+00:00",
     "note": ""
   },
