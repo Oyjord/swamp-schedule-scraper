@@ -1264,17 +1264,17 @@
     "location": "Home",
     "status": "Live",
     "home_score": 0,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "K. Pehrson (R. Sullivan)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24877&lang_id=1",
-    "game_time": "17:32 2nd",
+    "game_time": "8:16 2nd",
     "scheduled_start": "2026-03-31T19:05:00+00:00",
     "note": ""
   },
