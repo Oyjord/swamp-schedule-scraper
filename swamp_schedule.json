@@ -158,19 +158,21 @@
     "opponent": "South Carolina",
     "location": "Away",
     "status": "Live",
-    "home_score": 2,
-    "away_score": 1,
+    "home_score": 3,
+    "away_score": 2,
     "home_goals": [
       "R. Hofer ( )",
-      "M. Adamson (A. Rinaldi, D. Loukus)"
+      "M. Adamson (A. Rinaldi, D. Loukus)",
+      "K. Bohlsen (S. Cooley, L. Persson)"
     ],
     "away_goals": [
-      "B. Poisson (J. Zary, C. Gault)"
+      "B. Poisson (J. Zary, C. Gault)",
+      "J. Brackett (J. Parker-Jones, R. O'Reilly)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25323&lang_id=1",
-    "game_time": "14:48 2nd",
+    "game_time": "6:01 2nd",
     "scheduled_start": "2026-04-04T18:05:00+00:00",
     "note": ""
   },
