@@ -133,21 +133,22 @@
     "date": "Apr. 3",
     "opponent": "Atlanta",
     "location": "Away",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
       "A. Eisele ( )",
       "A. Young (C. Nychuk, J. O'Brien)"
     ],
     "away_goals": [
       "T. Rego (P. Polino, P. Berge)",
-      "R. O'Reilly (P. Berge)"
+      "R. O'Reilly (P. Berge)",
+      "K. Mastrodonato (P. Berge, N. Shea)"
     ],
-    "result": null,
+    "result": "W 3-2",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25302&lang_id=1",
-    "game_time": "8:02 3rd",
+    "game_time": null,
     "scheduled_start": "2026-04-03T19:10:00+00:00",
     "note": ""
   },
