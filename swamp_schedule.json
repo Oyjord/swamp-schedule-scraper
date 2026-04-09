@@ -212,18 +212,21 @@
     "location": "Home",
     "status": "Live",
     "home_score": 1,
-    "away_score": 2,
+    "away_score": 5,
     "home_goals": [
       "T. Rego (B. Poisson, C. Gault)"
     ],
     "away_goals": [
       "C. Lee (R. Ishida, S. Ott)",
-      "P. Gavlas (M. Abramov, L. Denis)"
+      "P. Gavlas (M. Abramov, L. Denis)",
+      "D. Goure (G. Porter)",
+      "B. Datema (D. Goure, G. Porter)",
+      "S. Mack (S. Ott, C. Lee)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25332&lang_id=1",
-    "game_time": "14:27 1st",
+    "game_time": "3:55 1st",
     "scheduled_start": "2026-04-09T19:05:00+00:00",
     "note": ""
   },
