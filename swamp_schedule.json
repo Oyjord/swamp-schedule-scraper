@@ -184,7 +184,7 @@
     "date": "Apr. 8",
     "opponent": "Savannah",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 3,
     "away_score": 4,
     "home_goals": [
@@ -198,10 +198,10 @@
       "N. Zabaneh (E. Nause, J. Wiebe)",
       "N. Zabaneh (L. Drevitch, J. Wiebe)"
     ],
-    "result": null,
+    "result": "L 4-3",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1",
-    "game_time": "6:10 3rd",
+    "game_time": null,
     "scheduled_start": "2026-04-08T19:05:00+00:00",
     "note": "rescheduled (for weather)"
   },
