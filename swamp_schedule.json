@@ -186,18 +186,18 @@
     "location": "Home",
     "status": "Live",
     "home_score": 2,
-    "away_score": 0,
+    "away_score": 1,
     "home_goals": [
       "J. Brackett (D. Smirnov, P. Polino)",
       "K. Mastrodonato (C. Fraser, J. Prouty)"
     ],
     "away_goals": [
-
+      "R. Vitelli (D. Cesana)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24891&lang_id=1",
-    "game_time": "0:00 1st",
+    "game_time": "12:48 2nd",
     "scheduled_start": "2026-04-08T19:05:00+00:00",
     "note": "rescheduled (for weather)"
   },
