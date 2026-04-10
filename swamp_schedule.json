@@ -210,7 +210,7 @@
     "date": "Apr. 9",
     "opponent": "Bloomington",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 5,
     "away_score": 8,
     "home_goals": [
@@ -230,10 +230,10 @@
       "N. Sedov (G. Porter, S. Mack)",
       "S. Mack (G. Porter, B. Datema)"
     ],
-    "result": null,
+    "result": "L 8-5",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25332&lang_id=1",
-    "game_time": "0:00 3rd",
+    "game_time": null,
     "scheduled_start": "2026-04-09T19:05:00+00:00",
     "note": ""
   },
