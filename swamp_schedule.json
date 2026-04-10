@@ -211,12 +211,14 @@
     "opponent": "Bloomington",
     "location": "Home",
     "status": "Live",
-    "home_score": 3,
-    "away_score": 7,
+    "home_score": 5,
+    "away_score": 8,
     "home_goals": [
       "T. Rego (B. Poisson, C. Gault)",
       "P. Berge (T. Lovell, R. O'Reilly)",
-      "C. Gault (M. Mastrodomenico, T. Lovell)"
+      "C. Gault (M. Mastrodomenico, T. Lovell)",
+      "B. Poisson (C. Gault, J. Prouty)",
+      "K. Mastrodonato (R. O'Hara, D. Smirnov)"
     ],
     "away_goals": [
       "C. Lee (R. Ishida, S. Ott)",
@@ -225,12 +227,13 @@
       "B. Datema (D. Goure, G. Porter)",
       "S. Mack (S. Ott, C. Lee)",
       "L. Denis (G. Porter, N. Sedov)",
-      "N. Sedov (G. Porter, S. Mack)"
+      "N. Sedov (G. Porter, S. Mack)",
+      "S. Mack (G. Porter, B. Datema)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25332&lang_id=1",
-    "game_time": "18:53 3rd",
+    "game_time": "0:00 3rd",
     "scheduled_start": "2026-04-09T19:05:00+00:00",
     "note": ""
   },
