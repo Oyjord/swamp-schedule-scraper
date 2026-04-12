@@ -27,19 +27,22 @@
     "date": "Apr. 12",
     "opponent": "Bloomington",
     "location": "Home",
-    "status": "Upcoming",
+    "status": "Live",
     "home_score": 0,
-    "away_score": 0,
+    "away_score": 4,
     "home_goals": [
 
     ],
     "away_goals": [
-
+      "M. Kaleinikovas (N. Sedov, C. Lee)",
+      "S. Ott (M. Kaleinikovas, C. Lee)",
+      "L. Denis (M. Abramov)",
+      "D. Goure (I. Tsulygin)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25340&lang_id=1",
-    "game_time": null,
+    "game_time": "8:40 2nd",
     "scheduled_start": "2026-04-12T15:05:00+00:00",
     "note": ""
   },
