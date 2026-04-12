@@ -27,7 +27,7 @@
     "date": "Apr. 12",
     "opponent": "Bloomington",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 0,
     "away_score": 4,
     "home_goals": [
@@ -39,10 +39,10 @@
       "L. Denis (M. Abramov, C. Ferguson)",
       "D. Goure (I. Tsulygin)"
     ],
-    "result": null,
+    "result": "L 4-0",
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25340&lang_id=1",
-    "game_time": "8:26 3rd",
+    "game_time": null,
     "scheduled_start": "2026-04-12T15:05:00+00:00",
     "note": ""
   },
