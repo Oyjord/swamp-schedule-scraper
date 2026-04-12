@@ -4,9 +4,9 @@
     "date": "Apr. 11",
     "opponent": "Bloomington",
     "location": "Home",
-    "status": "Live",
+    "status": "Final",
     "home_score": 2,
-    "away_score": 2,
+    "away_score": 3,
     "home_goals": [
       "D. Smirnov (R. O'Hara)",
       "J. Percival (K. Mastrodonato, T. Lovell)"
@@ -15,10 +15,10 @@
       "N. Sedov (P. Lindauer, C. Lee)",
       "P. Lindauer (C. Ferguson, B. Datema)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "L(SO) 3-2",
+    "overtime_type": "SO",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=25355&lang_id=1",
-    "game_time": "0:00 1st OT",
+    "game_time": null,
     "scheduled_start": "2026-04-11T19:05:00+00:00",
     "note": ""
   },
