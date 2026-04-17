@@ -51,11 +51,14 @@
     "date": "Apr. 17",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
+    "status": "Live",
+    "home_score": 4,
     "away_score": 0,
     "home_goals": [
-
+      "N. Shea (J. Murray, R. O'Hara)",
+      "R. O'Reilly (J. Brackett, P. Polino)",
+      "C. Fraser (K. Mastrodonato, N. Shea)",
+      "R. O'Hara (J. Murray)"
     ],
     "away_goals": [
 
@@ -63,7 +66,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24707&lang_id=1",
-    "game_time": null,
+    "game_time": "1:21 1st",
     "scheduled_start": "2026-04-17T19:05:00+00:00",
     "note": "rescheduled (from strike)"
   },
