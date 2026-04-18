@@ -78,19 +78,19 @@
     "date": "Apr. 18",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
-    "away_score": 0,
+    "status": "Live",
+    "home_score": 1,
+    "away_score": 1,
     "home_goals": [
-
+      "J. Brackett (J. Prouty, P. Polino)"
     ],
     "away_goals": [
-
+      "D. Jankowski (A. McMaster, T. Griebel)"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24720&lang_id=1",
-    "game_time": null,
+    "game_time": "1:24 2nd",
     "scheduled_start": "2026-04-18T16:05:00+00:00",
     "note": "rescheduled (from strike)"
   },
