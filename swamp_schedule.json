@@ -79,10 +79,12 @@
     "opponent": "Jacksonville",
     "location": "Home",
     "status": "Live",
-    "home_score": 1,
+    "home_score": 3,
     "away_score": 1,
     "home_goals": [
-      "J. Brackett (J. Prouty, P. Polino)"
+      "J. Brackett (J. Prouty, P. Polino)",
+      "N. Shea (M. Mastrodomenico, R. O'Hara)",
+      "J. Brackett (R. O'Reilly, P. Polino)"
     ],
     "away_goals": [
       "D. Jankowski (A. McMaster, T. Griebel)"
@@ -90,7 +92,7 @@
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24720&lang_id=1",
-    "game_time": "1:24 2nd",
+    "game_time": "12:15 3rd",
     "scheduled_start": "2026-04-18T16:05:00+00:00",
     "note": "rescheduled (from strike)"
   },
