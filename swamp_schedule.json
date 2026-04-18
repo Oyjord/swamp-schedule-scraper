@@ -51,9 +51,9 @@
     "date": "Apr. 17",
     "opponent": "Jacksonville",
     "location": "Home",
-    "status": "Live",
-    "home_score": 4,
-    "away_score": 3,
+    "status": "Final",
+    "home_score": 5,
+    "away_score": 4,
     "home_goals": [
       "N. Shea (J. Murray, R. O'Hara)",
       "R. O'Reilly (J. Brackett, P. Polino)",
@@ -63,12 +63,13 @@
     "away_goals": [
       "C. Ambrosio (A. McMaster, J. Condotta)",
       "T. Kopff ( )",
-      "T. Kopff (D. Panetta)"
+      "T. Kopff (D. Panetta)",
+      "A. McMaster (W. Hillman, J. Pietila)"
     ],
-    "result": null,
-    "overtime_type": null,
+    "result": "W(SO) 4-5",
+    "overtime_type": "SO",
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24707&lang_id=1",
-    "game_time": "3:42 3rd",
+    "game_time": null,
     "scheduled_start": "2026-04-17T19:05:00+00:00",
     "note": "rescheduled (from strike)"
   },
