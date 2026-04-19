@@ -103,19 +103,22 @@
     "date": "Apr. 19",
     "opponent": "Atlanta",
     "location": "Home",
-    "status": "Upcoming",
-    "home_score": 0,
-    "away_score": 0,
+    "status": "Live",
+    "home_score": 2,
+    "away_score": 3,
     "home_goals": [
-
+      "M. Mastrodomenico (R. O'Hara, N. Shea)",
+      "T. De Jong ( )"
     ],
     "away_goals": [
-
+      "B. Less (J. Cipollone)",
+      "J. Cipollone (C. Denomie, I. Walther)",
+      "E. Neiley ( )"
     ],
     "result": null,
     "overtime_type": null,
     "game_report_url": "https://lscluster.hockeytech.com/game_reports/official-game-report.php?client_code=echl&game_id=24690&lang_id=1",
-    "game_time": null,
+    "game_time": "4:49 2nd",
     "scheduled_start": "2026-04-19T15:05:00+00:00",
     "note": "rescheduled (from stike)"
   },
